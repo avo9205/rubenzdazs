@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RubenzDazs</title>
+	
+	<!-- links -->
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/iconos/rdfavicon.ico">
+	<link rel="stylesheet" href="assets/css/normalize.css">
+	<link rel="stylesheet" href="assets/css/estilos.css">
+
+	<!-- Estilos adicionales para el efecto Scroll-Video -->
+	<style>
+		/* Convertimos el main en el contenedor de scroll (muy alto) */
+		main.scroll-container {
+			height: 150vh; /* 4 veces el alto de la pantalla para tener espacio de scroll */
+			position: relative;
+		}
+
+		/* Hacemos que la sección del video se quede fija en la pantalla mientras bajamos por el main */
+		.Main-video {
+			position: sticky;
+			top: 0;
+			height: 98vh;
+			width: 100%;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		/* Aseguramos que el video cubra todo el fondo */
+		.video-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
+
+		.video-container video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		/* Aseguramos que el botón quede por encima del video */
+		.btn-collection {
+			position: relative;
+			z-index: 10;
+		}
+	</style>
+</head>
+
+<body>
+
+<!-- texto encabezado -->
+<div class="top-announcement-bar">
+	<p id="announcement-text">¡Envíos gratis por compras superiores a $50!</p>
+</div>	
+
+<header class="main-header">
+	<nav class="navbar">
+		<!-- grupo: menu+logo left -->
+		<div class="nav-left-group">
+			<button class="nav-icon-btn menu-toggle" title="Menu">
+				<img src="assets/img/iconos/menu-wide.svg" alt="Menu">
+			</button>
+			
+			<a href="index.html" class="nav-logo" title="Home">
+                <img src="assets/img/iconos/logo-white.png" alt="Home">
+            </a>
+		</div>
+
+		<!-- grupo: search+cart-buy right -->
+		<div class="nav-right-group">
+			<button class="nav-icon-btn" title="Find">
+				<img src="assets/img/iconos/search-alt.svg" alt="Find">
+			</button>
+
+			<button class="nav-icon-btn" title="Cart">
+				<img src="assets/img/iconos/shopping-bag.svg" alt="Cart">
+			</button>
+		</div>
+	</nav>
+</header>
+
+<!-- Le agregamos la clase scroll-container al main -->
+<main class="scroll-container">
+
+	
+	<!-- video principal+btn-collection -->
+	<section class="Main-video">
+		<div class="video-container">
+			<!-- OJO: Se eliminó autoplay y loop, se agregó id="video-scroll" -->
+			<video id="video-scroll" poster="assets/img/videos/bannerpcimg.jpg"  muted playsinline preload="auto">
+				<!-- Video para Celulares (Pantallas menores a 768px) -->
+		        <source src="assets/img/videos/bannermovil.mp4" type="video/mp4" media="(max-width: 767px)">
+		        
+		        <!-- Video para PC (Pantallas de 768px en adelante) -->
+		        <source src="assets/img/videos/bannerpc3-1.mp4" type="video/mp4" media="(min-width: 768px)">
+			</video>
+		</div>
+
+		<a href="" class="btn-collection" title="">
+        	Collection
+        </a>
+	</section>
+</main>
+
+<footer class="main-footer">
+	<!-- box preguntas frecuentes -->
+	<div class="footer-info">
+		<ul class="footer-list-info">
+	        <li>
+	            <details>
+	                <summary>Información de Envío</summary>
+	                <div class="content">
+	                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Ab, voluptatibus!</p>
+	                </div>
+	            </details>
+	        </li>
+	        <li>
+	            <details>
+	                <summary>Cuidado de la Prenda</summary>
+	                <div class="content">
+	                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia, ab.</p>
+	                </div>
+	            </details>
+	        </li>
+	        <li>
+	            <details>
+	                <summary>Cambios y Devoluciones</summary>
+	                <div class="content">
+	                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, nisi.</p>
+	                </div>
+	            </details>
+	        </li>
+    	</ul>
+	</div>
+
+	<!-- box rights reserved+ social-media  -->
+	<div class="footer-left-group">
+		<p>&copy; 2026 Rubenz Dazs. All Rights Reserved.</p>
+	</div>
+	
+	<div class="footer-right-group">
+		<a href="#" class="social-link" title="Facebook">
+			<img src="assets/img/iconos/icons8-facebook.svg" alt="Facebook">
+		</a>	
+		<a href="#" class="social-link" title="Instagram">
+			<img src="assets/img/iconos/icons8-instagram.svg" alt="Instagram">
+		</a>
+		<a href="#" class="social-link" title="Tiktok">
+			<img src="assets/img/iconos/icons8-tiktok.svg" alt="Tiktok">	
+		</a>
+	</div>
+</footer>
+
+<!-- Script para controlar el video con el scroll -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Forzamos al navegador a ir arriba del todo al cargar/recargar
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        const video = document.getElementById('video-scroll');
+        const contenedor = document.querySelector('.scroll-container');
+        let actualizando = false; 
+
+        // Función para sincronizar
+        function sincronizarVideo() {
+            const rect = contenedor.getBoundingClientRect();
+            // Calculamos cuánto ha avanzado el scroll respecto al contenedor
+            let scrollActual = window.scrollY - (contenedor.offsetTop || 0);
+            let maxScroll = contenedor.scrollHeight - window.innerHeight;
+            
+            let porcentajeScroll = scrollActual / maxScroll;
+            
+            // Limitamos entre 0 y 1
+            porcentajeScroll = Math.max(0, Math.min(1, porcentajeScroll));
+            
+            if(!isNaN(video.duration) && video.duration > 0) {
+                video.currentTime = video.duration * porcentajeScroll;
+            }
+        }
+
+        // Evento de scroll con requestAnimationFrame para suavidad
+        window.addEventListener('scroll', function() {
+            if (!actualizando) {
+                window.requestAnimationFrame(function() {
+                    sincronizarVideo();
+                    actualizando = false;
+                });
+                actualizando = true;
+            }
+        }, { passive: true });
+
+        // Asegurar que el video esté en el segundo 0 al inicio
+        video.currentTime = 0;
+        video.pause();
+    });
+</script>
+
+</body>
+</html>

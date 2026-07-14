@@ -1,0 +1,492 @@
+{
+  "tienda": "Catálogo Oficial - RubenzDazs",
+  "moneda_base": "COP",
+  "catalogo": [
+    {
+       "tipo_diseno": "ajedrez",
+       "id": "DS-AJE-100",
+       "titulo": "Mate de Anastasia",
+       "descripcion_diseno": "Inspirado en la técnica clásica donde la torre y el caballo colaboran para acorralar al rey contra el borde del tablero. Un diseño estratégico con tecnología DTF Premium.",
+       "variaciones": {
+           "oversize": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-m_97-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-n_99-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Verde Oscuro",
+                    "codigo_hex": "#013220",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-v_99-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Azul Oscuro",
+                    "codigo_hex": "#00008B",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-a_99-oscuro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          },
+          "croptop": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-m_97-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-n_99-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Beige",
+                    "codigo_hex": "#F5F5DC",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-b_97-claro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 63200, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          }
+        }
+      },
+      {
+        "id": "DS-AJE-101",
+        "tipo_diseno": "ajedrez",
+        "titulo": "El Estratega Nórdico",
+        "descripcion_diseno": "Un tributo visual al estilo de juego del actual campeón del mundo de la era moderna. Captura la precisión milimétrica y la preparación infinita de los genios actuales.",
+        "variaciones": {
+           "oversize": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-m_101-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-n_102-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Verde Oscuro",
+                    "codigo_hex": "#013220",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-v_102-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Azul Oscuro",
+                    "codigo_hex": "#00008B",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-a_102-oscuro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          },
+          "croptop": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-m_101-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-n_102-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Beige",
+                    "codigo_hex": "#F5F5DC",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-b_101-claro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 63200, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          }
+        }
+      },
+      {
+        "id": "DS-AJE-102",
+        "tipo_diseno": "ajedrez",
+        "titulo": "Mate de la Coz",
+        "descripcion_diseno": "Diseño que representa el sacrificio definitivo. Inspirado en el momento exacto donde el caballo asesta el golpe final mientras el rey queda bloqueado por sus propias piezas.",
+        "variaciones": {
+           "oversize": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-m_95-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-n_93-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Verde Oscuro",
+                    "codigo_hex": "#013220",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-v_93-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Azul Oscuro",
+                    "codigo_hex": "#00008B",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-a_93-oscuro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          },
+          "croptop": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-m_95-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-n_93-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Beige",
+                    "codigo_hex": "#F5F5DC",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-b_95-claro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 63200, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          }
+        }
+      },
+      {
+        "id": "DS-AJE-103",
+        "tipo_diseno": "ajedrez",
+        "titulo": "Takes Takes Takes",
+        "descripcion_diseno": "De los mejores jugadores a ritmo blitz y bullet a nivel mundial y mejor stremer que atrae a nuevos jugadores con su peculiar personalidad.",
+        "variaciones": {
+           "oversize": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-m_108b-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-n_109n-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Verde Oscuro",
+                    "codigo_hex": "#013220",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-v_109n-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Azul Oscuro",
+                    "codigo_hex": "#00008B",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-a_109n-oscuro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          },
+          "croptop": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-m_108b-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-n_109n-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Beige",
+                    "codigo_hex": "#F5F5DC",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-b_108b-claro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 63200, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          }
+        }
+      },
+      {
+        "id": "DS-AJE-104",
+        "tipo_diseno": "ajedrez",
+        "titulo": "El Ogro de Bakú",
+        "descripcion_diseno": "Inspirado en la agresividad táctica y la brillantez creativa del legendario jugador soviético que dominó el mundo con su juego impredecible.",
+        "variaciones": {
+          "oversize": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-m_119-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-n_120-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Verde Oscuro",
+                    "codigo_hex": "#013220",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-v_120-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Azul Oscuro",
+                    "codigo_hex": "#00008B",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-a_120-oscuro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          },
+          "croptop": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-m_119-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-n_120-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Beige",
+                    "codigo_hex": "#F5F5DC",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-b_119-claro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 63200, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          }
+        }
+      },
+      {
+        "id": "DS-AJE-105",
+        "tipo_diseno": "ajedrez",
+        "titulo": "El Romántico del Tablero",
+        "descripcion_diseno": "Un diseño que rinde honor al genio letón de la improvisación. Inspirado en el estilo de ataque sacrificando material para alcanzar una belleza geométrica inigualable.",
+        "variaciones": {
+           "oversize": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-m_122-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-n_121-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Verde Oscuro",
+                    "codigo_hex": "#013220",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-v_121-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Azul Oscuro",
+                    "codigo_hex": "#00008B",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/of-a_121-oscuro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          },
+          "croptop": {
+            "colores_disponibles": [
+                {
+                    "nombre": "Marfil",
+                    "codigo_hex": "#FFFFF0",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-m_122-claro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Negro",
+                    "codigo_hex": "#000000",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-n_121-oscuro.webp"
+                    ]
+                },
+                {
+                    "nombre": "Beige",
+                    "codigo_hex": "#F5F5DC",
+                    "imagenes": [
+                        "assets/img/productos/AJEDREZ/cf-b_122-claro.webp"
+                    ]
+                }
+            ],
+            "tallas_disponibles": ["S","M","L","XL"],
+            "precios_y_descuentos": {"precio_regular": 63200, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+            "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+            "detalles": {
+              "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+              "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+              "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+            }
+          }
+        }
+      }
+    ]
+}

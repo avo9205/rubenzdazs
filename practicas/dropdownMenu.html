@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* 1. Main Button Styles */
+.dropdown button {
+	background-color: gray;
+	color: whitesmoke;
+	padding: 10px 15px;
+	border: none;
+	cursor: pointer;
+}
+
+/* 2. The active/open state for the main button */
+.dropdown button.open {
+	background-color: red;
+}	
+
+/* 3. Link Styles */
+.dropdown a {
+	display: block;
+	color: black;
+	text-decoration: none;
+	padding: 10px 15px;
+}
+
+.dropdown a:active {
+	background-color: yellowgreen;
+}
+
+/* 4. Dropdown Container Styles */
+.dropdown .content {
+	display: none; /* Hidden by default */
+	position: absolute;
+	background-color: gray;
+	min-width: 100px;
+	box-shadow: 2px 2px 5px black;
+}
+
+/* 5. The active/open state for the content */
+.dropdown .content.open {
+	display: block;
+}
+
+/* 6. NEW: Style for the Close Button */
+.close-btn {
+	background-color: darkred !important; /* Make it distinct */
+	width: 100%;
+	text-align: right;
+	font-weight: bold;
+}
+.close-btn:hover {
+	background-color: red !important;
+}
+</style>
+</head>
+<body>
+
+<div class="dropdown">
+	<!-- Main button toggles the menu -->
+	<button id="menuButton" onclick="toggleMenu()">food</button>
+	
+	<div id="dropdownContent" class="content">
+		<!-- NEW: Close button inside the menu -->
+		<button class="close-btn" onclick="closeMenu()">Close ✖</button>
+		
+		<a href="#">apple</a>
+		<a href="#">orange</a>
+		<a href="#">banana</a>
+	</div>
+</div>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, perspiciatis!</p>
+
+<script>
+	// Grabs the elements we need to change
+	const content = document.getElementById("dropdownContent");
+	const button = document.getElementById("menuButton");
+
+	// Toggles the menu open and closed
+	function toggleMenu() {
+		content.classList.toggle("open");
+		button.classList.toggle("open");
+	}
+
+	// NEW: Forces the menu to close
+	function closeMenu() {
+		content.classList.remove("open");
+		button.classList.remove("open");
+	}
+</script>
+	
+</body>
+</html>

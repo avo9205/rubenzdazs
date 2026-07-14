@@ -1,0 +1,295 @@
+{
+  "tienda": "Catálogo Oficial - RubenzDazs",
+  "moneda_base": "COP",
+  "catalogo": [
+    {
+      "id": "DS-BND-001",
+      "tipo_diseno": "bandas",
+      "titulo": "Dont be an idiot",
+      "descripcion_diseno": "Inspirado en el icónico símbolo del álbum punk rock que definió a toda una generación en los años 2000. Una granada con forma de corazón que representa pura actitud y rebeldía musical. (Diseño con doble estampado).",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/BANDAS/oe-m_41-claro.webp",
+                "assets/img/productos/BANDAS/of-m_43-claro-bolsillo.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/BANDAS/oe-n_40-oscuro.webp",
+                "assets/img/productos/BANDAS/of-n_42-oscuro-bolsillo.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/BANDAS/oe-v_40-oscuro.webp",
+                "assets/img/productos/BANDAS/of-v_42-oscuro-bolsillo.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/BANDAS/oe-a_40-oscuro.webp",
+                "assets/img/productos/BANDAS/of-a_42-oscuro-bolsillo.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76556, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/BANDAS/ce-m_41-claro.webp",
+                "assets/img/productos/BANDAS/cf-m_43-claro-bolsillo.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/BANDAS/ce-n_40-oscuro.webp",
+                "assets/img/productos/BANDAS/cf-n_42-oscuro-bolsillo.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/BANDAS/ce-b_41-claro.webp",
+                "assets/img/productos/BANDAS/cf-b_43-claro-bolsillo.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69889, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Prenda superior corta en tejido texturizado tipo galleta.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-BND-002",
+      "tipo_diseno": "bandas",
+      "titulo": "Justice for all.",
+      "descripcion_diseno": "cuarto disco de estudio de Metallica, lanzado el 7 de septiembre de 1988. Su portada muestra a Lady Justice.  Las canciones exploran la corrupción política y judicial, la desigualdad, la censura y la guerra.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/BANDAS/of-m_metalica-claro-principal.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/BANDAS/cf-b_metalica-claro-principal.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/BANDAS/cf-m_metalica-claro-principal.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Prenda superior corta en tejido texturizado tipo galleta.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-BND-003",
+      "tipo_diseno": "bandas",
+      "titulo": "Skull, voltage & Rock.",
+      "descripcion_diseno": "Lleva la energía inagotable del metal a tu estilo diario. Este diseño presenta un brutal cráneo consumido por relámpagos de neón y llamas ardientes, capturando la fuerza pura y visceral de la banda. Una prenda pensada para quienes buscan destacar con una vibra rockera, moderna y electrizante..",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/BANDAS/of-n_Metallica-negra-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/BANDAS/of-v_Metallica-negra-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/BANDAS/of-a_Metallica-negra-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/BANDAS/cf-n_Metallica-negra-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Prenda superior corta en tejido texturizado tipo galleta.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-BND-004",
+      "tipo_diseno": "bandas",
+      "titulo": "Dookie Day",
+      "descripcion_diseno": "Un homenaje directo al arte explosivo, caótico y lleno de aviones de uno de los álbumes pop-punk más influyentes de los años 90. Actitud irreverente y energía adolescente en cada trazo. (Diseño con doble estampado).",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/BANDAS/oe-m_44-claro.webp",
+                "assets/img/productos/BANDAS/of-m_47-claro-bolsillo.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/BANDAS/oe-n_45-oscuro.webp",
+                "assets/img/productos/BANDAS/of-n_46-oscuro-bolsillo.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/BANDAS/oe-v_45-oscuro.webp",
+                "assets/img/productos/BANDAS/of-v_46-oscuro-bolsillo.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/BANDAS/oe-a_45-oscuro.webp",
+                "assets/img/productos/BANDAS/of-a_46-oscuro-bolsillo.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76556, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/BANDAS/ce-m_44-claro.webp",
+                "assets/img/productos/BANDAS/cf-m_47-claro-bolsillo.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/BANDAS/ce-n_45-oscuro.webp",
+                "assets/img/productos/BANDAS/cf-n_46-oscuro-bolsillo.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/BANDAS/ce-b_44-claro.webp",
+                "assets/img/productos/BANDAS/cf-b_47-claro-bolsillo.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69889, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Prenda superior corta en tejido texturizado tipo galleta.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    }
+  ]
+}

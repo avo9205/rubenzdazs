@@ -1,0 +1,499 @@
+{
+  "tienda": "Catálogo Oficial - RubenzDazs",
+  "moneda_base": "COP",
+  "catalogo": [
+    {
+      "id": "DS-PEL-001",
+      "tipo_diseno": "peliculas",
+      "titulo": "El Rayo número 95",
+      "descripcion_diseno": "Inspirado en las historias de autos con alma que compiten por la copa más prestigiosa del mundo. Un diseño para quienes llevan la gasolina en la sangre.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-m_86-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-n_87-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-v_87-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-a_87-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-m_86-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-n_87-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-b_86-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-PEL-002",
+      "tipo_diseno": "peliculas",
+      "titulo": "Copa de Campeones",
+      "descripcion_diseno": "Inspirado en la carrera definitiva por el trofeo más codiciado del automovilismo animado. Un diseño con estampado en la espalda que muestra al novato, al veterano de negro y al antagonista del bigote listos para la bandera a cuadros. (Diseño con doble estampado).",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-m_carsfrenteblanca-claro-centrado.webp",
+                "assets/img/productos/PELICULAS/oe-m_carsespaldablanca-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-n_carsfrentenegra-oscuro-centrado-centrado.webp",
+                "assets/img/productos/PELICULAS/oe-n_carsespaldanegra-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-v_carsfrentenegra-oscuro-centrado-centrado.webp",
+                "assets/img/productos/PELICULAS/oe-v_carsespaldanegra-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-a_carsfrentenegra-oscuro-centrado-centrado.webp",
+                "assets/img/productos/PELICULAS/oe-a_carsespaldanegra-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76552, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-m_carsfrenteblanca-claro-centrado.webp",
+                "assets/img/productos/PELICULAS/ce-m_carsespaldablanca-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-n_carsfrentenegra-oscuro-centrado-centrado.webp",
+                "assets/img/productos/PELICULAS/ce-n_carsespaldanegra-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-b_carsfrenteblanca-claro-centrado.webp",
+                "assets/img/productos/PELICULAS/ce-b_carsespaldablanca-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-PEL-003",
+      "tipo_diseno": "peliculas",
+      "titulo": "Trío Mágico",
+      "descripcion_diseno": "Inspirado en los jóvenes aprendices que cambiaron el destino de su mundo mágico. Un diseño doble ideal para los fanáticos de las aventuras, los misterios escolares y la lealtad inquebrantable.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-m_harry-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-n_harry-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-v_harry-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-a_harry-doble.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-m_harry-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-n_harry-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-b_harry-doble.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-PEL-004",
+      "tipo_diseno": "peliculas",
+      "titulo": "Avedakedabra",
+      "descripcion_diseno": "Un diseño misterioso inspirado en el hechizo más temido y letal del mundo mágico. Para aquellos que abrazan su lado oscuro.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-m_36-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-n_37-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-v_37-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-a_37-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-m_36-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-n_37-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-b_36-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-PEL-005",
+      "tipo_diseno": "peliculas",
+      "titulo": "Búho Mágico",
+      "descripcion_diseno": "Una majestuosa mensajera blanca en pleno vuelo entre detalles florales, con la legendaria escuela de hechicería asomándose en el fondo.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-m_48-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-n_49-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-v_49-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-a_49-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-m_48-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-n_49-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-b_48-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-PEL-006",
+      "tipo_diseno": "peliculas",
+      "titulo": "Luna de Magia",
+      "descripcion_diseno": "Un sutil y elegante diseño que captura el misticismo nocturno y los secretos que se esconden a la luz de la luna.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-m_70 (1)-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-n_71-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-v_71-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/of-a_71-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-m_70(1)-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-n_71-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/PELICULAS/cf-b_70(1)-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,549 @@
+/* ==========================================================================
+   LAYOUT PRINCIPAL DETALLE (PC: LADO A LADO)
+   ========================================================================== */
+.detail-main {
+    display: flex;
+    flex-direction: row;     
+    align-items: flex-start; 
+    justify-content: center; 
+    flex-wrap: wrap;         
+    gap: 40px;               
+    padding: 30px;           
+    
+    margin: 5px 30px 15px 30px;
+    border: 4px solid black; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+    
+    height: auto;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery-section {
+    flex: 1 1 45%;     
+    min-width: 320px;  
+    max-width: 600px;  
+    display: flex;
+    flex-direction: row; 
+    align-items: stretch; /* CAMBIO: Obliga a la imagen principal a estirarse a lo alto */
+    gap: 15px;
+}
+
+.info-section {
+    flex: 1 1 45%;     
+    min-width: 320px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0 0 50px 0;
+}
+
+/* ==========================================================================
+   GALERÍA
+   ========================================================================== */
+.thumbnails-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    width: 80px; 
+    min-width: 80px;
+    height: 100%; /* Ocupa el alto disponible */
+    max-height: 600px; /* Límite para scroll interno */     
+    overflow-y: auto;       
+    overflow-x: hidden;
+    scrollbar-width: none; 
+}
+
+.thumbnails-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.thumb-img {
+    
+    width: 70px;          
+    flex-shrink: 0;       
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border: 3px solid #000;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.thumb-img.active {
+    border-color: #ffea00;
+    box-shadow: 3px 3px 0px #000;
+}
+
+.main-image-container {
+    flex-grow: 1; 
+    width: 100%;    
+    min-height: 600px; /* CAMBIO CLAVE: Fuerza una altura imponente en PC */      
+    height: 100%;
+    /* aspect-ratio: 4/5; <- Eliminado en PC para que pueda crecer libremente */
+    border: 4px solid #000;
+    box-shadow: 6px 6px 0px #000;
+    overflow: hidden;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    object-position: center; 
+    display: block;
+}
+
+/* ==========================================================================
+   INFO PRODUCTO Y SELECTORES
+   ========================================================================== */
+.product-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.product-ref {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0;
+    font-weight: bold;
+}
+
+.price-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.price-box .price-final { font-size: 1.2rem; font-weight: 900; }
+.price-box .price-regular { font-size: 1.2rem; text-decoration: line-through; color: #777; font-weight: bold;}
+.price-box .discount-badge { background: #ffea00; border: 3px solid #000; padding: 4px 8px; font-weight: 900; font-size: 0.8rem;}
+
+.group-label {
+    display: block;
+    font-weight: 900;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.options-group {
+    border-bottom: 2px solid #eee;
+}
+
+.types-wrapper, .sizes-wrapper, .colors-wrapper {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.size-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.size-guide-btn {
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* --- NUEVOS ESTILOS BRUTALISTAS PARA SELECTORES --- */
+
+.hidden-selector {
+    display: none;
+}
+
+.type-badge, 
+.size-badge {
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+    box-shadow: 3px 3px 0px #000000;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    user-select: none;
+}
+
+.type-badge:hover, 
+.size-badge:hover {
+    background-color: #f4f4f4;
+}
+
+.hidden-selector:checked + .type-badge,
+.hidden-selector:checked + .size-badge {
+    background-color: #ffea00;
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px 0px #000000;
+}
+
+.color-box {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border: 3px solid #000000;
+    box-shadow: 3px 3px 0px #000000;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    border-radius: 0; 
+}
+
+.hidden-selector:checked + .color-box {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px 0px #000000;
+    outline: 3px solid #ffea00;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   ACCIONES DE COMPRA
+   ========================================================================== */
+.purchase-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    max-height: 50px;
+}
+
+.quantity-box {
+    display: flex;
+    border: 4px solid #000;
+    box-shadow: 4px 4px 0px #000;
+    background: #fff;
+    width: 120px;
+}
+
+.quantity-box button {
+    flex: 1;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.quantity-box input {
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    font-weight: 900;
+    font-size: 1.1rem;
+    font-family: 'Courier New', Courier, monospace;
+    -moz-appearance: textfield;
+}
+
+.quantity-box input::-webkit-outer-spin-button,
+.quantity-box input::-webkit-inner-spin-button {
+    -webkit-appearance: none; margin: 0;
+}
+
+.btn-brutalist {
+    font-family: 'Courier New', Courier, monospace;
+    border: 4px solid #000;
+    box-shadow: 4px 4px 0px #000;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    transition: all 0.1s ease;
+}
+
+.btn-add-cart {
+    flex-grow: 1;
+    background: #000;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.btn-buy-now {
+    width: 100%;
+    background: #ffffff;
+    color: #000;
+    font-size: 1rem;
+}
+
+.btn-add-cart:active, .btn-buy-now:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #000;
+}
+
+/* ==========================================================================
+   ACORDEONES BRUTALISTAS (ESTILO OVERLAY FLOTANTE)
+   ========================================================================== */
+.details-accordion {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.brutalist-accordion {
+    border: 3px solid #000;
+    background: #fff;
+    box-shadow: 3px 3px 0px #000;
+    position: relative; 
+}
+
+.brutalist-accordion summary {
+    padding: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    text-transform: uppercase;
+    border-bottom: 3px solid transparent; 
+}
+
+.brutalist-accordion summary::-webkit-details-marker { display: none; }
+
+.brutalist-accordion summary::after {
+    content: '+';
+    position: absolute;
+    right: 15px;
+    font-size: 1.2rem;
+}
+
+.brutalist-accordion[open] summary {
+    border-bottom: 3px solid #000;
+    background: #ffea00;
+}
+
+.brutalist-accordion[open] summary::after { content: '-'; }
+
+.accordion-content {
+    padding: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    background-color: #fafafa;
+    
+    position: absolute;
+    top: 100%; 
+    left: -3px; 
+    width: calc(100% + 6px); 
+    z-index: 100; 
+    
+    border: 3px solid #000;
+    border-top: none;
+    box-shadow: 3px 3px 0px #000;
+    
+    max-height: 200px; 
+    overflow-y: auto;  
+    
+    scrollbar-width: thin;
+    scrollbar-color: #000 #fafafa;
+}
+
+.accordion-content::-webkit-scrollbar {
+    width: 14px;
+    border-left: 3px solid #000; 
+}
+
+.accordion-content::-webkit-scrollbar-track { background: #fff; }
+
+.accordion-content::-webkit-scrollbar-thumb {
+    background: #000;
+    border: 2px solid #fff; 
+}
+
+.accordion-content::-webkit-scrollbar-thumb:hover { background: #ffea00; }
+
+/* ==========================================================================
+   MODAL GUÍA DE TALLAS
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(3px);
+}
+
+.modal-overlay.hidden { display: none; }
+
+.brutalist-modal {
+    background: #fff;
+    border: 5px solid #000;
+    box-shadow: 10px 10px 0px #ffea00;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btn-close-modal {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: #000; color: #fff;
+    border: none;
+    width: 30px; height: 30px;
+    font-size: 1.2rem; font-weight: 900;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   RESPONSIVE (CELULARES Y TABLETS)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .detail-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        margin: 5px 15px 15px 15px; 
+        max-height: none; 
+        overflow-y: visible; 
+    }
+
+    .gallery-section {
+        display: contents; 
+    }
+
+    /* CAMBIO CLAVE MÓVIL: Le devuelve la proporción a la foto para celulares */
+    .main-image-container {
+        order: 1; 
+        width: 100%;
+        min-height: auto; 
+        height: auto;
+        aspect-ratio: 4/5; /* Restaura la proporción en celular */
+    }
+
+    .thumbnails-container {
+        order: 2; 
+        width: 100%;
+        height: auto;
+        flex-direction: row; 
+        max-height: none;
+        overflow-x: auto; 
+        overflow-y: hidden;
+        
+        position: sticky;
+        top: 0; 
+        z-index: 20; 
+        
+        background-color: #ffffff; 
+        padding: 10px 0;
+        border-bottom: 3px solid #000; 
+    }
+
+    .info-section {
+        order: 3; 
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+        align-items: flex-start;
+        text-align: left;
+        margin-top: 10px; 
+    }
+
+    .accordion-content {
+        padding: 15px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        background-color: #fafafa;
+        
+        position: absolute;
+        top: 100%; 
+        left: -3px; 
+        width: calc(100% + 6px); 
+        z-index: 100; 
+        
+        border: 3px solid #000;
+        border-top: none;
+        box-shadow: 3px 3px 0px #000;
+        
+        max-height: 100px; 
+        max-width: 250px; 
+        overflow-y: auto;  
+        
+        scrollbar-width: thin;
+        scrollbar-color: #000 #fafafa;
+    }
+}
+
+
+
+/* ==========================================================================
+   POPUP DE IMAGEN PRINCIPAL (ZOOM)
+   ========================================================================== */
+/* Cambia el cursor para que el usuario sepa que puede hacer clic */
+#main-image {
+    cursor: zoom-in;
+}
+
+.image-popup-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    border: 4px solid #fff; /* Borde blanco para que resalte en el fondo negro */
+    box-shadow: 10px 10px 0px #000;
+    object-fit: contain;
+    animation: zoomIn 0.2s ease-out;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.btn-close-image {
+    position: fixed; /* CAMBIO: Ahora está fijada a la pantalla, no al contenido */
+    top: 15px;
+    right: 30px;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    user-select: none;
+    text-shadow: 2px 2px 0px #000;
+    transition: all 0.1s ease;
+    z-index: 10005; /* Asegura que esté siempre por encima de todo */
+}
+
+.btn-close-image:hover {
+    color: #ffea00;
+}
+
+.btn-close-image:active {
+    transform: scale(0.9);
+}
+
+
+/* Bloquea el scroll del fondo de la página */
+body.no-scroll {
+    overflow: hidden;
+}

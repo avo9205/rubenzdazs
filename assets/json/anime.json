@@ -1,0 +1,439 @@
+{
+  "tienda": "Catálogo Oficial - RubenzDazs",
+  "moneda_base": "COP",
+  "catalogo": [
+    {
+      "id": "DS-ANI-001",
+      "tipo_diseno": "anime",
+      "titulo": "Ojo de la Noche",
+      "descripcion_diseno": "Inspirado en el trío de ladronas de guante blanco más famoso de la televisión de los 80. Un diseño que captura el sigilo, la elegancia nocturna y la adrenalina del robo perfecto. (Diseño con doble estampado).",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-m_22-claro-centrado.webp",
+                "assets/img/productos/ANIME/oe-m_24-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-n_21-oscuro-centrado.webp",
+                "assets/img/productos/ANIME/oe-n_23-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-v_21-oscuro-centrado.webp",
+                "assets/img/productos/ANIME/oe-v_23-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-a_21-oscuro-centrado.webp",
+                "assets/img/productos/ANIME/oe-a_23-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76556, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-m_22-claro-centrado.webp",
+                "assets/img/productos/ANIME/ce-m_24-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-n_21-oscuro-centrado.webp",
+                "assets/img/productos/ANIME/ce-n_23-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-b_22-claro-centrado.webp",
+                "assets/img/productos/ANIME/ce-b_24-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69889, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Prenda superior corta en tejido texturizado tipo galleta. Silueta ajustada y moderna.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-ANI-002",
+      "tipo_diseno": "anime",
+      "titulo": "Trío de Cazadores",
+      "descripcion_diseno": "Inspirado en los tres inseparables espadachines novatos. Un diseño que celebra el valor, la fuerza brutal y la velocidad del rayo frente a las fuerzas de la oscuridad. (Diseño con doble estampado).",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-m_55-claro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-m_52-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-n_54-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-n_53-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-v_54-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-v_53-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-a_54-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-a_53-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76556, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-m_55-claro-bolsillo.webp",
+                "assets/img/productos/ANIME/ce-m_52-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-n_54-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/ce-n_53-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-b_55-claro-bolsillo.webp",
+                "assets/img/productos/ANIME/ce-b_52-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69889, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Prenda superior corta en tejido texturizado tipo galleta. Silueta ajustada y moderna.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-ANI-003",
+      "tipo_diseno": "anime",
+      "titulo": "Evolución Demoníaca",
+      "descripcion_diseno": "Un diseño doble enfocado en la chica del bambú protectora. En la espalda, un recorrido visual por sus diferentes facetas y transformaciones: desde su forma pequeña e inocente hasta su despertar más feroz. (Diseño con doble estampado).",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-m_59-claro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-m_57-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-n_60-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-n_58-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-v_60-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-v_58-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-a_60-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-a_58-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76556, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-m_59-claro-bolsillo.webp",
+                "assets/img/productos/ANIME/ce-m_57-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-n_60-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/ce-n_58-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-b_59-claro-bolsillo.webp",
+                "assets/img/productos/ANIME/ce-b_57-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69889, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Prenda superior corta en tejido texturizado tipo galleta. Silueta ajustada y moderna.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-ANI-004",
+      "tipo_diseno": "anime",
+      "titulo": "La Mano del Demonio",
+      "descripcion_diseno": "El villano puede tener todas las cartas, pero los héroes tienen algo que él nunca podrá robar: el corazón para seguir luchando.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-m_62-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-n_63-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-v_63-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-a_63-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-m_62-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-n_63-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-b_62-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Prenda superior corta en tejido texturizado tipo galleta. Silueta ajustada y moderna.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-ANI-005",
+      "tipo_diseno": "anime",
+      "titulo": "Tarjeta Motosierra",
+      "descripcion_diseno": "Inspirado en el estilo visceral y frenético del manga de acción moderna. Un diseño para quienes viven al límite y disfrutan de la estética del caos urbano.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-m_75-claro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-m_74.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-n_75-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-n_74.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-v_75-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-v_74.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-a_75-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/oe-a_74.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76556, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-m_75-claro-bolsillo.webp",
+                "assets/img/productos/ANIME/ce-m_74.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-n_75-oscuro-bolsillo.webp",
+                "assets/img/productos/ANIME/ce-n_74.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-b_75-claro-bolsillo.webp",
+                "assets/img/productos/ANIME/ce-b_74.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69889, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Prenda superior corta en tejido texturizado tipo galleta.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios."
+          }
+        }
+      }
+    }
+  ]
+}

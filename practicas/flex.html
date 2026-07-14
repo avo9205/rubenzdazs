@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+
+
+<style>
+	
+.container{
+	background-color: khaki;
+	padding: 5px;
+	border: 1px solid black;
+	height: 500px;
+
+
+
+/*=====ACTIVACION DE FLEX-BOX=======*/
+display: flex;
+
+
+/*FLEX-DIRECTION*/
+/*
+
+	|			
+--------->row|c1||c2||c3| default 	
+	|
+	v
+	columm
+|c1|
+|c2|	
+|c2|
+*/
+
+/*flex-direction: row;*/
+/*flex-direction: column;*/
+/*flex-direction: column-reverse;*/ /*columna-el orden de las cajas es inverso*/
+/*flex-direction: row-reverse;*//*fila-el orden de las cajas es inverso */
+
+
+
+
+/*WRAP*/
+/*para mantener la la forma [ancho-largo] de las cajas usarmos wrap para que las cajas se distribuyan para conservar el tamaño de las cajas
+
+no wrap 					warp
+||box||box||box||box||		||box1||box2||box3||	
+|| 1 ||	2 || 3 || 4	||		||box4|	 		   |
+|					 |		|				   |
+*/
+
+/*flex-wrap: wrap;*/
+/*flex-wrap: no-wrap;*/
+/*flex-wrap: wrap-reverse;*/
+
+
+/*
+=====COMANDO IMPORTANTE QUE COMBINA TANTO FLEX-DIRECTION COMO FLEX-WRAP ===
+=====FLEX-FLOW: FLEX-DIRECTION	FLEX-WRAP								===
+*/
+flex-flow: row wrap;
+
+
+
+
+/*JUSTIFY-CONTENT[HORIZONTAL]-ALIGN-CONTENT[VERTICAL]*/
+/*ACOMODADAR ELEMENTOS*/
+
+/*justify-content: center;*/
+/*justify-content: flex-end;*/
+/*justify-content: flex-start;*/
+/*justify-content: space-between;*/
+/*justify-content: space-around;*/
+
+
+/*align-items: center;*/
+/*align-items: flex-start;*/
+/*align-items: flex-end;*/
+/*align-items: stretch;*//*SE AJUSTA AL TAMÑO DEL CONTENEDOR*/
+/*align-items: baseline;/*ACOMODA SEGUN EL ESTILO DE LAS CAJAS*/
+
+align-content: space-between;
+align-content: space-around;
+}
+
+
+.box{
+	border: 3px solid black;
+	font-size: 30px;
+	text-align: center;
+	margin:15px;
+	/* Agrega estas propiedades para controlar el tamaño */
+    width: 200px;   /* Define un ancho específico */
+}
+
+</style>
+
+
+<body>
+
+
+<div class="container">
+	<div class="box" style="order: 5; flex-grow: 3;">Box 1</div>
+	 <div class="box" style="order: 2">Box 2</div>
+	 <div class="box" style="order: 3">Box 3</div>
+	 <div class="box" style="order: 4">Box 4</div>
+	 <div class="box" style="order: 1">Box 5</div>
+	 <div class="box" style="order: 8; flex-grow: 3;">Box 6</div>
+	 <div class="box" style="order: 7">Box 7</div>
+	 <div class="box" style="order: 6">Box 8</div> 
+
+</div>
+ 
+
+
+	
+</body>
+</html>

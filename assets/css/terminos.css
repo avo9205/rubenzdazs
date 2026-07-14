@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.box-main {
+    margin: 5px 30px 15px 30px;
+    border: 5px solid black;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+/* CONTENEDOR PRINCIPAL DE LOS TÉRMINOS */
+.terms-container {
+    padding: 30px 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #292929;
+    max-width: 800px;
+    margin: 0 auto; /* Centra el contenido en pantallas grandes */
+}
+
+/* ENCABEZADO DEL DOCUMENTO */
+.terms-header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 3px solid black;
+    padding-bottom: 20px;
+}
+
+.terms-header h1 {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.terms-header p {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
+    font-style: italic;
+}
+
+/* SECCIONES DE CONTENIDO */
+.terms-section {
+    margin-bottom: 40px;
+}
+
+.terms-section h2 {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 15px;
+    background-color: #CEFF99; /* Usa uno de los colores de tu paleta */
+    display: inline-block;
+    padding: 5px 15px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.terms-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* CAJA DE TIPS / INFO EXTRA */
+.info-box {
+    background-color: #FFFD99;
+    border: 2px solid black;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    box-shadow: 4px 4px 0px black;
+}
+
+/* LISTAS DE PRECIOS */
+.price-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.price-list li {
+    background: white;
+    border: 2px solid black;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.price-list li strong {
+    font-size: 1.4rem;
+    color: #4268B2;
+}
+
+/* LISTAS DE CHECKLIST (Para devoluciones) */
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.check-list li::before {
+    content: "✖"; /* Ícono de regla estricta, puedes cambiarlo por "✓" */
+    position: absolute;
+    left: 0;
+    color: #C13584; /* Color de tu paleta */
+    font-weight: bold;
+}
+
+/* RESPONSIVE PANTALLAS GRANDES */
+@media (min-width: 992px) {
+    .box-main {
+        margin: 15px 15px 15px 30px;
+    }
+    
+    .terms-container {
+        padding: 50px 40px;
+    }
+
+    .terms-header h1 {
+        font-size: 3.5rem;
+    }
+
+    .terms-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .terms-section p {
+        font-size: 1.2rem;
+    }
+}

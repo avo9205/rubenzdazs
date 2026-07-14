@@ -1,0 +1,175 @@
+{
+  "tienda": "Catálogo Oficial - RubenzDazs",
+  "moneda_base": "COP",
+  "catalogo": [
+    {
+      "id": "DS-ORI-001",
+      "tipo_diseno": "originales",
+      "titulo": "Garage ",
+      "descripcion_diseno": "Diseño original inspirado en la cultura de la modificación extrema de vehículos y los programas clásicos de garaje. Para quienes llevan la soldadura, el estilo mecánico y la grasa de motor en las venas. (Diseño con doble estampado).",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/oe-m_MONSTERGARAGE.webp",
+                "assets/img/productos/ORIGINALES/of-m_moster-doble-centrado.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/oe-n_MONSTERGARAGE.webp",
+                "assets/img/productos/ORIGINALES/of-n_moster-doble-centrado.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/oe-v_MONSTERGARAGE.webp",
+                "assets/img/productos/ORIGINALES/of-v_moster-doble-centrado.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/oe-a_MONSTERGARAGE.webp",
+                "assets/img/productos/ORIGINALES/of-a_moster-doble-centrado.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76552, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/ce-m_MONSTERGARAGE.webp",
+                "assets/img/productos/ORIGINALES/cf-m_moster-doble-centrado.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/ce-n_MONSTERGARAGE.webp",
+                "assets/img/productos/ORIGINALES/cf-n_moster-doble-centrado.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/ce-b_MONSTERGARAGE.webp",
+                "assets/img/productos/ORIGINALES/cf-b_moster-doble-centrado.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-ORI-002",
+      "tipo_diseno": "originales",
+      "titulo": "Neon Routine",
+      "descripcion_diseno": "Diseño propio que explora la estética futurista retro. Inspirado en el ritmo urbano y la energía de los entornos digitales contemporáneos.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/of-m_20-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/of-n_19-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/of-v_19-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/of-v_19-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/cf-m_20-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/cf-n_19-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/ORIGINALES/cf-b_20-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+          }
+        }
+      }
+    }
+  ]
+}

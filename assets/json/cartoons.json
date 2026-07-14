@@ -1,0 +1,724 @@
+{
+  "tienda": "Catálogo Oficial - RubenzDazs",
+  "moneda_base": "COP",
+  "catalogo": [
+    {
+      "id": "DS-CAR-001",
+      "tipo_diseno": "cartoons",
+      "titulo": "Ohana: Familia",
+      "descripcion_diseno": "Inspirado en la historia del experimento extraterrestre que encontró un hogar en una pequeña isla. Representa el valor de la lealtad y el concepto de familia incondicional. (Diseño con doble estampado).",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-m_28-claro-centrado.webp",
+                "assets/img/productos/CARTOONS/oe-m_25-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-n_27-oscuro-centrado.webp",
+                "assets/img/productos/CARTOONS/oe-n_26-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-v_27-oscuro-centrado.webp",
+                "assets/img/productos/CARTOONS/oe-v_26-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-a_27-oscuro-centrado.webp",
+                "assets/img/productos/CARTOONS/oe-a_26-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76556, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-m_28-claro-centrado.webp",
+                "assets/img/productos/CARTOONS/ce-m_25-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-n_27-oscuro-centrado.webp",
+                "assets/img/productos/CARTOONS/ce-n_26-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-b_28-claro-centrado.webp",
+                "assets/img/productos/CARTOONS/ce-b_25-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-CAR-002",
+      "tipo_diseno": "cartoons",
+      "titulo": "Recargando Energias",
+      "descripcion_diseno": "Cuando estas cansado, lo unico que quieres hacer es echarte en el piso y relajarte para recargar energias.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-m_30-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-n_31-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-v_31-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-a_31-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-m_30-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-n_31-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-b_30-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-CAR-003",
+      "tipo_diseno": "cartoons",
+      "titulo": "Disco Stitch",
+      "descripcion_diseno": "Un diseño retro y musical con portada de vinilo en la espalda y logo de sello discográfico en el frente.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-m_35-claro-centrado.webp",
+                "assets/img/productos/CARTOONS/oe-m_33-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-n_34-oscuro-centrado.webp",
+                "assets/img/productos/CARTOONS/oe-n_32-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-v_34-oscuro-centrado.webp",
+                "assets/img/productos/CARTOONS/oe-v_32-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-a_34-oscuro-centrado.webp",
+                "assets/img/productos/CARTOONS/oe-a_32-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76556, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-m_35-claro-centrado.webp",
+                "assets/img/productos/CARTOONS/ce-m_33-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-n_34-oscuro-centrado.webp",
+                "assets/img/productos/CARTOONS/ce-n_32-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-b_35-claro-centrado.webp",
+                "assets/img/productos/CARTOONS/ce-b_33-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-CAR-004",
+      "tipo_diseno": "cartoons",
+      "titulo": "Amigos Sombrios",
+      "descripcion_diseno": "El perrito más cobarde y valiente a la vez, siempre listo para enfrentarse a lo paranormal por amor.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-m_72-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-n_73-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-v_73-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-a_73-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-m_72-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-n_73-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-b_72-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-CAR-005",
+      "tipo_diseno": "cartoons",
+      "titulo": "La Disco de Terror",
+      "descripcion_diseno": "Nuestro miedoso protagonista rodeado por ojos acechantes en la oscuridad.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-m_50-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-n_50-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-v_50-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-a_50-doble.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-m_50-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-n_50-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-b_50-doble.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-CAR-006",
+      "tipo_diseno": "cartoons",
+      "titulo": "Evento Navideño",
+      "descripcion_diseno": "Feliz Navidad al estilo del gruñón verde más querido, porque no todos disfrutan de las festividades.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-m_navidad-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-n_Diseño sin título (3)-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-v_Diseño sin título (3)-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-a_Diseño sin título (3)-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-m_navidad-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-n_Diseño sin título (3)-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-b_navidad-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-CAR-007",
+      "tipo_diseno": "cartoons",
+      "titulo": "Maquinando Ando",
+      "descripcion_diseno": "Un diseño sarcástico protagonizado por el icónico destructor de la navidad.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-m_grinch-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-n_grinch-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-v_grinch-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-a_grinch-doble.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-m_grinch-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-n_grinch-doble.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-b_grinch-doble.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-CAR-008",
+      "tipo_diseno": "cartoons",
+      "titulo": "Aventurero Amarillo",
+      "descripcion_diseno": "Inspirado en el pequeño, errático y leal compañero volador del beagle más famoso del mundo. Un clásico atemporal de las tiras cómicas, lleno de encanto y nostalgia. (Diseño con doble estampado).",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-m_pajaro-doble-bolsillo.webp",
+                "assets/img/productos/CARTOONS/oe-m_91-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76556, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-m_pajaro-doble-bolsillo.webp",
+                "assets/img/productos/CARTOONS/ce-m_91-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-b_pajaro-doble-bolsillo.webp",
+                "assets/img/productos/CARTOONS/ce-b_91-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        }
+      }
+    },
+    {
+      "id": "DS-CAR-009",
+      "tipo_diseno": "cartoons",
+      "titulo": "Terror Arácnido",
+      "descripcion_diseno": "Inspirado en la clásica película The Ring con el trío más sombrío de los cartoons de antaño.",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-m_77-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-n_76-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-v_76-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/of-a_76-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69900, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-m_77-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-n_76-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/CARTOONS/cf-b_77-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 64000, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 56900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días para solicitar cambios."
+          }
+        }
+      }
+    }
+  ]
+}
