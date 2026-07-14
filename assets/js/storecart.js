@@ -2,7 +2,11 @@
 // carrito.js - Lógica global del carrito
 // ==========================================
 
-// 1. FUNCIONES DE MEMORIA (sessionStorage)
+// 1. DESTRUIR MEMORIA VIEJA
+// Esto asegura que se borre cualquier carrito trabado en la memoria permanente del navegador
+localStorage.removeItem('rubenzCart'); 
+
+// 2. FUNCIONES DE MEMORIA SEGURA (sessionStorage)
 window.obtenerCarritoSeguro = function() {
     try {
         const dataRaw = sessionStorage.getItem('rubenzCart');
@@ -10,6 +14,7 @@ window.obtenerCarritoSeguro = function() {
         
         const datosGuardados = JSON.parse(dataRaw);
         
+        // Si la data está corrupta o no es un array, se formatea
         if (!datosGuardados || !Array.isArray(datosGuardados.items)) {
             sessionStorage.removeItem('rubenzCart'); 
             return [];
@@ -30,7 +35,7 @@ window.guardarCarritoSeguro = function(carritoArray) {
     }
 };
 
-// 2. FUNCIONES PARA RENDERIZAR Y ACTUALIZAR
+// 3. RENDERIZADO DEL CARRITO VISUAL
 window.actualizarCarritoGlobal = function() {
     let carrito = window.obtenerCarritoSeguro(); 
     
@@ -38,7 +43,7 @@ window.actualizarCarritoGlobal = function() {
     const cartBadge = document.getElementById('cart-count');
     const formatoMoneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 });
     
-    // Actualizar la bolita roja con el número
+    // Actualizar la bolita amarilla
     const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
     if (cartBadge) cartBadge.innerText = totalItems;
 
@@ -59,6 +64,8 @@ window.actualizarCarritoGlobal = function() {
         const itemTotal = item.precio * item.cantidad;
         subtotal += itemTotal;
 
+        const tipoTexto = item.tipo ? item.tipo.toUpperCase() : '';
+
         cartHtml += `
             <div class="cart-item">
                 <img src="${item.imagen}" alt="${item.titulo}" class="cart-item-img">
@@ -66,7 +73,7 @@ window.actualizarCarritoGlobal = function() {
                     <div class="cart-item-desc">
                         <h4>${item.titulo}</h4>
                         <p class="cart-item-vars">
-                            <strong>${item.tipo.toUpperCase()}</strong> | T: <strong>${item.talla}</strong> | C: <strong>${item.color}</strong>
+                            <strong>${tipoTexto}</strong> | T: <strong>${item.talla}</strong> | C: <strong>${item.color}</strong>
                         </p>
                         <p class="cart-item-price">${formatoMoneda.format(item.precio)}</p>
                     </div>
@@ -84,7 +91,7 @@ window.actualizarCarritoGlobal = function() {
     });
     cartHtml += `</div>`;
 
-    // Envío y totales
+    // Costos de envío y totales
     let destinoEnvio = window.destinoEnvioActual || 'bogota';
     let costoEnvio = 0;
     let textoEnvio = "";
@@ -128,7 +135,7 @@ window.actualizarCarritoGlobal = function() {
     cartContainer.innerHTML = cartHtml;
 };
 
-// 3. FUNCIONES DE BOTONES (Sumar, restar, borrar, envío)
+// 4. FUNCIONES DE BOTONES
 window.cambiarCantidad = function(index, delta) {
     let carrito = window.obtenerCarritoSeguro(); 
     carrito[index].cantidad += delta;
@@ -156,7 +163,104 @@ window.cerrarCarritoManual = function() {
     if(cartBtn) cartBtn.classList.remove('is-active');
 };
 
-// Cuando el documento carga, mostramos el carrito para que se pinte el numerito
+// 5. ENVÍO DE PEDIDO A WHATSAPP
+window.enviarPedidoWhatsApp = function(totalFinal, costoEnvio) {
+    let carrito = window.obtenerCarritoSeguro(); 
+    const numeroWhatsApp = "573002535381"; 
+    const formatoMoneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 });
+    
+    // --- INYECCIÓN DE ANALÍTICAS GTM ---
+    if (carrito.length > 0 && typeof window.dataLayer !== 'undefined') {
+        let itemsAnalytics = carrito.map(item => ({
+            item_id: item.id,
+            item_name: item.titulo,
+            item_category: item.tipo,
+            item_variant: item.color,
+            price: item.precio,
+            quantity: item.cantidad,
+            item_size: item.talla
+        }));
+
+        window.dataLayer.push({ ecommerce: null }); 
+        window.dataLayer.push({
+            event: 'begin_checkout', 
+            ecommerce: {
+                currency: 'COP',
+                value: totalFinal,
+                items: itemsAnalytics
+            }
+        });
+    }
+    
+    let mensaje = `¡Hola RubenzDazs! 🔥 Vengo del carrito de compras y quiero confirmar el siguiente pedido:\n\n`;
+    
+    carrito.forEach((item, index) => {
+        mensaje += `🛍️ *Item ${index + 1}:* ${item.titulo}\n`;
+        mensaje += `🔖 *Ref:* ${item.id}\n`;
+        mensaje += `👕 *Variante:* ${item.tipo ? item.tipo.toUpperCase() : ''} | Talla: ${item.talla} | Color: ${item.color}\n`;
+        mensaje += `📦 *Cantidad:* ${item.cantidad}\n`;
+        mensaje += `💵 *Precio Unitario:* ${formatoMoneda.format(item.precio)}\n`;
+        mensaje += `---------------------------\n`;
+    });
+
+    let destinoEnvio = window.destinoEnvioActual || 'bogota';
+    const zonaEnvio = destinoEnvio === 'bogota' ? 'Bogotá' : 'Nacional';
+    const textoEnvio = costoEnvio === 0 ? '¡GRATIS!' : formatoMoneda.format(costoEnvio);
+
+    mensaje += `\n📍 *Envío a:* ${zonaEnvio} (${textoEnvio})\n`;
+    mensaje += `💰 *TOTAL A PAGAR:* ${formatoMoneda.format(totalFinal)}\n\n`;
+    mensaje += `¿Me indican los métodos de pago disponibles?`;
+
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    window.open(urlWhatsApp, '_blank');
+};
+
+// 6. ANIMACIÓN DE AÑADIR AL CARRITO (Burbuja voladora)
+let animacionCarritoTimeout;
+window.animarIconoCarrito = function(event) {
+    const cartIcon = document.getElementById('cart-btn');
+    if(!cartIcon) return;
+
+    if(!event) {
+        activarGifCarrito(cartIcon);
+        return;
+    }
+
+    const bubble = document.createElement('div');
+    bubble.classList.add('flying-bubble');
+    document.body.appendChild(bubble);
+
+    const startX = event.clientX;
+    const startY = event.clientY;
+    bubble.style.left = `${startX}px`;
+    bubble.style.top = `${startY}px`;
+
+    void bubble.offsetWidth;
+
+    const cartRect = cartIcon.getBoundingClientRect();
+    const endX = cartRect.left + cartRect.width / 2;
+    const endY = cartRect.top + cartRect.height / 2;
+
+    bubble.style.left = `${endX}px`;
+    bubble.style.top = `${endY}px`;
+    bubble.style.transform = 'translate(-50%, -50%) scale(0.2)';
+    bubble.style.opacity = '0';
+
+    setTimeout(() => {
+        bubble.remove();
+        activarGifCarrito(cartIcon);
+    }, 600);
+};
+
+function activarGifCarrito(cartIcon) {
+    cartIcon.classList.add('cart-added');
+    clearTimeout(animacionCarritoTimeout);
+    animacionCarritoTimeout = setTimeout(() => {
+        cartIcon.classList.remove('cart-added');
+    }, 2000);
+}
+
+// 7. INICIALIZAR CARRITO AL CARGAR LA PÁGINA
 document.addEventListener('DOMContentLoaded', () => {
     window.actualizarCarritoGlobal();
 });
