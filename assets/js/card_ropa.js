@@ -346,7 +346,8 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
     }
     // -------------------------------------------------------------
 
-    let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
+    // MODIFICACIÓN APLICADA: Uso de sessionStorage
+    let carrito = window.obtenerCarritoSeguro();
 
     const indexExistente = carrito.findIndex(item => 
         String(item.id).trim() === String(nuevoItem.id).trim() && 
@@ -361,7 +362,8 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
         carrito.push(nuevoItem);
     }
 
-    localStorage.setItem('rubenzCart', JSON.stringify(carrito));
+    // MODIFICACIÓN APLICADA: Uso de sessionStorage
+    window.guardarCarritoSeguro(carrito);
     
     if (typeof window.actualizarCarritoGlobal === 'function') {
         window.actualizarCarritoGlobal();

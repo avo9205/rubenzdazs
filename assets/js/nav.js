@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function renderizarCarrito() {
-        let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
+        // MODIFICACIÓN APLICADA: Uso de sessionStorage
+        let carrito = window.obtenerCarritoSeguro();
         
         const cartContainer = document.querySelector('.cart-items');
         const cartBadge = document.getElementById('cart-count');
@@ -183,19 +184,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.cambiarCantidad = function(index, delta) {
-        let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || []; 
+        // MODIFICACIÓN APLICADA: Uso de sessionStorage
+        let carrito = window.obtenerCarritoSeguro(); 
         carrito[index].cantidad += delta;
         if (carrito[index].cantidad <= 0) {
             carrito.splice(index, 1);
         }
-        localStorage.setItem('rubenzCart', JSON.stringify(carrito)); 
+        window.guardarCarritoSeguro(carrito); 
         renderizarCarrito(); 
     };
 
     window.eliminarDelCarrito = function(index) {
-        let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || []; 
+        // MODIFICACIÓN APLICADA: Uso de sessionStorage
+        let carrito = window.obtenerCarritoSeguro(); 
         carrito.splice(index, 1);
-        localStorage.setItem('rubenzCart', JSON.stringify(carrito)); 
+        window.guardarCarritoSeguro(carrito); 
         renderizarCarrito(); 
     };
 
@@ -257,7 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ENVÍO DE PEDIDO A WHATSAPP
     window.enviarPedidoWhatsApp = function(totalFinal, costoEnvio) {
-        let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || []; 
+        // MODIFICACIÓN APLICADA: Uso de sessionStorage
+        let carrito = window.obtenerCarritoSeguro(); 
         const numeroWhatsApp = "573002535381"; 
         
         // --- INYECCIÓN DE ANALÍTICAS GTM (CHECKOUT DESDE EL CARRITO) ---
