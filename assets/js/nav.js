@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+
+
+    // =============================================
+    // 🔥 AÑADE ESTO AQUÍ (al principio de todo)
+    // =============================================
+    function inicializarSesionCarrito() {
+        const sessionId = sessionStorage.getItem('rubenzSessionId');
+        
+        if (!sessionId) {
+            // El navegador se acaba de abrir -> borrar carrito
+            localStorage.removeItem('rubenzCart');
+            sessionStorage.setItem('rubenzSessionId', Date.now().toString());
+            console.log('🔄 Nueva sesión - Carrito borrado');
+        }
+    }
+    
+    inicializarSesionCarrito();
+
+
+
+
+
+    
     const menuBtn = document.getElementById('menu-btn');
     const cartBtn = document.getElementById('cart-btn');
     const mainNav = document.getElementById('main-nav-menu');
