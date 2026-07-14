@@ -78,42 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const formatoMoneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 });
     let destinoEnvio = 'bogota';
 
-    // --- NUEVO: FUNCIONES DE EXPIRACIÓN (24 HORAS) ---
-    const TIEMPO_LIMITE = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
-
-    function obtenerCarritoSeguro() {
-        const datosGuardados = JSON.parse(localStorage.getItem('rubenzCart'));
-        
-        if (!datosGuardados || !datosGuardados.timestamp) {
-            return [];
-        }
-
-        const ahora = new Date().getTime();
-        
-        if (ahora - datosGuardados.timestamp > TIEMPO_LIMITE) {
-            localStorage.removeItem('rubenzCart');
-            return [];
-        }
-
-        return datosGuardados.items;
-    }
-
-    function guardarCarritoSeguro(carritoArray) {
-        const datosA_Guardar = {
-            items: carritoArray,
-            timestamp: new Date().getTime()
-        };
-        localStorage.setItem('rubenzCart', JSON.stringify(datosA_Guardar));
-    }
-    // --------------------------------------------------
-
     window.actualizarCarritoGlobal = function() {
         renderizarCarrito(); 
     };
 
     function renderizarCarrito() {
-        // ACTUALIZADO: Usando la función segura
-        let carrito = obtenerCarritoSeguro(); 
+        let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
         
         const cartContainer = document.querySelector('.cart-items');
         const cartBadge = document.getElementById('cart-count');
@@ -138,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const itemTotal = item.precio * item.cantidad;
             subtotal += itemTotal;
 
+            // HTML ACTUALIZADO SEGÚN TU DIBUJO "TARJETA.PNG"
             cartHtml += `
                 <div class="cart-item">
                     <img src="${item.imagen}" alt="${item.titulo}" class="cart-item-img">
@@ -212,25 +183,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.cambiarCantidad = function(index, delta) {
-        // ACTUALIZADO: Usando la función segura
-        let carrito = obtenerCarritoSeguro(); 
+        let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || []; 
         carrito[index].cantidad += delta;
         if (carrito[index].cantidad <= 0) {
             carrito.splice(index, 1);
         }
-        
-        // ACTUALIZADO: Guardando con la función segura
-        guardarCarritoSeguro(carrito); 
+        localStorage.setItem('rubenzCart', JSON.stringify(carrito)); 
         renderizarCarrito(); 
     };
 
     window.eliminarDelCarrito = function(index) {
-        // ACTUALIZADO: Usando la función segura
-        let carrito = obtenerCarritoSeguro(); 
+        let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || []; 
         carrito.splice(index, 1);
-        
-        // ACTUALIZADO: Guardando con la función segura
-        guardarCarritoSeguro(carrito); 
+        localStorage.setItem('rubenzCart', JSON.stringify(carrito)); 
         renderizarCarrito(); 
     };
 
@@ -292,8 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ENVÍO DE PEDIDO A WHATSAPP
     window.enviarPedidoWhatsApp = function(totalFinal, costoEnvio) {
-        // ACTUALIZADO: Usando la función segura
-        let carrito = obtenerCarritoSeguro(); 
+        let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || []; 
         const numeroWhatsApp = "573002535381"; 
         
         // --- INYECCIÓN DE ANALÍTICAS GTM (CHECKOUT DESDE EL CARRITO) ---
