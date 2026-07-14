@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         btnWhatsApp.addEventListener("click", function() {
             
             // 1. REEMPLAZA ESTE NÚMERO POR EL DE TU NEGOCIO (Código de país + número)
-            const numeroTelefono = "573001234567"; // Ejemplo para Colombia
+            const numeroTelefono = "573002535381"; // Ejemplo para Colombia
             
             // 2. El mensaje creativo y personalizado
             const mensaje = "¡Hola RubenzDazs! 🧪 Acabo de ver el área de RubenzLab. Quiero cotizar precios y enviarles mis ideas para ver plasmada mi visión en una camiseta. ¿Me ayudan?";
