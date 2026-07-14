@@ -1,3 +1,6 @@
+// ==========================================
+// nav.js - Lógica de Menús y UI
+// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.getElementById('menu-btn');
     const cartBtn = document.getElementById('cart-btn');
@@ -32,9 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // LÓGICA UI DE MENÚS
-    let navTimeout;
-    const isDesktop = () => window.matchMedia("(min-width: 992px) and (hover: hover) and (pointer: fine)").matches;
-
     const updateButtonStates = () => {
         if(menuBtn && mainNav) menuBtn.classList.toggle('is-active', mainNav.classList.contains('show'));
         if(cartBtn && cartNav) cartBtn.classList.toggle('is-active', cartNav.classList.contains('show'));
@@ -55,6 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cartNav.classList.toggle('show'); 
             mainNav.classList.remove('show');
             updateButtonStates();
+            
+            // Forzar actualización visual del carrito al abrir el menú lateral
+            if(typeof window.actualizarCarritoGlobal === 'function') {
+                window.actualizarCarritoGlobal();
+            }
         });
     }
 
@@ -73,243 +78,4 @@ document.addEventListener('DOMContentLoaded', () => {
             updateButtonStates();
         });
     }
-
-    // LÓGICA DEL CARRITO DE COMPRAS
-    const formatoMoneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 });
-    let destinoEnvio = 'bogota';
-
-    window.actualizarCarritoGlobal = function() {
-        renderizarCarrito(); 
-    };
-
-    function renderizarCarrito() {
-        // MODIFICACIÓN APLICADA: Uso de sessionStorage
-        let carrito = window.obtenerCarritoSeguro();
-        
-        const cartContainer = document.querySelector('.cart-items');
-        const cartBadge = document.getElementById('cart-count');
-        
-        const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-        if (cartBadge) cartBadge.innerText = totalItems;
-
-        if(!cartContainer) return;
-
-        if (carrito.length === 0) {
-            cartContainer.innerHTML = `
-                <p style="text-align:center; margin-top: 50px;">Tu carrito está vacío.</p>
-                <button class="btn-brutalist btn-close-cart-mobile" onclick="cerrarCarritoManual()" style="margin-top: 20px;">Seguir Comprando</button>
-            `;
-            return;
-        }
-
-        let cartHtml = `<div class="cart-product-list">`;
-        let subtotal = 0;
-
-        carrito.forEach((item, index) => {
-            const itemTotal = item.precio * item.cantidad;
-            subtotal += itemTotal;
-
-            // HTML ACTUALIZADO SEGÚN TU DIBUJO "TARJETA.PNG"
-            cartHtml += `
-                <div class="cart-item">
-                    <img src="${item.imagen}" alt="${item.titulo}" class="cart-item-img">
-                    <div class="cart-item-content">
-                        
-                        <div class="cart-item-desc">
-                            <h4>${item.titulo}</h4>
-                            <p class="cart-item-vars">
-                                <strong>${item.tipo.toUpperCase()}</strong> | T: <strong>${item.talla}</strong> | C: <strong>${item.color}</strong>
-                            </p>
-                            <p class="cart-item-price">${formatoMoneda.format(item.precio)}</p>
-                        </div>
-
-                        <div class="cart-item-actions">
-                            <div class="cart-qty-controls">
-                                <button onclick="cambiarCantidad(${index}, -1)">-</button>
-                                <span>${item.cantidad}</span>
-                                <button onclick="cambiarCantidad(${index}, 1)">+</button>
-                            </div>
-                            <button class="cart-item-remove" onclick="eliminarDelCarrito(${index})">X</button>
-                        </div>
-                        
-                    </div>
-                </div>
-            `;
-        });
-        cartHtml += `</div>`;
-
-        let costoEnvio = 0;
-        let textoEnvio = "";
-        
-        if (subtotal >= 150000) {
-            costoEnvio = 0;
-            textoEnvio = "¡ENVÍO GRATIS!";
-        } else {
-            costoEnvio = destinoEnvio === 'bogota' ? 8000 : 12000;
-            textoEnvio = formatoMoneda.format(costoEnvio);
-        }
-
-        const totalFinal = subtotal + costoEnvio;
-
-        cartHtml += `
-            <div class="cart-summary">
-                <div class="shipping-selector">
-                    <label>📍 Destino de envío:</label>
-                    <select id="shipping-select" onchange="cambiarDestino(this.value)">
-                        <option value="bogota" ${destinoEnvio === 'bogota' ? 'selected' : ''}>Bogotá ($8.000)</option>
-                        <option value="fuera" ${destinoEnvio === 'fuera' ? 'selected' : ''}>Fuera de Bogotá ($12.000)</option>
-                    </select>
-                    <p style="font-size: 0.7rem; color: #ffea00; margin-top: 5px;">* Envío gratis por compras mayores a $150.000 COP</p>
-                </div>
-                
-                <div class="cart-totals">
-                    <p>Subtotal: <span>${formatoMoneda.format(subtotal)}</span></p>
-                    <p>Envío: <span>${textoEnvio}</span></p>
-                    <h3 class="total-final">TOTAL: <span>${formatoMoneda.format(totalFinal)}</span></h3>
-                </div>
-
-                <div class="cart-action-buttons">
-                <button class="btn-brutalist btn-checkout-wa" onclick="enviarPedidoWhatsApp(${totalFinal}, ${costoEnvio})">
-                    <img src="assets/img/iconos/whatsapp.png" alt="WA" style="width: 30px; margin-right: 8px;">
-                    Confirmar Pedido
-                </button>
-                <button class="btn-brutalist btn-close-cart-mobile" onclick="cerrarCarritoManual()">
-                    Seguir Comprando
-                </button>
-            </div>
-            </div>
-        `;
-
-        cartContainer.innerHTML = cartHtml;
-    }
-
-    window.cambiarCantidad = function(index, delta) {
-        // MODIFICACIÓN APLICADA: Uso de sessionStorage
-        let carrito = window.obtenerCarritoSeguro(); 
-        carrito[index].cantidad += delta;
-        if (carrito[index].cantidad <= 0) {
-            carrito.splice(index, 1);
-        }
-        window.guardarCarritoSeguro(carrito); 
-        renderizarCarrito(); 
-    };
-
-    window.eliminarDelCarrito = function(index) {
-        // MODIFICACIÓN APLICADA: Uso de sessionStorage
-        let carrito = window.obtenerCarritoSeguro(); 
-        carrito.splice(index, 1);
-        window.guardarCarritoSeguro(carrito); 
-        renderizarCarrito(); 
-    };
-
-    window.cambiarDestino = function(valor) {
-        destinoEnvio = valor;
-        renderizarCarrito();
-    };
-
-    window.cerrarCarritoManual = function() {
-        if(cartNav) cartNav.classList.remove('show');
-        if(cartBtn) cartBtn.classList.remove('is-active');
-    };
-
-    // ANIMACIÓN BURBUJA Y GIF AL AÑADIR
-    let animacionCarritoTimeout;
-    
-    window.animarIconoCarrito = function(event) {
-        const cartIcon = document.getElementById('cart-btn');
-        if(!cartIcon) return;
-
-        if(!event) {
-            activarGifCarrito(cartIcon);
-            return;
-        }
-
-        const bubble = document.createElement('div');
-        bubble.classList.add('flying-bubble');
-        document.body.appendChild(bubble);
-
-        const startX = event.clientX;
-        const startY = event.clientY;
-        bubble.style.left = `${startX}px`;
-        bubble.style.top = `${startY}px`;
-
-        void bubble.offsetWidth;
-
-        const cartRect = cartIcon.getBoundingClientRect();
-        const endX = cartRect.left + cartRect.width / 2;
-        const endY = cartRect.top + cartRect.height / 2;
-
-        bubble.style.left = `${endX}px`;
-        bubble.style.top = `${endY}px`;
-        bubble.style.transform = 'translate(-50%, -50%) scale(0.2)';
-        bubble.style.opacity = '0';
-
-        setTimeout(() => {
-            bubble.remove();
-            activarGifCarrito(cartIcon);
-        }, 600);
-    };
-
-    function activarGifCarrito(cartIcon) {
-        cartIcon.classList.add('cart-added');
-        clearTimeout(animacionCarritoTimeout);
-        animacionCarritoTimeout = setTimeout(() => {
-            cartIcon.classList.remove('cart-added');
-        }, 2000);
-    }
-
-    // ENVÍO DE PEDIDO A WHATSAPP
-    window.enviarPedidoWhatsApp = function(totalFinal, costoEnvio) {
-        // MODIFICACIÓN APLICADA: Uso de sessionStorage
-        let carrito = window.obtenerCarritoSeguro(); 
-        const numeroWhatsApp = "573002535381"; 
-        
-        // --- INYECCIÓN DE ANALÍTICAS GTM (CHECKOUT DESDE EL CARRITO) ---
-        if (carrito.length > 0) {
-            let itemsAnalytics = carrito.map(item => ({
-                item_id: item.id,
-                item_name: item.titulo,
-                item_category: item.tipo,
-                item_variant: item.color,
-                price: item.precio,
-                quantity: item.cantidad,
-                item_size: item.talla
-            }));
-
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ ecommerce: null }); // Limpiar variables previas
-            window.dataLayer.push({
-                event: 'begin_checkout', 
-                ecommerce: {
-                    currency: 'COP',
-                    value: totalFinal,
-                    items: itemsAnalytics
-                }
-            });
-        }
-        // ---------------------------------------------------------------
-        
-        let mensaje = `¡Hola RubenzDazs! 🔥 Vengo del carrito de compras y quiero confirmar el siguiente pedido:\n\n`;
-        
-        carrito.forEach((item, index) => {
-            mensaje += `🛍️ *Item ${index + 1}:* ${item.titulo}\n`;
-            mensaje += `🔖 *Ref:* ${item.id}\n`;
-            mensaje += `👕 *Variante:* ${item.tipo.toUpperCase()} | Talla: ${item.talla} | Color: ${item.color}\n`;
-            mensaje += `📦 *Cantidad:* ${item.cantidad}\n`;
-            mensaje += `💵 *Precio Unitario:* ${formatoMoneda.format(item.precio)}\n`;
-            mensaje += `---------------------------\n`;
-        });
-
-        const zonaEnvio = destinoEnvio === 'bogota' ? 'Bogotá' : 'Nacional';
-        const textoEnvio = costoEnvio === 0 ? '¡GRATIS!' : formatoMoneda.format(costoEnvio);
-
-        mensaje += `\n📍 *Envío a:* ${zonaEnvio} (${textoEnvio})\n`;
-        mensaje += `💰 *TOTAL A PAGAR:* ${formatoMoneda.format(totalFinal)}\n\n`;
-        mensaje += `¿Me indican los métodos de pago disponibles?`;
-
-        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-        window.open(urlWhatsApp, '_blank');
-    };
-
-    renderizarCarrito();
 });
