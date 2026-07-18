@@ -427,6 +427,8 @@
         margin: 5px 15px 15px 15px; 
         max-height: none; 
         overflow-y: visible; 
+        gap: 20px; /* SOLUCIÓN: Reduce el enorme hueco de 40px que heredaba de la PC */
+        width: auto; /* Asegura que la caja principal respete el tamaño del teléfono */
     }
 
     .gallery-section {
@@ -437,14 +439,17 @@
     .main-image-container {
         order: 1; 
         width: 100%;
+        min-width: 0; /* SOLUCIÓN: Cancela la restricción de 320px de la PC */
         min-height: auto; 
         height: auto;
         aspect-ratio: 4/5; /* Restaura la proporción en celular */
+        box-sizing: border-box; /* Asegura que el borde no sume ancho extra */
     }
 
     .thumbnails-container {
         order: 2; 
         width: 100%;
+        min-width: 0; /* SOLUCIÓN: Cancela el ancho fijo de la PC */
         height: auto;
         flex-direction: row; 
         max-height: none;
@@ -458,16 +463,19 @@
         background-color: #ffffff; 
         padding: 10px 0;
         border-bottom: 3px solid #000; 
+        box-sizing: border-box; /* Evita que el padding reviente el 100% del ancho */
     }
 
     .info-section {
         order: 3; 
         width: 100%;
+        min-width: 0; /* SOLUCIÓN DEFINITIVA: Borra los 320px que empujaban la pantalla */
         max-width: 100%;
         flex: none;
         align-items: flex-start;
         text-align: left;
-        margin-top: 10px; 
+        margin-top: 0; 
+        box-sizing: border-box; 
     }
 
     .accordion-content {
@@ -486,16 +494,14 @@
         border-top: none;
         box-shadow: 3px 3px 0px #000;
         
-        max-height: 100px; 
-        max-width: 250px; 
+        max-height: 150px; /* Un poco más de altura para que el texto sea más fácil de leer en móvil */
+        max-width: none; /* SOLUCIÓN: Quita el límite de 250px que apretaba el texto */
         overflow-y: auto;  
         
         scrollbar-width: thin;
         scrollbar-color: #000 #fafafa;
     }
 }
-
-
 
 /* ==========================================================================
    POPUP DE IMAGEN PRINCIPAL (ZOOM)

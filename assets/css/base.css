@@ -9,20 +9,14 @@ body {
 
 body::before {
     content: "";
-    position: fixed; 
+    position: fixed; /* Mantiene el marco pegado a la pantalla */
     top: 0;
     left: 0;
-    /* Usamos el 100% del ancho y la Altura Dinámica del Viewport (dvh) */
-    width: 100%;
-    height: 100dvh; 
-    box-sizing: border-box; /* Obliga a que los 10px de borde se dibujen hacia ADENTRO y no desborden */
-    border: 10px solid black; 
-    z-index: 9999; 
-    pointer-events: none; 
-    
-    /* MAGIA PARA EL GLITCH DE LA CUADRÍCULA (Aceleración por Hardware) */
-    transform: translateZ(0);
-    will-change: transform;
+    right: 0;
+    bottom: 0;
+    border: 0px solid black; /* Un poco más grueso para que destaque */
+    z-index: 9999; /* Asegura que el borde esté por encima de las fotos y textos */
+    pointer-events: none; /* Magia pura: permite hacer clic a través del borde si hay un botón cerca */
 }
 
 body {
