@@ -311,9 +311,19 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let mensaje = `¡Hola RubenzDazs! 🔥 Vengo del carrito de compras y quiero confirmar el siguiente pedido:\n\n`;
         
+        // Obtenemos el dominio actual (ej: https://tudominio.com o tu enlace de GitHub Pages)
+        // NOTA: Asegúrate de que la ruta 'detail.html' coincida con el nombre real de tu página de producto.
+        const dominioBase = window.location.origin;
+        let rutaBaseUrl = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+        const urlSitio = dominioBase + rutaBaseUrl;
+
         carrito.forEach((item, index) => {
+            // Creamos el enlace específico para este producto
+            const enlaceProducto = `${urlSitio}/detail.html?id=${item.id}`;
+
             mensaje += `🛍️ *Item ${index + 1}:* ${item.titulo}\n`;
             mensaje += `🔖 *Ref:* ${item.id}\n`;
+            mensaje += `🔗 *Enlace:* ${enlaceProducto}\n`; // <--- ENLACE AÑADIDO AQUÍ
             mensaje += `👕 *Variante:* ${item.tipo.toUpperCase()} | Talla: ${item.talla} | Color: ${item.color}\n`;
             mensaje += `📦 *Cantidad:* ${item.cantidad}\n`;
             mensaje += `💵 *Precio Unitario:* ${formatoMoneda.format(item.precio)}\n`;
@@ -330,6 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
         window.open(urlWhatsApp, '_blank');
     };
+    
 
     renderizarCarrito();
 });
