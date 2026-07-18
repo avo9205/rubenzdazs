@@ -35,26 +35,32 @@
 			    <span id="cart-count" style="position: absolute; top: -5px; right: -10px; background: #ffea00; color: #000; font-family: 'Courier New', Courier, monospace; font-weight: 900; border: 2px solid #000; border-radius: 50%; width: 22px; height: 22px; display: flex; justify-content: center; align-items: center; font-size: 0.75rem;">0</span>
 			</a>
 
-			  <a href="rubenzlab.html" class="header-img icono-interactivo">
+			<a href="rubenzlab.html" class="header-img icono-interactivo">
                 <img class="img-estatica" src="assets/img/iconos/lab.png" alt="lab">
                 <img class="img-animada" src="assets/img/iconos/lab.gif" alt="lab animado"> 
              </a>
 
-
 	    </header>
 
-<main class="box-main">
-    <div class="filters-container" id="filtros-diseno"></div>
-    
-    <div class="product-grid" id="contenedor-productos">
+        <main class="box-main">
+    <!-- NUEVO: Contenedor padre que será "sticky" -->
+    <div class="sticky-header">
+        <div class="filters-container" id="filtros-diseno"></div>
+        
+        <div style="width: 100%; display: flex; justify-content: flex-end; padding-bottom: 10px;">
+            <!-- Fíjate que mantenemos el margen derecho aquí -->
+            <button id="view-toggle-btn" class="filter-btn" style="margin-right: 40px;">Ver Una ⊟</button>
         </div>
+    </div>
 
-    <div style="text-align: center; padding: 20px 0;">
-        <button id="btn-cargar-mas" class="btn-brutalist filter-btn" style="display: none; margin: 0 auto;">Cargar Más Diseños</button>
+    <div class="product-grid" id="contenedor-productos">
+        <!-- Los productos se cargan aquí mediante JS -->
+    </div>
+
+    <div class="load-more-container" id="load-more-container" style="display: none;">
+        <button id="load-more-btn" class="btn-load-more">Cargar Más Diseños</button>
     </div>
 </main>
-
-	
 
 		<aside class="box-sidebar">
 		    <div class="ticker-track">
@@ -65,19 +71,19 @@
 		</aside>
 
 		<div class="box-socialmedia">
-    <a style="--accent-color:#4268B2;" data-social='Facebook' class="social-face" href="https://www.facebook.com/share/1GBXWLUZEy/" target="_blank" rel="noopener noreferrer">
-        <img src="assets/img/iconos/facebook.svg" alt="Facebook">
-    </a>
-    <a style="--accent-color:#C13584;" data-social='Instagram' class="social-insta" href="https://www.instagram.com/rubenzdazs?igsh=MWwzZnc0MmNjaG41Zg==" target="_blank" rel="noopener noreferrer">
-        <img src="assets/img/iconos/instagram.svg" alt="Instagram">
-    </a>
-    <a style="--accent-color:#010101;" data-social='Tiktok' class="social-tiktok" href="https://vm.tiktok.com/ZS9MPxfdo8dDe-89cvD/" target="_blank" rel="noopener noreferrer">
-        <img src="assets/img/iconos/tiktok.svg" alt="Tiktok">
-    </a>
-    <div style="--accent-color:#FFFD99;" class="social-messege">
-        <p><b>Siguenos</b></p>
-    </div>
-</div>
+            <a style="--accent-color:#4268B2;" data-social='Facebook' class="social-face" href="https://www.facebook.com/share/1GBXWLUZEy/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/img/iconos/facebook.svg" alt="Facebook">
+            </a>
+            <a style="--accent-color:#C13584;" data-social='Instagram' class="social-insta" href="https://www.instagram.com/rubenzdazs?igsh=MWwzZnc0MmNjaG41Zg==" target="_blank" rel="noopener noreferrer">
+                <img src="assets/img/iconos/instagram.svg" alt="Instagram">
+            </a>
+            <a style="--accent-color:#010101;" data-social='Tiktok' class="social-tiktok" href="https://vm.tiktok.com/ZS9MPxfdo8dDe-89cvD/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/img/iconos/tiktok.svg" alt="Tiktok">
+            </a>
+            <div style="--accent-color:#FFFD99;" class="social-messege">
+                <p><b>Siguenos</b></p>
+            </div>
+        </div>
 
 		<footer class="box-footer" style="background-color: #292929; color: whitesmoke;">
 			<p>Derechos Reservados©</p>
@@ -86,15 +92,13 @@
 	
 	</div>
 
-    
 	<!-- DropDown Menu -->
-  <div id="main-nav-menu" class="overlay-menu">
-    <a href="#" class="close-btn" id="close-nav">&times;</a>
-    
-    <ul class="menu-items" id="lista-categorias-menu">
+    <div id="main-nav-menu" class="overlay-menu">
+        <a href="#" class="close-btn" id="close-nav">&times;</a>
+        
+        <ul class="menu-items" id="lista-categorias-menu">
         </ul>
-</div>
-
+    </div>
 
     <!--Cart Menu  -->
     <div id="cart-nav-menu" class="overlay-menu cart-menu">
@@ -103,30 +107,77 @@
             <p>Tu carrito está vacío</p>
         </div>
     </div>
-</body>	
-    
-
-
-
-
-
-
-
 
 
 	<script src="assets/js/carrito.js"></script>
     <script src="assets/js/index.js"></script>
     <script src="assets/js/nav.js"></script>
-   <script src="assets/js/card_ropa.js"></script>
-   <script src="assets/js/seguridad.js"></script>
+    <script src="assets/js/card_ropa.js"></script>
+    <script src="assets/js/seguridad.js"></script>
 
+    <!-- SCRIPT DE LÓGICA "CARGAR MÁS" Y CAMBIO DE VISTA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            /* --- LÓGICA DE CARGAR MÁS --- */
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const loadMoreContainer = document.getElementById('load-more-container');
+            const grid = document.getElementById('contenedor-productos');
+            
+            const itemsPerLoad = 4; // Cuántas muestra inicialmente y por cada clic
+            let currentLimit = itemsPerLoad;
 
+            function updateVisibility() {
+                const allCards = grid.querySelectorAll('.product-card');
+                if (allCards.length === 0) return;
+
+                // Forzamos a ocultar o mostrar según el límite actual
+                allCards.forEach((card, index) => {
+                    if (index < currentLimit) {
+                        card.classList.remove('hidden');
+                        card.style.display = ''; // Limpiamos estilos en línea por si acaso
+                    } else {
+                        card.classList.add('hidden');
+                        card.style.display = 'none'; // Forzamos ocultar
+                    }
+                });
+
+                // Si hay tarjetas ocultas, mostramos el botón
+                if (allCards.length > currentLimit) {
+                    loadMoreContainer.style.display = 'flex';
+                } else {
+                    loadMoreContainer.style.display = 'none';
+                }
+            }
+
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    currentLimit += itemsPerLoad; // Aumentamos el límite
+                    updateVisibility();
+                });
+            }
+
+            // El observador detecta cuando card_ropa.js inserta los productos 
+            // y fuerza la visibilidad automáticamente
+            if (grid) {
+                const observer = new MutationObserver(() => {
+                    updateVisibility();
+                });
+                observer.observe(grid, { childList: true });
+            }
+
+            /* --- LÓGICA DE CAMBIO DE VISTA (1 a varias) --- */
+            const viewToggleBtn = document.getElementById('view-toggle-btn');
+            if(viewToggleBtn) {
+                viewToggleBtn.addEventListener('click', () => {
+                    grid.classList.toggle('single-view');
+                    if(grid.classList.contains('single-view')) {
+                        viewToggleBtn.innerText = "Ver Varias ⊞";
+                    } else {
+                        viewToggleBtn.innerText = "Ver Una ⊟";
+                    }
+                });
+            }
+        });
+    </script>
+</body> 
 </html>
-
-
-
-
-
-
-
-

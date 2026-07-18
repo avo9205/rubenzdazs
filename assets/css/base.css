@@ -2,9 +2,7 @@
 <style>
 </style>
 
-
 body {
-	
 	font-family: "Roboto", sans-serif;
 	font-size: 1.2rem;
 	min-height: 100vh;
@@ -13,7 +11,6 @@ body {
 
 body::before {
     content: "";
-    
     position: fixed; /* Mantiene el marco pegado a la pantalla */
     top: 0;
     left: 0;
@@ -24,15 +21,12 @@ body::before {
     pointer-events: none; /* Magia pura: permite hacer clic a través del borde si hay un botón cerca */
 }
 
-
-
 body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
-
 
 /*para elemtntos que necesiten ingresar y borrar datos*/
 input, textarea {
@@ -42,83 +36,63 @@ input, textarea {
     user-select: auto;
 }
 
-
 a {
     /*Opcional: Elimina el subrayado por defecto de los enlaces */
     text-decoration: none; 
     /* 3. Opcional: Evita que el texto del enlace se vuelva azul por defecto, 
-          haciendo que herede el color de su contenedor */
+         haciendo que herede el color de su contenedor */
     color: inherit; 
 }
-
 
 /* Quita el resplandor de toque de TODOS los elementos interactivos en la página */
 * {
     -webkit-tap-highlight-color: transparent;
 }
 
-
-
 /*GRID LAYOUT*/
-
-.grid-container{
-
+.grid-container {
 	display: grid;
 	min-height: 100vh;
 	/*definimos el orden de los bloques*/
 	grid-template:
 		"sidebar"   60px
-		"header" 	5fr
+		"header" 	1fr
 		"main"		auto
-		"social" 	2fr
+		"social" 	1fr
 		"footer"	50px
-		
 		;
 
-		.box-header{margin: 15px 30px 15px 30px ;grid-area:header; background-color: transparent;}
-		.box-main{grid-area:main; background-color: transparent;}
-		/*.box-nav{grid-area: navbar;background-color: blue;}*/
-		.box-sidebar{grid-area:sidebar; background-color: transparent;}
-		.box-socialmedia{grid-area:social; background-color: transparent;}
-		.box-footer{grid-area:footer; background-color: transparent;}
+    .box-header{margin: 15px 30px 15px 30px ;grid-area:header; background-color: transparent;}
+    .box-main{grid-area:main; background-color: transparent;}
+    /*.box-nav{grid-area: navbar;background-color: blue;}*/
+    .box-sidebar{grid-area:sidebar; background-color: transparent;}
+    .box-socialmedia{grid-area:social; background-color: transparent;}
+    .box-footer{grid-area:footer; background-color: transparent;}
 
+    @media (min-width: 768px) {
+        grid-template:
+            "header header" 	0fr
+            "main sidebar"		auto
+            "social sidebar" 	0fr
+            "footer footer"		50px
+            / 1fr 78px; 
+    }
 
-
-@media (min-width: 768px) {
-	
-	grid-template:
-		"header header" 	5fr
-		"main sidebar"		auto
-		"social sidebar" 	2fr
-		"footer footer"		50px
-		/ 1fr 78px; 
-
-	}
-
-
-@media (min-width: 992px) {
-	
-	grid-template:
-		"header header "		5fr
-		"main  sidebar"			auto	 
-		"social  sidebar"		2fr
-		"footer  footer"		50px
-		/ 1fr  60px; 
-		
-	}
-
+    @media (min-width: 992px) {
+        grid-template:
+            "header header "		1fr
+            "main  sidebar"			auto	 
+            "social  sidebar"		0fr
+            "footer  footer"		50px
+            / 1fr  60px; 
+    }
 }
 
-
-
-
 /*1.HEADER BANNER*/
-.box-header{
+.box-header {
 	margin: 10px 30px 15px 30px;
 	border: 5px solid black;
 	box-sizing: border-box;
-
-
 	display: flex;
 	flex-flow: row wrap;
 	align-content: center;
@@ -128,62 +102,41 @@ a {
 .header-cart,
 .header-img { 
 	flex: 1; /* ¡MAGIA PURA! Esto hace que ocupen todo el espacio disponible equitativamente */
-
 	background-color: white;
-	margin: 10px;
+	margin: 5px;
 	border: 5px solid black;
 	box-sizing: border-box;
-
 	display: flex;
 	justify-content: center; 
 	align-items: center;   
-
 }
 
-.header-menu{
-	order: 1
-}
-.header-cart{
-	order: 2
-}
-.header-img{
-	order: 3
-}
+.header-menu { order: 1; }
+.header-cart { order: 2; }
+.header-img { order: 3; }
 
 .header-menu > img,
 .header-cart > img,
-.header-img > img{width:auto;height: 80px}
-
+.header-img > img { width:auto; height: 40px; }
 
 /* Ocultamos los archivos .gif por defecto */
 .icono-interactivo .img-animada {
     display: none;
 }
 
-
 .icono-interactivo:active {
-   	transform: scale(0.95);
+    transform: scale(0.95);
 }
 /*.header-img{background-color: black;}*/
 
-
-
 @media (min-width: 768px) {
-	.header-menu{
-		order: 1
-	}
-	.header-cart{
-		order: 3
-	}
-	.header-img{
-		order: 2
-	}
+	.header-menu { order: 1; }
+	.header-cart { order: 3; }
+	.header-img { order: 2; }
 
-
-.header-menu > img,
-.header-cart > img,
-.header-img > img {	width: auto;height: 120px;}
-
+    .header-menu > img,
+    .header-cart > img,
+    .header-img > img { width: auto; height: 60px; }
 
 	/* Ocultamos los archivos .gif por defecto */
 	.icono-interactivo .img-animada {
@@ -191,24 +144,18 @@ a {
 	}
 
 	.icono-interactivo:active {
-    	transform: scale(0.95);
+        transform: scale(0.95);
 	}
-
-
-
-
 }
 
 @media (min-width: 992px) {
-
 	.box-header{
 		height: 200px;
 	}
 
 	.header-menu > img,
 	.header-cart > img,
-	.header-img > img{width:auto;height: 80px}
-
+	.header-img > img { width:auto; height: 80px; }
 
 	/* Ocultamos los archivos .gif por defecto */
 	.icono-interactivo .img-animada {
@@ -226,235 +173,151 @@ a {
 	.icono-interactivo:hover .img-animada,
 	.icono-interactivo:active .img-animada {
 	    display: block; 
-	    
 	}
 
-	/* 1. Definimos la animación de "temblor" *//* 1. La animación sigue igual (termina en su posición original 0px) */
-@keyframes efecto-temblor {
-    0% { transform: scale(0.99) translate(1px, 1px) rotate(0deg); }
-    20% { transform: scale(0.99) translate(-2px, 0px) rotate(-1deg); }
-    40% { transform: scale(0.99) translate(1px, -1px) rotate(1deg); }
-    60% { transform: scale(0.99) translate(-1px, 2px) rotate(0deg); }
-    80% { transform: scale(0.99) translate(2px, -1px) rotate(-1deg); }
-    100% { transform: scale(0.99) translate(0px, 0px) rotate(0deg); }
+    /* 1. Definimos la animación de "temblor" */
+    @keyframes efecto-temblor {
+        0% { transform: scale(0.99) translate(1px, 1px) rotate(0deg); }
+        20% { transform: scale(0.99) translate(-2px, 0px) rotate(-1deg); }
+        40% { transform: scale(0.99) translate(1px, -1px) rotate(1deg); }
+        60% { transform: scale(0.99) translate(-1px, 2px) rotate(0deg); }
+        80% { transform: scale(0.99) translate(2px, -1px) rotate(-1deg); }
+        100% { transform: scale(0.99) translate(0px, 0px) rotate(0deg); }
+    }
+
+    .header-img:hover,
+    .header-img:active {	
+        background-color: transparent; 
+    }
+
+    /* 2. Modificamos el Hover */
+    .icono-interactivo:hover {
+        /* Quitamos 'infinite'. Ahora se reproduce 1 sola vez. */
+        animation: efecto-temblor 0.4s ease;
+        /* Mantiene el botón achicado al 99% una vez que la animación termina */
+        transform: scale(0.99); 
+    }
+
+    /* 3. El Active queda igual */
+    .icono-interactivo:active {
+        animation: none; /* Corta el temblor si haces clic rápido */
+        transform: scale(0.95);
+    }
 }
-
-.header-img:hover,
-.header-img:active {	
-    background-color: ; 
-
-}
-
-/* 2. Modificamos el Hover */
-.icono-interactivo:hover {
-    /* Quitamos 'infinite'. Ahora se reproduce 1 sola vez.
-       Le subí el tiempo a 0.4s para que el único temblor se note bien. */
-    animation: efecto-temblor 0.4s ease;
-    
-    /* Mantiene el botón achicado al 99% una vez que la animación termina */
-    transform: scale(0.99); 
-}
-
-/* 3. El Active queda igual */
-.icono-interactivo:active {
-    animation: none; /* Corta el temblor si haces clic rápido */
-    transform: scale(0.95);
-}
-
-}
-
-
-
 
 /*2.BOX VIDEO*/
 .box-main {
     margin: 5px 30px 15px 30px;
     border: 5px solid black;
-    
-    /* 1. Hace que el ancho y alto del contenedor se ciñan estrictamente a sus hijos */
     height: fit-content; 
-
-    /* 2. Necesario si vas a usar flex: 1 en los elementos internos */
     display: flex;
     flex-direction: column;
     height: auto;
 }
 
-
 /* CONTENEDOR PRINCIPAL */
 .main-video {
-    /* Usamos Grid para superponer el video y el botón en el mismo espacio */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-
     margin: 10px;
     border: 5px solid black;
     height: 100%; 
     box-sizing: border-box;
 }
 
-/* VIDEO */
+/* VIDEO - Ahora es fluido y se adapta a su caja sin modificarla */
 .main-video > video {
-    grid-area: 1 / 1; /* Le dice al video que ocupe toda la primera celda */
+    grid-area: 1 / 1; 
     width: 100%;
-    height: 550px; 
+    height: 100%; /* Permite que el video crezca si la caja crece */
+    min-height: 550px; /* Asegura que nunca baje de 550px en móvil */
     object-fit: cover; /* Evita que el video se deforme */
 }
 
 /* BOTÓN */
-
-/* EL CONTENEDOR Y EL VIDEO SE MANTIENEN IGUAL */
-.main-video {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    margin: 10px;
-    border: 5px solid black;
-    height: 100%; 
-    box-sizing: border-box;
-}
-
-.main-video > video {
-    grid-area: 1 / 1;
-    width: 100%;
-    height: 550px; 
-    object-fit: cover;
-}
-
-/* === TU NUEVO BOTÓN FUSIONADO === */
-  
-/* Efecto click (hundimiento) para celular/tablet */
-
-
-
-  .cta {
-    
+.cta {
     grid-area: 1 / 1;
     width: 150px;
     height: 40px;
-
-    
-    /* 1. POSICIONAMIENTO EN EL FONDO */
-    justify-self: center; /* Lo mantiene centrado horizontalmente */
-    align-self: end;      /* ESTO ES CLAVE: Empuja el botón al fondo del contenedor */
-    margin-bottom: 40px;  /* Le da un respiro para que no toque exactamente el borde del video */
-    
-
-    /* 2. EFECTO STICKY (Opcional, si quieres que siga pegado al hacer scroll) */
+    justify-self: center; 
+    align-self: end;      
+    margin-bottom: 40px;  
     position: sticky; 
-    bottom: 30px;         /* Cambiamos 'top' por 'bottom' para que se pegue a la parte inferior de la pantalla */
+    bottom: 30px;         
     z-index: 10;
-
-    /* ... Aquí va el resto de tus estilos visuales (cursor, padding, background, etc.) ... */
-
-
-    /* 2. Tus estilos visuales */
     cursor: pointer;
     font-weight: 700;
     transition: all 0.2s;
-    padding: 15px 10px; /* Aumenté un poquito el padding para que destaque sobre el video */
+    padding: 15px 10px; 
     border-radius: 100px;
     background:#2E2E2E;
     color: whitesmoke;
-    /*border: 2px solid whitesmoke;*/
     font-size: 15px;
-
-    /* Alineación interna del botón */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
-/* Efecto click (hundimiento) */
+/* Efecto click */
 .cta:active {
     transform: scale(0.95);
     color:#FD99FF ;
-
-   
 }
 
-/* Estilos del ícono SVG dentro del botón */
+/* Estilos del ícono SVG */
 .cta > svg {
-    width: 24px; /* Ajustado ligeramente al tamaño del texto */
+    width: 24px; 
     margin-left: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Efecto hover del ícono (se mueve a la derecha) */
-/*.cta:hover svg {
-    transform: translateX(5px);
-}*/
-
-
-
-/* Efecto click (hundimiento) para celular/tablet */
 .cta:active,
 .cta.is-clicked {
     transform: scale(0.95);
     color: #FD99FF;
 }
 
-
-@media (min-width: 992px){
-	.box-main{
-
+@media (min-width: 992px) {
+	.box-main {
 		margin: 15px 15px 15px 30px;
 		padding: 10px;
-		/*border: 5px solid black;*/
+    }
+
+    .main-video > video {
+        width: 100%;
+        height: 100%; 
+        min-height: 750px; /* Base mínima para escritorio */
+        object-fit: cover; 
+    }
+
+    .cta {
+        width: 200px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .cta:hover {
+        width: 210px;
+        height: 50px;
+    }
+
+    .cta:active {
+        width: 180px;
+        height:30px; 
+        color: whitesmoke;
+    }
 }
 
-.main-video > video {
-  
-    width: 100%;
-    height: 750px;
-    object-fit: cover; /* Evita que el video se deforme */
-
-}
-
-
-
-.cta{
-	width: 200px;
-    height: 40px;
-    font-size: 20PX;
-}
-
-.cta:hover{
-	width: 210px;
-    height: 50px;
-	/*color:#FD99FF ;*/
-}
-
-.cta:active {
-	width: 180px;
-	height:30px; 
-	color: whitesmoke;
-	
-
-}
-
-
-}
-
-
-
-/*3.BOX ASIDE (Diseño Base / Celular) */
 /*3.BOX ASIDE (Diseño Base / Celular) */
 aside {
-	
 	margin: 15px 30px 0px 30px;
 	border: 5px solid black;
 	box-sizing: border-box;
 
-	/* MAGIA PARA EL CONTENEDOR */
 	overflow: hidden; 
 	position: relative;
-    
-	/* Aumentamos un poquito la altura para que el texto grande quepa perfecto */
 	height: 50px; 
-    
 	display: flex;
 	align-items: center;
 }
@@ -466,11 +329,8 @@ aside {
 	position: absolute;
 	white-space: nowrap;
 	
-	/* CORRECCIÓN CELULAR: DE IZQUIERDA A DERECHA */
 	flex-direction: row-reverse; 
 	right: 100%; 
-	
-	/* LOOP PERFECTO HORIZONTAL */
 	gap: 100vw; 
 	padding-left: 100vw; 
 
@@ -479,19 +339,15 @@ aside {
 
 .ticker-text {
 	margin: 0;
-    
-	/* MAGIA PARA HACERLO GRANDE Y VISIBLE */
-	font-size: 24px; /* Hace el texto más grande (puedes subirlo a 28px o 30px si lo quieres aún más gigante) */
-	font-weight: 900; /* Hace la letra súper gruesa (negrita). Tu fuente Roboto soporta hasta 900 */
-	letter-spacing: 2px; /* Añade un pequeño espacio entre las letras para que se lea mejor mientras se mueve */
-	}
+	font-size: 24px; 
+	font-weight: 900; 
+	letter-spacing: 2px; 
+}
 
-/* Animación Horizontal (Izquierda -> Derecha) */
 @keyframes mover-izq-der {
 	0% { transform: translateX(0); }
 	100% { transform: translateX(100%); } 
 }
-
 
 /* --- DISEÑO PARA PANTALLAS GRANDES --- */
 @media (min-width: 768px) {
@@ -504,42 +360,30 @@ aside {
 	.ticker-track {
 		background-color:#FFFD99 ;
 		border: solid black;
-		/* Voltea la columna para que el primer mensaje quede en la parte baja de la pista oculta */
 		flex-direction: column-reverse;
-		
-		/* Reseteamos los valores horizontales */
 		right: auto;
 		padding-left: 0;
-		
-		/* Empieza totalmente escondido ARRIBA de la pantalla */
 		bottom: 100%; 
-		
 		gap: 100vh;
-		/* El padding va arriba para crear el espacio vacío del loop final */
 		padding-top: 100vh; 
 		padding-bottom: 0; 
-
 		animation: mover-arriba-abajo 25s linear infinite;
 	}
 
 	.ticker-text {
-		/* El modo vertical-rl por defecto se lee de arriba hacia abajo, así que no necesitamos rotarlo */
 		writing-mode: vertical-rl;
 		transform: none;
 		margin: 0 auto;
 	}
 
-	/* Animación Vertical (Arriba -> Abajo) */
 	@keyframes mover-arriba-abajo {
 		0% { transform: translateY(0); }
-		/* Se mueve hacia abajo el 100% de la longitud total de la pista */
 		100% { transform: translateY(100%); }
 	}
 }
 
 @media (min-width: 992px) {
-
-aside {
+    aside {
 		margin: 15px 30px 10px 0px;
 		width: 40px;
 		height: auto; 
@@ -549,123 +393,82 @@ aside {
 	.ticker-track {
 		background-color:#FFFD99 ;
 		border: solid black 1px;
-		/* Voltea la columna para que el primer mensaje quede en la parte baja de la pista oculta */
 		flex-direction: column-reverse;
-		
-		/* Reseteamos los valores horizontales */
 		right: auto;
 		padding-left: 0;
-		
-		/* Empieza totalmente escondido ARRIBA de la pantalla */
 		bottom: 100%; 
-		
 		gap: 100vh;
-		/* El padding va arriba para crear el espacio vacío del loop final */
 		padding-top: 100vh; 
 		padding-bottom: 0; 
-
 		animation: mover-arriba-abajo 25s linear infinite;
 	}
 
 	.ticker-text {
-		/* El modo vertical-rl por defecto se lee de arriba hacia abajo, así que no necesitamos rotarlo */
 		writing-mode: vertical-rl;
 		transform: none;
 		margin: 0 auto;
 	}
 
-	/* Animación Vertical (Arriba -> Abajo) */
 	@keyframes mover-arriba-abajo {
 		0% { transform: translateY(0); }
-		/* Se mueve hacia abajo el 100% de la longitud total de la pista */
 		100% { transform: translateY(100%); }
 	}
-
 }
 
-
 /*4.BOX SOCIAL*/
-
-.box-socialmedia{
+.box-socialmedia {
 	margin: 0px 30px 10px 30px;
 	border: 5px solid black;
 	box-sizing: border-box;
-
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
 	align-content: center;
-
 }
 
 .social-face,
 .social-insta,
 .social-tiktok,
 .social-messege { 
-	flex: 1; /* ¡MAGIA PURA! Esto hace que ocupen todo el espacio disponible equitativamente */
-
+	flex: 1; 
 	margin: 2px;
 	border: 5px solid black;
 	box-sizing: border-box;
-
-
 	display: flex;
 	justify-content: center; 
 	align-items: center;     
 }
 
-
-/*.social-messege, 
-.box-socialmedia div {
-    -webkit-tap-highlight-color: transparent;
-}*/
-	
-
 .social-face > img,
 .social-insta > img,
 .social-tiktok > img,
-.social-messege > p{
-
+.social-messege > p {
 	font-size: 14px;
 	height: 30px;
 	width:50px;
 	position: center;
 }
 
-
-.box-socialmedia a{background-color: white}
-.box-socialmedia a {transition: background-color 0.2s ease, fill 0.2s ease;transition: transform 0.1s ease;}
-.box-socialmedia a img {transition: filter 0.2s ease;transition: color 0.2s ease;}
+.box-socialmedia a { background-color: white }
+.box-socialmedia a { transition: background-color 0.2s ease, fill 0.2s ease; transition: transform 0.1s ease; }
+.box-socialmedia a img { transition: filter 0.2s ease; transition: color 0.2s ease; }
     
-.box-socialmedia div {background-color: var(--accent-color);transition: transform 0.1s ease;}
-.box-socialmedia div p {color: black;transition: color 0.2s ease;}
+.box-socialmedia div { background-color: var(--accent-color); transition: transform 0.1s ease; }
+.box-socialmedia div p { color: black; transition: color 0.2s ease; }
 
-    
-/*Aplicamos los estados :active */
-    .box-socialmedia a:active {background-color: var(--accent-color);fill: white;transform: scale(0.95)}
-    .box-socialmedia a:active img {filter: brightness(0) invert(1);}
+.box-socialmedia a:active { background-color: var(--accent-color); fill: white; transform: scale(0.95); }
+.box-socialmedia a:active img { filter: brightness(0) invert(1); }
 
-    /* 4. Efecto al hacer clic en el div */
-    /* Estado normal del botón */
-	.box-socialmedia div {
-	    /* Añadimos una transición rápida para que se anime al bajar y al subir */
-	    transition: transform 0.15s ease-in-out;
-	    cursor: pointer;
-	}
+.box-socialmedia div {
+    transition: transform 0.15s ease-in-out;
+    cursor: pointer;
+}
 
-	.box-socialmedia p {transition: color 0.15s ease-in-out;}
-
-	/* El código que ya tenías (Estado presionado) */
-	.box-socialmedia div:active {transform: scale(0.95);}
-	.box-socialmedia div:active p {color: #FD99FF;}
-	}
-
-
-
+.box-socialmedia p { transition: color 0.15s ease-in-out; }
+.box-socialmedia div:active { transform: scale(0.95); }
+.box-socialmedia div:active p { color: #FD99FF; }
 
 @media (min-width: 768px) {
-    
-    
     .box-socialmedia {
         margin: 0px 15px 10px 30px;
     }
@@ -678,7 +481,6 @@ aside {
         justify-content: center; 
         align-items: center;  
     }
-
     
     .social-face > img,
     .social-insta > img,
@@ -687,157 +489,108 @@ aside {
         font-size: 25px;	
     }
 
-   
-    .box-socialmedia a {transition: background-color 0.2s ease, fill 0.2s ease;transition: transform 0.1s ease;}
-    .box-socialmedia a img {transition: filter 0.2s ease;transition: color 0.2s ease;}
+    .box-socialmedia a { transition: background-color 0.2s ease, fill 0.2s ease; transition: transform 0.1s ease; }
+    .box-socialmedia a img { transition: filter 0.2s ease; transition: color 0.2s ease; }
     
-    .box-socialmedia div {background-color: var(--accent-color);transition: transform 0.1s ease;}
-    .box-socialmedia div p {color: blacl;transition: color 0.2s ease;}
+    .box-socialmedia div { background-color: var(--accent-color); transition: transform 0.1s ease; }
+    .box-socialmedia div p { color: black; transition: color 0.2s ease; }
 
-    
-    /*Aplicamos los estados :active */
-    .box-socialmedia a:active {background-color: var(--accent-color);fill: white;transform: scale(0.95)}
-    .box-socialmedia a:active img {filter: brightness(0) invert(1);}
+    .box-socialmedia a:active { background-color: var(--accent-color); fill: white; transform: scale(0.95); }
+    .box-socialmedia a:active img { filter: brightness(0) invert(1); }
 
-    /* 4. Efecto al hacer clic en el div */
-    /* Estado normal del botón */
 	.box-socialmedia div {
-	    /* Añadimos una transición rápida para que se anime al bajar y al subir */
 	    transition: transform 0.15s ease-in-out;
 	    cursor: pointer;
 	}
 
-	.box-socialmedia p {transition: color 0.15s ease-in-out;}
-
-	/* El código que ya tenías (Estado presionado) */
-	.box-socialmedia div:active {transform: scale(0.95);}
-	.box-socialmedia div:active p {color: #FD99FF;}
-	}
-
-
+	.box-socialmedia p { transition: color 0.15s ease-in-out; }
+	.box-socialmedia div:active { transform: scale(0.95); }
+	.box-socialmedia div:active p { color: #FD99FF; }
+}
 
 @media (min-width: 992px) {
 	.social-face > img,
 	.social-insta > img,
 	.social-tiktok > img,
-	.social-messege > p{
-
+	.social-messege > p {
 		font-size: 20px;
 		height: 25px;
 		width:70px;
 		position: center;
+    }
+
+    .box-socialmedia a::before {
+        content: attr(data-social);
+        position: absolute;
+        background-color: var(--accent-color);
+        color: white;
+        text-decoration: none;
+        padding: 0.5em;
+        border-radius: 100px;
+        box-shadow: 0 5px 10px rgb(0, 0, 0 / 1.0);
+        transform: translateY(-30px) rotate(25deg);
+        opacity: 0;
+        transition: 200ms cubic-bezier(.42,0,.44,1.68);
+    }
+
+    .box-socialmedia a:hover { background-color: var(--accent-color); fill: white; }
+    .box-socialmedia a:hover img { filter: brightness(0) invert(1); }
+    .box-socialmedia div { background-color: var(--accent-color); }
+    .box-socialmedia div p { color: black; }
+    .box-socialmedia div:hover p { color: #FD99FF; transform: scale(1.1); }
+
+    .box-socialmedia a::after {
+        content: '';
+        position: absolute;
+        height: 0;
+        width: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 10px solid var(--accent-color);
+        transform: translateY(0px) rotate(25deg);
+        opacity: 0;
+        transition: 200ms cubic-bezier(.42,0,.44,1.68);
+    }
+
+    .box-socialmedia a:hover::before {
+        transform: translateY(-80px) rotate(0);
+        opacity: 1;
+    }
+
+    .box-socialmedia a:hover::after {
+        transform: translateY(-60px) rotate(0);
+        opacity: 1;
+    }
 }
-
-
-.box-socialmedia a::before{
-	content: attr(data-social);
-	position: absolute;
-	background-color: var(--accent-color);
-	color: white;
-	text-decoration: none;
-	padding: 0.5em;
-	border-radius: 100px;
-	box-shadow: 0 5px 10px rgb(0, 0, 0 / 1.0);
-	transform: translateY(-30px) rotate(25deg);
-	opacity: 0;
-	/*transition: 200ms ease;*/
-	transition: 200ms cubic-bezier(.42,0,.44,1.68);
-
-}
-
-.box-socialmedia a:hover{background-color: var(--accent-color);	fill: white;}
-.box-socialmedia a:hover img {filter: brightness(0) invert(1);}
-.box-socialmedia div {background-color: var(--accent-color);}
-.box-socialmedia div p{color: black;}
-.box-socialmedia div:hover p{color: #FD99FF;transform: scale(1.1);}
-
-
-.box-socialmedia a::after{
-	content: '';
-	position: absolute;
-	height: 0;
-	width: 0;
-	border-left: 8px solid transparent;
-	border-right: 8px solid transparent;
-	border-top: 10px solid var(--accent-color);
-	transform: translateY(0px) rotate(25deg);
-	opacity: 0;
-	/*transition: 200ms ease;*/
-	transition: 200ms cubic-bezier(.42,0,.44,1.68);
-}
-
-
-.box-socialmedia a:hover::before{
-	transform: translateY(-80px) rotate(0);
-	opacity: 1;
-}
-
-.box-socialmedia a:hover::after{
-	transform: translateY(-60px) rotate(0);
-	opacity: 1;
-}
-
-}
-
 
 /*4.BOX FOOTER*/
-
-.box-footer{
+.box-footer {
 	background-color: #CEFF99;
 	border: 5px solid black;
 	font-size: 20px;
 	height: 50px;
-
 	display: flex;
 	justify-content: space-between;
 }
 
-
 .box-footer  > p,
-.box-footer  > a{
-
+.box-footer  > a {
 	margin: 0 10px 0 10px;
 	display: flex;
 	align-items: center;
 }
 
-.box-footer  > a:hover{
+.box-footer  > a:hover {
 	color: #FD99FF;
 }
-
-@media (min-width: 992px) {
-
-
-
-
 
 /* =========================================
    DESKTOP ONLY (Big screen + Real Mouse)
    ========================================= */
 @media (min-width: 992px) and (hover: hover) and (pointer: fine) {
-    
-    /* HIDE THE CLOSE BUTTON ON DESKTOP */
     .overlay-menu .close-btn {
         display: none;
     }
-
-    /* Push menus down further for desktop header */
     #main-nav-menu { top: 190px; left: 45px; }
     #cart-nav-menu { top: 190px; right: 45px; }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

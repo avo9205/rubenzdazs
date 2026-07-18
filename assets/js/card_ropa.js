@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const contenedorProductos = document.getElementById('contenedor-productos');
-    const btnCargarMas = document.getElementById('btn-cargar-mas');
+    const loadMoreContainer = document.getElementById('load-more-container');
     
     window.catalogoActual = []; 
-    window.paginaActual = 1;
-    const ITEMS_POR_PAGINA = 12; 
     let categoriasDisponibles = [];
 
     async function inicializarTienda() {
@@ -45,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const dataArrays = await Promise.all(responses.map(res => res.json()));
 
             window.catalogoActual = dataArrays.flatMap(data => data.catalogo || []);
-            window.paginaActual = 1;
             if(contenedorProductos) contenedorProductos.innerHTML = '';
             
             renderizarPagina();
@@ -56,32 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function renderizarPagina() {
-        const inicio = (window.paginaActual - 1) * ITEMS_POR_PAGINA;
-        const fin = inicio + ITEMS_POR_PAGINA;
-        const productosPagina = window.catalogoActual.slice(inicio, fin);
-
-        if (productosPagina.length === 0 && window.paginaActual === 1) {
+        if (window.catalogoActual.length === 0) {
             if(contenedorProductos) contenedorProductos.innerHTML = '<p style="padding:20px; font-weight:900;">No hay prendas en este drop.</p>';
-            if(btnCargarMas) btnCargarMas.style.display = 'none';
+            if(loadMoreContainer) loadMoreContainer.style.display = 'none';
             return;
         }
 
-        window.renderizarTarjetasHTML(productosPagina);
+        // Renderizamos TODO el catálogo sin límites
+        window.renderizarTarjetasHTML(window.catalogoActual);
 
-        if (btnCargarMas) {
-            if (fin >= window.catalogoActual.length) {
-                btnCargarMas.style.display = 'none';
-            } else {
-                btnCargarMas.style.display = 'block';
-            }
+        // Ocultamos el botón "Cargar Más" porque ya se muestra todo
+        if (loadMoreContainer) {
+            loadMoreContainer.style.display = 'none'; 
         }
-    }
-
-    if (btnCargarMas) {
-        btnCargarMas.addEventListener('click', () => {
-            window.paginaActual++;
-            renderizarPagina();
-        });
     }
 
     function generarBotonesFiltro(categorias) {
@@ -261,7 +245,8 @@ window.cambiarColorPrenda = function(idDiseno, imagenesStr) {
 
     const nuevasImagenes = imagenesStr.split(',');
     
-    track.innerHTML = nuevasImagenes.map(img => `<img src="${img}" alt="Prenda Variante">`).join('');
+    // El loading="lazy" ayuda a que no se cuelgue al cargar todas las camisetas de golpe.
+    track.innerHTML = nuevasImagenes.map(img => `<img src="${img}" alt="Prenda Variante" loading="lazy">`).join('');
     track.dataset.index = 0;
     track.dataset.total = nuevasImagenes.length;
     track.style.transform = `translateX(0%)`; 
@@ -340,11 +325,9 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
         imagen: primeraImagen
     };
 
-    // ----- INYECCIÓN DE ANALÍTICAS GTM (AÑADIR AL CARRITO) -----
     if (typeof window.rastrearAñadirCarrito === 'function') {
         window.rastrearAñadirCarrito(nuevoItem);
     }
-    // -------------------------------------------------------------
 
     let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
 
@@ -367,7 +350,6 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
         window.actualizarCarritoGlobal();
     }
 
-    // Pasamos el evento para que la burbuja sepa de dónde salir
     if (typeof window.animarIconoCarrito === 'function') {
         window.animarIconoCarrito(event);
     }
@@ -399,13 +381,27 @@ window.irAlDetalle = function(event, idDiseno) {
     const tallaInput = document.querySelector(`input[name="talla-${idDiseno}"]:checked`);
     const tallaSeleccionada = tallaInput ? tallaInput.value : '';
 
-    // ----- INYECCIÓN DE ANALÍTICAS GTM (VER PRODUCTO) -----
     const diseno = window.catalogoActual.find(d => d.id === idDiseno);
     if (diseno && typeof window.rastrearVerProducto === 'function') {
         window.rastrearVerProducto(idDiseno, diseno.titulo, tipoPrenda);
     }
-    // --------------------------------------------------------
 
     const urlDestino = `detalle_producto.html?id=${idDiseno}&tipo=${tipoPrenda}&color=${colorIndex}&talla=${tallaSeleccionada}`;
     setTimeout(() => window.location.href = urlDestino, 150); 
+};
+
+// ---- FUNCIÓN INFALIBLE PARA AGRANDAR/REDUCIR TARJETAS ----
+window.alternarVista = function() {
+    const grid = document.getElementById('contenedor-productos');
+    const btn = document.getElementById('view-toggle-btn');
+    
+    if (grid && btn) {
+        grid.classList.toggle('single-view');
+        
+        if (grid.classList.contains('single-view')) {
+            btn.innerText = "Ver Varias ⊞";
+        } else {
+            btn.innerText = "Ver Una ⊟";
+        }
+    }
 };
