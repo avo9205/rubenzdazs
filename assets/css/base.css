@@ -1,27 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-html, body {
+html {
     overscroll-behavior-y: none;
+    height: 100%;
 }
 
 body {
-	font-family: "Roboto", sans-serif;
-	font-size: 1.2rem;
-	min-height: 100vh;
-	padding: 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    /* Forzar que el body ocupe al menos la pantalla */
+    min-height: -webkit-fill-available;
 }
 
 body::before {
     content: "";
-    position: fixed; /* Mantiene el marco pegado a la pantalla */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    border: 15px solid black; /* Un poco más grueso para que destaque */
-    z-index: 9999; /* Asegura que el borde esté por encima de las fotos y textos */
-    pointer-events: none; /* Magia pura: permite hacer clic a través del borde si hay un botón cerca */
+    border: 15px solid black;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Para mantener el padding correcto en móviles */
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
 }
 
 body {
