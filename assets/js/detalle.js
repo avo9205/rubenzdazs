@@ -13,9 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let productoActual = null;
     
     // ==========================================
-    // POPUP (ZOOM) DE LA IMAGEN PRINCIPAL con Bloqueo de Scroll
+    // POPUP (ZOOM) DE LA IMAGEN PRINCIPAL
     // ==========================================
-    
     const imageModalHTML = `
         <div id="image-zoom-modal" class="modal-overlay hidden" style="z-index: 10000; background: rgba(0,0,0,0.9);">
             <span id="close-zoom-modal" class="btn-close-image" title="Cerrar">&times;</span>
@@ -84,6 +83,31 @@ document.addEventListener('DOMContentLoaded', () => {
         errorDiv.innerText = mensaje;
     }
 
+    // ==========================================
+    // FUNCIÓN PARA ACTUALIZAR EL ENLACE EN VIVO
+    // ==========================================
+    function actualizarURL() {
+        if (!productoActual) return;
+
+        const tipoSeleccionado = document.querySelector('input[name="detail-tipo"]:checked');
+        const tipo = tipoSeleccionado ? tipoSeleccionado.value : '';
+
+        const tallaSeleccionada = document.querySelector('input[name="detail-talla"]:checked');
+        const talla = tallaSeleccionada ? tallaSeleccionada.value : '';
+
+        const colorSeleccionado = document.querySelector('input[name="detail-color"]:checked');
+        const color = colorSeleccionado ? colorSeleccionado.value : 0; 
+
+        const url = new URL(window.location);
+        url.searchParams.set('id', productoActual.id);
+        if (tipo) url.searchParams.set('tipo', tipo);
+        if (color !== '') url.searchParams.set('color', color);
+        if (talla) url.searchParams.set('talla', talla);
+
+        // Modifica la barra de direcciones de forma silenciosa
+        window.history.replaceState({}, '', url);
+    }
+
     function inicializarInterfaz() {
         document.getElementById('detail-title').innerText = productoActual.titulo;
         document.getElementById('detail-ref').innerText = `REF: ${productoActual.id}`;
@@ -97,11 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
             tipoInicial = urlTipo;
         }
 
-        // ----- INYECCIÓN DE ANALÍTICAS GTM (1. VER PRODUCTO) -----
+        // ----- INYECCIÓN DE ANALÍTICAS GTM -----
         if (typeof window.rastrearVerProducto === 'function') {
             window.rastrearVerProducto(productoActual.id, productoActual.titulo, tipoInicial);
         }
-        // --------------------------------------------------------
 
         let tiposHtml = '';
         tiposDisponibles.forEach((tipo) => {
@@ -115,7 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('detail-types').innerHTML = tiposHtml;
 
         document.querySelectorAll('input[name="detail-tipo"]').forEach(radio => {
-            radio.addEventListener('change', (e) => actualizarVistaVariacion(e.target.value, false));
+            radio.addEventListener('change', (e) => {
+                actualizarVistaVariacion(e.target.value, false);
+                actualizarURL();
+            });
         });
 
         actualizarVistaVariacion(tipoInicial, true);
@@ -154,6 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.getElementById('detail-sizes').innerHTML = tallasHtml;
 
+        document.querySelectorAll('input[name="detail-talla"]').forEach(radio => {
+            radio.addEventListener('change', () => actualizarURL());
+        });
+
         let coloresHtml = '';
         detallesVariacion.colores_disponibles.forEach((color, index) => {
             let isChecked = index === 0 ? 'checked' : '';
@@ -173,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const colorSeleccionado = detallesVariacion.colores_disponibles[e.target.value];
                 document.getElementById('color-label-name').innerText = colorSeleccionado.nombre;
                 actualizarGaleria(colorSeleccionado.imagenes);
+                actualizarURL(); 
             });
         });
 
@@ -191,6 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (colorInputChecked) {
             colorInputChecked.dispatchEvent(new Event('change'));
         }
+        
+        actualizarURL();
     }
 
     function actualizarGaleria(imagenes) {
@@ -252,8 +285,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let colorInputChecked = document.querySelector('input[name="detail-color"]:checked') || document.querySelector('input[name="detail-color"]');
         let colorFinal = 'Único';
+        let colorIndexSaved = 0; 
+        
         if (colorInputChecked && productoActual.variaciones[tipo]) {
             const indexColor = parseInt(colorInputChecked.value);
+            colorIndexSaved = indexColor;
             if(!isNaN(indexColor) && productoActual.variaciones[tipo].colores_disponibles[indexColor]) {
                 colorFinal = productoActual.variaciones[tipo].colores_disponibles[indexColor].nombre;
             }
@@ -271,16 +307,16 @@ document.addEventListener('DOMContentLoaded', () => {
             tipo: tipo,
             talla: talla,
             color: colorFinal,
+            colorIndex: colorIndexSaved, 
             precio: precioAplicable,
             cantidad: cantidad,
             imagen: imagenPrincipal
         };
 
-        // ----- INYECCIÓN DE ANALÍTICAS GTM (2. AÑADIR AL CARRITO) -----
+        // ----- INYECCIÓN DE ANALÍTICAS GTM -----
         if (typeof window.rastrearAñadirCarrito === 'function') {
             window.rastrearAñadirCarrito(nuevoItem);
         }
-        // -----------------------------------------------------------
 
         let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
 
@@ -328,14 +364,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const talla = tallaSeleccionada ? tallaSeleccionada.value : 'Única';
 
         const color = document.getElementById('color-label-name').innerText || 'No especificado';
-        const linkProducto = window.location.href;
+        
+        // Ahora window.location.href SIEMPRE tendrá la URL actualizada
+        const linkProducto = window.location.href; 
 
-        // ----- INYECCIÓN DE ANALÍTICAS GTM (3. INICIO DE COMPRA - WHATSAPP) -----
+        // ----- INYECCIÓN DE ANALÍTICAS GTM -----
         const preciosVariante = productoActual.variaciones[tipo].precios_y_descuentos;
         const precioAplicable = preciosVariante.tiene_descuento ? preciosVariante.precio_final : preciosVariante.precio_regular;
         
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ ecommerce: null }); // Limpiar 
+        window.dataLayer.push({ ecommerce: null }); 
         window.dataLayer.push({
             event: 'begin_checkout', 
             ecommerce: {
@@ -352,7 +390,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }]
             }
         });
-        // ----------------------------------------------------------------
 
         const mensaje = `¡Hola RubenzDazs! 🔥 Estoy interesado en comprar directo:\n\n` +
                         `🛍️ *Producto:* ${titulo}\n` +

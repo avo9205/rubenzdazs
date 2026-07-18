@@ -1,28 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-
-
     // =============================================
-    // 🔥 AÑADE ESTO AQUÍ (al principio de todo)
+    // 🔥 INICIALIZAR SESIÓN DE CARRITO
     // =============================================
     function inicializarSesionCarrito() {
         const sessionId = sessionStorage.getItem('rubenzSessionId');
         
         if (!sessionId) {
             // El navegador se acaba de abrir -> borrar carrito
-            localStorage.removeItem('rubenzCart');
+            // localStorage.removeItem('rubenzCart'); // Descomentar si quieres vaciarlo cada vez que entran
             sessionStorage.setItem('rubenzSessionId', Date.now().toString());
-            console.log('🔄 Nueva sesión - Carrito borrado');
+            console.log('🔄 Nueva sesión - Carrito iniciado');
         }
     }
     
     inicializarSesionCarrito();
 
-
-
-
-
-    
     const menuBtn = document.getElementById('menu-btn');
     const cartBtn = document.getElementById('cart-btn');
     const mainNav = document.getElementById('main-nav-menu');
@@ -98,7 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================
     // LÓGICA DEL CARRITO DE COMPRAS
+    // ==========================================
     const formatoMoneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 });
     let destinoEnvio = 'bogota';
 
@@ -132,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const itemTotal = item.precio * item.cantidad;
             subtotal += itemTotal;
 
-            // HTML ACTUALIZADO SEGÚN TU DIBUJO "TARJETA.PNG"
             cartHtml += `
                 <div class="cart-item">
                     <img src="${item.imagen}" alt="${item.titulo}" class="cart-item-img">
@@ -279,12 +273,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     }
 
-   // ENVÍO DE PEDIDO A WHATSAPP
+    // ==========================================
+    // ENVÍO DE PEDIDO A WHATSAPP
+    // ==========================================
     window.enviarPedidoWhatsApp = function(totalFinal, costoEnvio) {
         let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || []; 
         const numeroWhatsApp = "573002535381"; 
         
-        // --- INYECCIÓN DE ANALÍTICAS GTM (CHECKOUT DESDE EL CARRITO) ---
+        // --- INYECCIÓN DE ANALÍTICAS GTM ---
         if (carrito.length > 0) {
             let itemsAnalytics = carrito.map(item => ({
                 item_id: item.id,
@@ -316,16 +312,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const urlSitio = dominioBase + rutaBaseUrl;
 
         carrito.forEach((item, index) => {
-            // NUEVO FORMATO DE ENLACE APLICADO
-            // Usamos encodeURIComponent por si el color o la talla tienen espacios (ej: "Gris Jaspeado")
-            const enlaceProducto = `${urlSitio}/detalle_producto.html?id=${item.id}&tipo=${encodeURIComponent(item.tipo)}&color=${encodeURIComponent(item.color)}&talla=${encodeURIComponent(item.talla)}`;
+            const colorIndex = item.colorIndex !== undefined ? item.colorIndex : 0; 
+            const enlaceProducto = `${urlSitio}/detalle_producto.html?id=${item.id}&tipo=${encodeURIComponent(item.tipo)}&color=${colorIndex}&talla=${encodeURIComponent(item.talla)}`;
 
-            mensaje += `🛍️ *Item ${index + 1}:* ${item.titulo}\n`;
-            mensaje += `🔖 *Ref:* ${item.id}\n`;
-            mensaje += `🔗 *Enlace:* ${enlaceProducto}\n`;
-            mensaje += `👕 *Variante:* ${item.tipo.toUpperCase()} | Talla: ${item.talla} | Color: ${item.color}\n`;
+            mensaje += `🛍️ *Producto:* ${item.titulo}\n`;
+            mensaje += `🔖 *Referencia:* ${item.id}\n`;
+            mensaje += `👕 *Tipo:* ${item.tipo.toUpperCase()}\n`;
+            mensaje += `📏 *Talla:* ${item.talla}\n`;
+            mensaje += `🎨 *Color:* ${item.color}\n`;
             mensaje += `📦 *Cantidad:* ${item.cantidad}\n`;
-            mensaje += `💵 *Precio Unitario:* ${formatoMoneda.format(item.precio)}\n`;
+            mensaje += `💵 *Precio Unitario:* ${formatoMoneda.format(item.precio)}\n\n`;
+            mensaje += `🔗 *Enlace:* ${enlaceProducto}\n`;
             mensaje += `---------------------------\n`;
         });
 
@@ -334,12 +331,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         mensaje += `\n📍 *Envío a:* ${zonaEnvio} (${textoEnvio})\n`;
         mensaje += `💰 *TOTAL A PAGAR:* ${formatoMoneda.format(totalFinal)}\n\n`;
-        mensaje += `¿Me indican los métodos de pago disponibles?`;
+        mensaje += `¿Me podrían confirmar: Costos de envio, Disponibilidad y Los métodos de pago?`;
 
         const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
         window.open(urlWhatsApp, '_blank');
     };
-    
 
     renderizarCarrito();
 });
