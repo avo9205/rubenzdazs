@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const sessionId = sessionStorage.getItem('rubenzSessionId');
         
         if (!sessionId) {
-            // El navegador se acaba de abrir -> borrar carrito
-            // localStorage.removeItem('rubenzCart'); // Descomentar si quieres vaciarlo cada vez que entran
+            // Nueva sesión - Limpiar carrito antiguo
+            localStorage.removeItem('rubenzCart');
             sessionStorage.setItem('rubenzSessionId', Date.now().toString());
-            console.log('🔄 Nueva sesión - Carrito iniciado');
+            console.log('🔄 Nueva sesión - Carrito reiniciado');
         }
     }
     
@@ -92,6 +92,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
+    // 🗑️ LIMPIAR CARRITO AL CERRAR LA PÁGINA
+    // ==========================================
+    function limpiarCarritoAlSalir() {
+        // Opción 1: Limpiar cuando se cierra la pestaña/navegador
+        window.addEventListener('beforeunload', function() {
+            localStorage.removeItem('rubenzCart');
+            console.log('🧹 Carrito limpiado al salir de la página');
+        });
+
+        // Opción 2: Limpiar cuando se recarga la página (opcional)
+        // Descomentar si quieres que se borre también al recargar
+        /*
+        window.addEventListener('unload', function() {
+            localStorage.removeItem('rubenzCart');
+        });
+        */
+    }
+
+    limpiarCarritoAlSalir();
+
+    // ==========================================
+    // 🛒 USAR sessionStorage como respaldo (opcional)
+    // ==========================================
+    // Esta función guarda una copia del carrito en sessionStorage
+    // para recuperarlo si la página se recarga accidentalmente
+    function guardarCopiaEnSesion() {
+        const carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
+        if (carrito.length > 0) {
+            sessionStorage.setItem('rubenzCartBackup', JSON.stringify(carrito));
+        }
+    }
+
+    // Recuperar carrito de sessionStorage si localStorage está vacío
+    function recuperarCarritoDeSesion() {
+        const carritoLocal = localStorage.getItem('rubenzCart');
+        if (!carritoLocal || carritoLocal === '[]') {
+            const carritoBackup = sessionStorage.getItem('rubenzCartBackup');
+            if (carritoBackup) {
+                localStorage.setItem('rubenzCart', carritoBackup);
+                sessionStorage.removeItem('rubenzCartBackup');
+                console.log('♻️ Carrito recuperado de sessionStorage');
+            }
+        }
+    }
+
+    // Ejecutar recuperación al cargar la página
+    recuperarCarritoDeSesion();
+
+    // ==========================================
     // LÓGICA DEL CARRITO DE COMPRAS
     // ==========================================
     const formatoMoneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 });
@@ -99,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.actualizarCarritoGlobal = function() {
         renderizarCarrito(); 
+        guardarCopiaEnSesion(); // Guardar copia de seguridad
     };
 
     function renderizarCarrito() {
@@ -198,6 +248,9 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         cartContainer.innerHTML = cartHtml;
+        
+        // Guardar copia en sessionStorage después de renderizar
+        guardarCopiaEnSesion();
     }
 
     window.cambiarCantidad = function(index, delta) {
@@ -276,69 +329,71 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // ENVÍO DE PEDIDO A WHATSAPP
     // ==========================================
-   // En carrito.js - Función de WhatsApp
+    window.enviarPedidoWhatsApp = function(totalFinal, costoEnvio) {
+        let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
+        const numeroWhatsApp = "573002535381";
 
-window.enviarPedidoWhatsApp = function(totalFinal, costoEnvio) {
-    let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
-    const numeroWhatsApp = "573002535381";
+        // --- INYECCIÓN DE ANALÍTICAS GTM ---
+        if (carrito.length > 0) {
+            let itemsAnalytics = carrito.map(item => ({
+                item_id: item.id,
+                item_name: item.titulo,
+                item_category: item.tipo,
+                item_variant: item.color,
+                price: item.precio,
+                quantity: item.cantidad,
+                item_size: item.talla
+            }));
 
-    // --- INYECCIÓN DE ANALÍTICAS GTM ---
-    if (carrito.length > 0) {
-        let itemsAnalytics = carrito.map(item => ({
-            item_id: item.id,
-            item_name: item.titulo,
-            item_category: item.tipo,
-            item_variant: item.color,
-            price: item.precio,
-            quantity: item.cantidad,
-            item_size: item.talla
-        }));
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ ecommerce: null });
+            window.dataLayer.push({
+                event: 'begin_checkout',
+                ecommerce: {
+                    currency: 'COP',
+                    value: totalFinal,
+                    items: itemsAnalytics
+                }
+            });
+        }
+        // ---------------------------------------------------------------
 
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ ecommerce: null });
-        window.dataLayer.push({
-            event: 'begin_checkout',
-            ecommerce: {
-                currency: 'COP',
-                value: totalFinal,
-                items: itemsAnalytics
-            }
+        let mensaje = `¡Hola RubenzDazs! 🔥 Vengo del carrito de compras y quiero confirmar el siguiente pedido:\n\n`;
+
+        const dominioBase = window.location.origin;
+        let rutaBaseUrl = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+        const urlSitio = dominioBase + rutaBaseUrl;
+
+        carrito.forEach((item) => {
+            const colorIndex = item.colorIndex !== undefined ? item.colorIndex : 0;
+            
+            const enlaceProducto = `${urlSitio}/detalle_producto.html?id=${item.id}&tipo=${encodeURIComponent(item.tipo)}&color=${colorIndex}&talla=${encodeURIComponent(item.talla)}`;
+
+            mensaje += `🛍️ *Producto:* ${item.titulo}\n`;
+            mensaje += `🔖 *Referencia:* ${item.id}\n`;
+            mensaje += `👕 *Tipo:* ${item.tipo.toUpperCase()}\n`;
+            mensaje += `📏 *Talla:* ${item.talla}\n`;
+            mensaje += `🎨 *Color:* ${item.color}\n`;
+            mensaje += `📦 *Cantidad:* ${item.cantidad}\n`;
+            mensaje += `💵 *Precio Unitario:* ${formatoMoneda.format(item.precio)}\n`;
+            mensaje += `🔗 *Enlace:* ${enlaceProducto}\n`;
+            mensaje += `---------------------------\n`;
         });
-    }
-    // ---------------------------------------------------------------
 
-    let mensaje = `¡Hola RubenzDazs! 🔥 Vengo del carrito de compras y quiero confirmar el siguiente pedido:\n\n`;
+        const zonaEnvio = destinoEnvio === 'bogota' ? 'Bogotá' : 'Nacional';
+        const textoEnvio = costoEnvio === 0 ? '¡GRATIS!' : formatoMoneda.format(costoEnvio);
 
-    const dominioBase = window.location.origin;
-    let rutaBaseUrl = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-    const urlSitio = dominioBase + rutaBaseUrl;
+        mensaje += `\n📍 *Envío a:* ${zonaEnvio} (${textoEnvio})\n`;
+        mensaje += `💰 *TOTAL A PAGAR:* ${formatoMoneda.format(totalFinal)}\n\n`;
+        mensaje += `¿Me podrían confirmar: Costos de envio, Disponibilidad y Los métodos de pago?`;
 
-    carrito.forEach((item) => {
-        // Usar el colorIndex guardado en el carrito, o 0 si no existe
-        const colorIndex = item.colorIndex !== undefined ? item.colorIndex : 0;
+        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+        window.open(urlWhatsApp, '_blank');
         
-        const enlaceProducto = `${urlSitio}/detalle_producto.html?id=${item.id}&tipo=${encodeURIComponent(item.tipo)}&color=${colorIndex}&talla=${encodeURIComponent(item.talla)}`;
-
-        mensaje += `🛍️ *Producto:* ${item.titulo}\n`;
-        mensaje += `🔖 *Referencia:* ${item.id}\n`;
-        mensaje += `👕 *Tipo:* ${item.tipo.toUpperCase()}\n`;
-        mensaje += `📏 *Talla:* ${item.talla}\n`;
-        mensaje += `🎨 *Color:* ${item.color}\n`;
-        mensaje += `📦 *Cantidad:* ${item.cantidad}\n`;
-        mensaje += `💵 *Precio Unitario:* ${formatoMoneda.format(item.precio)}\n`;
-        mensaje += `🔗 *Enlace:* ${enlaceProducto}\n`;
-        mensaje += `---------------------------\n`;
-    });
-
-    const zonaEnvio = destinoEnvio === 'bogota' ? 'Bogotá' : 'Nacional';
-    const textoEnvio = costoEnvio === 0 ? '¡GRATIS!' : formatoMoneda.format(costoEnvio);
-
-    mensaje += `\n📍 *Envío a:* ${zonaEnvio} (${textoEnvio})\n`;
-    mensaje += `💰 *TOTAL A PAGAR:* ${formatoMoneda.format(totalFinal)}\n\n`;
-    mensaje += `¿Me podrían confirmar: Costos de envio, Disponibilidad y Los métodos de pago?`;
-
-    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-    window.open(urlWhatsApp, '_blank');
-};
+        // Opcional: Limpiar el carrito después de enviar el pedido
+        // localStorage.removeItem('rubenzCart');
+        // renderizarCarrito();
+    };
+    
     renderizarCarrito();
 });
