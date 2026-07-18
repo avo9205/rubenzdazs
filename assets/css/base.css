@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-<style>
-</style>
 
 body {
 	font-family: "Roboto", sans-serif;
@@ -322,6 +320,7 @@ aside {
 	align-items: center;
 }
 
+/* MODIFICADO: Ticker para Celular (Derecha a Izquierda) */
 .ticker-track {
 	background-color:#FFFD99 ;
 	border: solid black;
@@ -329,12 +328,12 @@ aside {
 	position: absolute;
 	white-space: nowrap;
 	
-	flex-direction: row-reverse; 
-	right: 100%; 
+	flex-direction: row; 
+	left: 100%; 
 	gap: 100vw; 
-	padding-left: 100vw; 
+	padding-right: 100vw; 
 
-	animation: mover-izq-der 20s linear infinite;
+	animation: mover-der-izq 15s linear infinite;
 }
 
 .ticker-text {
@@ -344,9 +343,9 @@ aside {
 	letter-spacing: 2px; 
 }
 
-@keyframes mover-izq-der {
+@keyframes mover-der-izq {
 	0% { transform: translateX(0); }
-	100% { transform: translateX(100%); } 
+	100% { transform: translateX(-100%); } 
 }
 
 /* --- DISEÑO PARA PANTALLAS GRANDES --- */
@@ -357,28 +356,28 @@ aside {
 		justify-content: center;
 	}
 
+    /* MODIFICADO: Ticker para Tablet (Sube de Abajo hacia Arriba) */
 	.ticker-track {
 		background-color:#FFFD99 ;
 		border: solid black;
-		flex-direction: column-reverse;
-		right: auto;
-		padding-left: 0;
-		bottom: 100%; 
+		flex-direction: column;
+		top: 100%; /* Arranca debajo del marco visible */
+		left: auto;
 		gap: 100vh;
-		padding-top: 100vh; 
-		padding-bottom: 0; 
-		animation: mover-arriba-abajo 25s linear infinite;
+		padding-bottom: 100vh; /* Permite que el último mensaje termine de subir */
+		padding-right: 0;
+		animation: mover-arriba 15s linear infinite;
 	}
 
 	.ticker-text {
-		writing-mode: vertical-rl;
-		transform: none;
+		writing-mode: vertical-rl; /* Letras verticales */
+		transform: none; /* Sin voltear para que se lea como créditos de película */
 		margin: 0 auto;
 	}
 
-	@keyframes mover-arriba-abajo {
-		0% { transform: translateY(0); }
-		100% { transform: translateY(100%); }
+	@keyframes mover-arriba {
+		0% { transform: translateY(0); } /* Comienza en su posición inicial (abajo) */
+		100% { transform: translateY(-100%); } /* Sube todo su propio tamaño */
 	}
 }
 
@@ -390,17 +389,17 @@ aside {
 		justify-content: center;
 	}
 
+    /* MODIFICADO: Ticker para PC (Sube de Abajo hacia Arriba) */
 	.ticker-track {
 		background-color:#FFFD99 ;
 		border: solid black 1px;
-		flex-direction: column-reverse;
-		right: auto;
-		padding-left: 0;
-		bottom: 100%; 
+		flex-direction: column;
+		top: 100%; /* Arranca debajo del marco visible */
+		left: auto;
 		gap: 100vh;
-		padding-top: 100vh; 
-		padding-bottom: 0; 
-		animation: mover-arriba-abajo 25s linear infinite;
+		padding-bottom: 100vh; /* Permite que el último mensaje termine de subir */
+		padding-right: 0;
+		animation: mover-arriba 15s linear infinite;
 	}
 
 	.ticker-text {
@@ -409,9 +408,9 @@ aside {
 		margin: 0 auto;
 	}
 
-	@keyframes mover-arriba-abajo {
+	@keyframes mover-arriba {
 		0% { transform: translateY(0); }
-		100% { transform: translateY(100%); }
+		100% { transform: translateY(-100%); }
 	}
 }
 
