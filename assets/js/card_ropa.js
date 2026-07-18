@@ -293,6 +293,7 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
 
     let colorInput = document.querySelector(`input[name="color-${idDiseno}"]:checked`) || document.querySelector(`input[name="color-${idDiseno}"]`);
     let color = 'Único';
+    let colorIndex = 0; // <<<<<<<<<<<< NUEVO: Inicializar colorIndex
     
     const detalles = diseno.variaciones[tipoPrenda];
     
@@ -301,8 +302,14 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
         const indexColor = parseInt(idParts[idParts.length - 1]);
         if (!isNaN(indexColor) && detalles.colores_disponibles[indexColor]) {
             color = detalles.colores_disponibles[indexColor].nombre;
+            colorIndex = indexColor; // <<<<<<<<<<<< NUEVO: Guardar el índice
         } else {
-            color = colorInput.value; 
+            color = colorInput.value;
+            // Buscar el índice del color en el array de colores disponibles
+            if (detalles.colores_disponibles) {
+                const foundIndex = detalles.colores_disponibles.findIndex(c => c.nombre === color);
+                colorIndex = foundIndex !== -1 ? foundIndex : 0;
+            }
         }
     }
 
@@ -314,12 +321,14 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
     const track = document.getElementById(`track-${idDiseno}`);
     const primeraImagen = track.querySelector('img') ? track.querySelector('img').src : '';
 
+    // Crear el item del carrito con colorIndex
     const nuevoItem = {
         id: diseno.id,
         titulo: diseno.titulo,
         tipo: tipoPrenda,
         talla: talla,
         color: color,
+        colorIndex: colorIndex, // <<<<<<<<<<<< NUEVO: Guardar el índice del color
         precio: precioAplicable,
         cantidad: 1, 
         imagen: primeraImagen
@@ -340,6 +349,8 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
 
     if (indexExistente !== -1) {
         carrito[indexExistente].cantidad += nuevoItem.cantidad;
+        // Asegurar que el colorIndex se actualice si el producto ya existe
+        carrito[indexExistente].colorIndex = colorIndex;
     } else {
         carrito.push(nuevoItem);
     }
@@ -386,7 +397,9 @@ window.irAlDetalle = function(event, idDiseno) {
         window.rastrearVerProducto(idDiseno, diseno.titulo, tipoPrenda);
     }
 
-    const urlDestino = `detalle_producto.html?id=${idDiseno}&tipo=${tipoPrenda}&color=${colorIndex}&talla=${tallaSeleccionada}`;
+    // Asegurar que colorIndex sea un número
+    const colorIndexNum = parseInt(colorIndex) || 0;
+    const urlDestino = `detalle_producto.html?id=${idDiseno}&tipo=${tipoPrenda}&color=${colorIndexNum}&talla=${tallaSeleccionada}`;
     setTimeout(() => window.location.href = urlDestino, 150); 
 };
 

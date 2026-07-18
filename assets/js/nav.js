@@ -276,66 +276,69 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // ENVÍO DE PEDIDO A WHATSAPP
     // ==========================================
-    window.enviarPedidoWhatsApp = function(totalFinal, costoEnvio) {
-        let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || []; 
-        const numeroWhatsApp = "573002535381"; 
-        
-        // --- INYECCIÓN DE ANALÍTICAS GTM ---
-        if (carrito.length > 0) {
-            let itemsAnalytics = carrito.map(item => ({
-                item_id: item.id,
-                item_name: item.titulo,
-                item_category: item.tipo,
-                item_variant: item.color,
-                price: item.precio,
-                quantity: item.cantidad,
-                item_size: item.talla
-            }));
+   // En carrito.js - Función de WhatsApp
 
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ ecommerce: null }); 
-            window.dataLayer.push({
-                event: 'begin_checkout', 
-                ecommerce: {
-                    currency: 'COP',
-                    value: totalFinal,
-                    items: itemsAnalytics
-                }
-            });
-        }
-        // ---------------------------------------------------------------
-        
-        let mensaje = `¡Hola RubenzDazs! 🔥 Vengo del carrito de compras y quiero confirmar el siguiente pedido:\n\n`;
-        
-        const dominioBase = window.location.origin;
-        let rutaBaseUrl = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-        const urlSitio = dominioBase + rutaBaseUrl;
+window.enviarPedidoWhatsApp = function(totalFinal, costoEnvio) {
+    let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
+    const numeroWhatsApp = "573002535381";
 
-        carrito.forEach((item, index) => {
-            const colorIndex = item.colorIndex !== undefined ? item.colorIndex : 0; 
-            const enlaceProducto = `${urlSitio}/detalle_producto.html?id=${item.id}&tipo=${encodeURIComponent(item.tipo)}&color=${colorIndex}&talla=${encodeURIComponent(item.talla)}`;
+    // --- INYECCIÓN DE ANALÍTICAS GTM ---
+    if (carrito.length > 0) {
+        let itemsAnalytics = carrito.map(item => ({
+            item_id: item.id,
+            item_name: item.titulo,
+            item_category: item.tipo,
+            item_variant: item.color,
+            price: item.precio,
+            quantity: item.cantidad,
+            item_size: item.talla
+        }));
 
-            mensaje += `🛍️ *Producto:* ${item.titulo}\n`;
-            mensaje += `🔖 *Referencia:* ${item.id}\n`;
-            mensaje += `👕 *Tipo:* ${item.tipo.toUpperCase()}\n`;
-            mensaje += `📏 *Talla:* ${item.talla}\n`;
-            mensaje += `🎨 *Color:* ${item.color}\n`;
-            mensaje += `📦 *Cantidad:* ${item.cantidad}\n`;
-            mensaje += `💵 *Precio Unitario:* ${formatoMoneda.format(item.precio)}\n\n`;
-            mensaje += `🔗 *Enlace:* ${enlaceProducto}\n`;
-            mensaje += `---------------------------\n`;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ ecommerce: null });
+        window.dataLayer.push({
+            event: 'begin_checkout',
+            ecommerce: {
+                currency: 'COP',
+                value: totalFinal,
+                items: itemsAnalytics
+            }
         });
+    }
+    // ---------------------------------------------------------------
 
-        const zonaEnvio = destinoEnvio === 'bogota' ? 'Bogotá' : 'Nacional';
-        const textoEnvio = costoEnvio === 0 ? '¡GRATIS!' : formatoMoneda.format(costoEnvio);
+    let mensaje = `¡Hola RubenzDazs! 🔥 Vengo del carrito de compras y quiero confirmar el siguiente pedido:\n\n`;
 
-        mensaje += `\n📍 *Envío a:* ${zonaEnvio} (${textoEnvio})\n`;
-        mensaje += `💰 *TOTAL A PAGAR:* ${formatoMoneda.format(totalFinal)}\n\n`;
-        mensaje += `¿Me podrían confirmar: Costos de envio, Disponibilidad y Los métodos de pago?`;
+    const dominioBase = window.location.origin;
+    let rutaBaseUrl = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+    const urlSitio = dominioBase + rutaBaseUrl;
 
-        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-        window.open(urlWhatsApp, '_blank');
-    };
+    carrito.forEach((item) => {
+        // Usar el colorIndex guardado en el carrito, o 0 si no existe
+        const colorIndex = item.colorIndex !== undefined ? item.colorIndex : 0;
+        
+        const enlaceProducto = `${urlSitio}/detalle_producto.html?id=${item.id}&tipo=${encodeURIComponent(item.tipo)}&color=${colorIndex}&talla=${encodeURIComponent(item.talla)}`;
 
+        mensaje += `🛍️ *Producto:* ${item.titulo}\n`;
+        mensaje += `🔖 *Referencia:* ${item.id}\n`;
+        mensaje += `👕 *Tipo:* ${item.tipo.toUpperCase()}\n`;
+        mensaje += `📏 *Talla:* ${item.talla}\n`;
+        mensaje += `🎨 *Color:* ${item.color}\n`;
+        mensaje += `📦 *Cantidad:* ${item.cantidad}\n`;
+        mensaje += `💵 *Precio Unitario:* ${formatoMoneda.format(item.precio)}\n`;
+        mensaje += `🔗 *Enlace:* ${enlaceProducto}\n`;
+        mensaje += `---------------------------\n`;
+    });
+
+    const zonaEnvio = destinoEnvio === 'bogota' ? 'Bogotá' : 'Nacional';
+    const textoEnvio = costoEnvio === 0 ? '¡GRATIS!' : formatoMoneda.format(costoEnvio);
+
+    mensaje += `\n📍 *Envío a:* ${zonaEnvio} (${textoEnvio})\n`;
+    mensaje += `💰 *TOTAL A PAGAR:* ${formatoMoneda.format(totalFinal)}\n\n`;
+    mensaje += `¿Me podrían confirmar: Costos de envio, Disponibilidad y Los métodos de pago?`;
+
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    window.open(urlWhatsApp, '_blank');
+};
     renderizarCarrito();
 });
