@@ -1,0 +1,226 @@
+categoria
+[diseño][categoria][id]
+ds-aje-000 	->	ajedrez[aje]
+ds-ani-000 	-> 	anime[ani]
+ds-bnd-000 	-> 	bandas[bnd]
+ds-toon-000 	-> 	cartoons[toon]
+ds-fut-000 	-> 	futbol[fut]
+ds-ori-000 	-> 	originales[ori]
+ds-pel-000 	-> 	peliculas[pel]
+ds-vid-000 	->	videojuegos[vid]
+
+tipo_prenda
+oversize	[ov]
+croptop		[ct]	
+
+posicion
+espalda [e] 	
+frontal [f]
+
+color_camiseta
+marfil 	[m]
+negro	[n]
+verde	[v]
+azul	[a]
+beige	[b]
+
+tono_camiseta
+claro 	[cl]
+oscuro	[os]
+
+
+estampado
+grande[gr]
+bolsillo[bls]
+pecho[p]
+
+nombre_camisetas_base:
+tipo_prenda+-+posicion+-+tono_camiseta+-+color_camiseta+.png
+
+
+diseño:
+categoria+-+posicion+-+tono_camiseta+-+nombre_diseño+-+estamapado.png
+
+
+camiseta_estamapdo:
+nombre_camiseta_base+-+nombre_diseño+.webp
+
+
+teniedo en cuenta esta informacion hay que hacer lo siguiente:
+-nombres_camiseta_base estaran en una carpeta llamada [mockup]
+-los archivos nombre_diseño estaran en una carpeta llamda [diseños]
+-los diseños se pondran sobre las imagenes de los archivos
+nombre_camisetas_bases como si estuvieran estamapadas y se aplicara seegun 
+la siguiente logica:
+	->si el diseño tiene una posicion[e] se colocara sobre 
+	nombre_camisetas_base que contenga una [e] y si tiene una [f]
+	se colocara sobre nombre_camisetas_base que contengan una [f]  
+	->y si el diseño tiene un tono_camiseta igual a nombre_camisetas_base
+	como por ejemplo [os] debe estamparse en los nombre_camisetas_base
+	que tengan [os] ensu nombre o si tiene [cl] tendra la misma logica pero con [cl]
+	->deben cumplirse esas dos condiciones al mismo tiempo
+-despues de ese proceso deberan crear con el nombre de archivos combinando
+nombre_camiseta_base+-+nombre_diseño+.webp
+-con base en la categoria del diseño se creara una carpeta llamada producto y dentro 
+de esa carpeta se guardaran los archivos de camiseta_estamapdo
+y se crearan otras carpetas dentro con el nombre de la categoria al que que 
+tenga el archivo camiseta_estamapdo es decir si el archivo tiene la categoria 
+ds-aje-000 se crara una carpeta llamada [ajedrez] y asi con las demas categorias
+y asi se guardaran los archivos camiseta_estamapdo
+
+-se incremetara un 1 en el id con forme se vayan creando los archivos, si ya hay
+archivos creados con un id mayor, en los poximos id se tomara el id mayo y se 
+le sumara un uno.
+-si la camiseta_estamapdo tiene el mismo nombre_diseño este tendra el mismo numero 
+de [id].
+
+modificacion de json
+-finalizado la creacion de las imagenes se hara lo siguiente de un formato json:
+se tomara la ruta donde se guardaron las camiseta_estamapdo y se hara lo siguiente:
+
+-que uno pueda señalar y modificar la categoria a la cual quiere apuntar
+si es ajedrez, videojuegos etc, es decir buscara la carpeta donde esta la categoria 
+señalada
+
+
+-con base en el nombre camiseta_estamapdo se guardaran la siguiente informacion
+ejemplo si camiseta_estamapdo enn id ira id: [diseño]-[categoria]-[id] 
+en tipo_diseño:[nombre_de_la_categoria] en titulo:[nombre_diseño]
+
+-en variaciones se hara lo siguiente si:
+variacion dice [ov]/[ove] ira dentro de oversize: y crearan y loenaran los siguientes campos
+segun la informacion de camiseta_estamapdo si [ov] tiene [m]creara el color disponible
+que correspoda mas el codigo_hex y guadara dentro de imagenes el colo que corresponda sea que tenga
+[e] o [f] y asi sera para cada color correspondiente a ese diseño.
+- lo mismo se hara para todos que esten dentro de croptop los [ct]/[cte] y se creara e ingresara con 
+base a los colores que tenga 
+
+-que se cree y se añada cada catalogo con base en los diseños camiseta_estamapdo que 
+esten en la carpeta si ya esta creado ese diseño, añadira otro diseño para el catalogo.
+
+-la ruta donde guardara el archivo en imagenes sera assets/img/producto/[Categoria]/
+camiseta_estamapdo
+
+-quiero que los precios y demas datos sean iguales lo relacionado con detalles
+-tambien quiero que al inicio pueda añadir una descripcion_diseño: y que se pueda hacer una lista
+dependiendo la cantidad de decripcion_diseño que se creen por disseño, pero
+si no se llena pues dejara todo en blanco, este cambbio por cada contenido en la lista se plicara
+a diferente diseño que tenga id diferente.
+
+este es el disñeo del json:
+{
+  "tienda": "Catálogo Oficial - RubenzDazs",
+  "moneda_base": "COP",
+  "catalogo": [
+    {
+      "id": "DS-ANI-001",
+      "tipo_diseno": "anime",
+      "titulo": "Ojo de la Noche",
+      "descripcion_diseno": "Inspirado en el trío de ladronas de guante blanco más famoso de la televisión de los 80. Un diseño que captura el sigilo, la elegancia nocturna y la adrenalina del robo perfecto. (Diseño con doble estampado).",
+      "variaciones": {
+        "oversize": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-m_22-claro-centrado.webp",
+                "assets/img/productos/ANIME/oe-m_24-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-n_21-oscuro-centrado.webp",
+                "assets/img/productos/ANIME/oe-n_23-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Verde Oscuro",
+              "codigo_hex": "#013220",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-v_21-oscuro-centrado.webp",
+                "assets/img/productos/ANIME/oe-v_23-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Azul Oscuro",
+              "codigo_hex": "#00008B",
+              "imagenes": [
+                "assets/img/productos/ANIME/of-a_21-oscuro-centrado.webp",
+                "assets/img/productos/ANIME/oe-a_23-oscuro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 76556, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 68900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-oversize.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Camiseta de corte holgado estilo americano. Confeccionada en algodón pesado ideal para mantener la estructura de la silueta.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+          }
+        },
+        "croptop": {
+          "colores_disponibles": [
+            {
+              "nombre": "Marfil",
+              "codigo_hex": "#FFFFF0",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-m_22-claro-centrado.webp",
+                "assets/img/productos/ANIME/ce-m_24-claro.webp"
+              ]
+            },
+            {
+              "nombre": "Negro",
+              "codigo_hex": "#000000",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-n_21-oscuro-centrado.webp",
+                "assets/img/productos/ANIME/ce-n_23-oscuro.webp"
+              ]
+            },
+            {
+              "nombre": "Beige",
+              "codigo_hex": "#F5F5DC",
+              "imagenes": [
+                "assets/img/productos/ANIME/cf-b_22-claro-centrado.webp",
+                "assets/img/productos/ANIME/ce-b_24-claro.webp"
+              ]
+            }
+          ],
+          "tallas_disponibles": ["S", "M", "L", "XL"],
+          "precios_y_descuentos": {"precio_regular": 69889, "tiene_descuento": true, "porcentaje_descuento": 10, "precio_final": 62900, "texto_badge": "-10%"},
+          "guia_de_tallas": {"imagen_guia": "assets/img/iconos/tallas-coptop.jpeg", "unidad_medida": "cm", "tabla_medidas": []},
+          "detalles": {
+            "descripcion_producto": "Prenda superior corta en tejido texturizado tipo galleta. Silueta ajustada y moderna.",
+            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles. Tienes 15 días desde la recepción para solicitar cambios por talla o garantía. La prenda debe estar sin uso y con sus etiquetas originales."
+          }
+        }
+      }
+    }
+-se tiene que geenrar en un progrmaa python.
+-tener en cuenta que si el diseño tiene [bls] el estanmapdo tendra la imagen en 
+el bolsillo de la camiseta y si tiene [gr] ira centrando en la camiseta.
+
+- este es el  mas o  menos el formato de la configuracion de las imagenes 
+CONFIG_PRENDAS = {
+    "ov": {
+        "principal": {"escala": 0.60, "y_porcentaje": 0.25, "x_pos": 0.52},
+        "centrado":  {"escala": 0.40, "y_porcentaje": 0.25, "x_pos": 0.52},
+        "bolsillo":  {"escala": 0.18, "y_porcentaje": 0.25, "x_pos": 0.66}
+    },
+    "ct": {
+        "principal": {"escala": 0.60, "y_porcentaje": 0.28, "x_pos": 0.52},
+        "centrado":  {"escala": 0.35, "y_porcentaje": 0.28, "x_pos": 0.52},
+        "bolsillo":  {"escala": 0.18, "y_porcentaje": 0.28, "x_pos": 0.66} 
+    },
+    # Las espaldas ('oe', 'ce') solo mantienen el tamaño por defecto (principal)
+    "ov-e": {
+        "principal": {"escala": 0.50, "y_porcentaje": 0.22, "x_pos": "centro"}
+    },
+    "ct-e": {
+        "principal": {"escala": 0.50, "y_porcentaje": 0.32, "x_pos": "centro"}
+    }
+}

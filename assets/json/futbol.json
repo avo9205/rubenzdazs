@@ -1,309 +1,352 @@
 {
-  "tienda": "Catálogo Oficial - RubenzDazs",
-  "moneda_base": "COP",
-  "catalogo": [
-    {
-      "id": "DS-FUT-001",
-      "tipo_diseno": "futbol",
-      "titulo": "Gloria Albiceleste",
-      "descripcion_diseno": "Inspirado en la mística de los colores que visten a los campeones mundiales. Un diseño que condensa la pasión futbolística, la épica de las remontadas y el orgullo de un país.",
-      "variaciones": {
-        "oversize": {
-          "colores_disponibles": [
-            {
-              "nombre": "Marfil",
-              "codigo_hex": "#FFFFF0",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-m_ArgentinaMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Negro",
-              "codigo_hex": "#000000",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-n_ArgentinaMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Verde Oscuro",
-              "codigo_hex": "#013220",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-v_ArgentinaMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Azul Oscuro",
-              "codigo_hex": "#00008B",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-a_ArgentinaMulti-doble.webp"
-              ]
+    "tienda": "Catálogo Local - Futbol",
+    "moneda_base": "COP",
+    "catalogo": [
+        {
+            "id": "DS-FUT-001",
+            "tipo_diseno": "futbol",
+            "titulo": "Furia Cafetera",
+            "descripcion_diseno": "",
+            "variaciones": {
+                "oversize": {
+                    "colores_disponibles": [
+                        {
+                            "nombre": "Marfil",
+                            "codigo_hex": "#FFFFF0",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-cl-m-m1-Furia Cafetera.webp",
+                                "assets/img/productos/futbol/ov-f-cl-m-h1-Furia Cafetera.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Verde Oscuro",
+                            "codigo_hex": "#013220",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-os-v-m1-Furia Cafetera.webp",
+                                "assets/img/productos/futbol/ov-f-os-v-h1-Furia Cafetera.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Azul Oscuro",
+                            "codigo_hex": "#00008B",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-os-a-m1-Furia Cafetera.webp",
+                                "assets/img/productos/futbol/ov-f-os-a-h1-Furia Cafetera.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Negro",
+                            "codigo_hex": "#000000",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-os-n-m1-Furia Cafetera.webp",
+                                "assets/img/productos/futbol/ov-f-os-n-h1-Furia Cafetera.webp"
+                            ]
+                        }
+                    ],
+                    "tallas_disponibles": [
+                        "S",
+                        "M",
+                        "L",
+                        "XL"
+                    ],
+                    "precios_y_descuentos": {
+                        "precio_regular": 76556,
+                        "tiene_descuento": true,
+                        "porcentaje_descuento": 10,
+                        "precio_final": 68900,
+                        "texto_badge": "-10%"
+                    },
+                    "guia_de_tallas": {
+                        "imagen_guia": "assets/img/iconos/tallas-ov.jpeg",
+                        "unidad_medida": "cm",
+                        "tabla_medidas": []
+                    },
+                    "detalles": {
+                        "descripcion_producto": "Oversize con excelentes acabados.",
+                        "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+                        "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+                    }
+                },
+                "croptop": {
+                    "colores_disponibles": [
+                        {
+                            "nombre": "Marfil",
+                            "codigo_hex": "#FFFFF0",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ct-f-cl-m-m1-Furia Cafetera.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Beige",
+                            "codigo_hex": "#F5F5DC",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ct-f-cl-b-m1-Furia Cafetera.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Negro",
+                            "codigo_hex": "#000000",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ct-f-os-n-m1-Furia Cafetera.webp"
+                            ]
+                        }
+                    ],
+                    "tallas_disponibles": [
+                        "S",
+                        "M",
+                        "L"
+                    ],
+                    "precios_y_descuentos": {
+                        "precio_regular": 69889,
+                        "tiene_descuento": true,
+                        "porcentaje_descuento": 10,
+                        "precio_final": 62900,
+                        "texto_badge": "-10%"
+                    },
+                    "guia_de_tallas": {
+                        "imagen_guia": "assets/img/iconos/tallas-ct.jpeg",
+                        "unidad_medida": "cm",
+                        "tabla_medidas": []
+                    },
+                    "detalles": {
+                        "descripcion_producto": "Croptop con excelentes acabados.",
+                        "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+                        "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+                    }
+                }
             }
-          ],
-          "tallas_disponibles": ["S", "M", "L", "XL"],
-          "precios_y_descuentos": {
-            "precio_regular": 69900,
-            "tiene_descuento": true,
-            "porcentaje_descuento": 10,
-            "precio_final": 62900,
-            "texto_badge": "-10%"
-          },
-          "guia_de_tallas": {
-            "imagen_guia": "assets/img/iconos/tallas-oversize.jpeg",
-            "unidad_medida": "cm",
-            "tabla_medidas": []
-          },
-          "detalles": {
-            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
-            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
-            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
-          }
         },
-        "croptop": {
-          "colores_disponibles": [
-            {
-              "nombre": "Marfil",
-              "codigo_hex": "#FFFFF0",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/cf-m_ArgentinaMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Negro",
-              "codigo_hex": "#000000",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/cf-n_ArgentinaMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Beige",
-              "codigo_hex": "#F5F5DC",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/cf-b_ArgentinaMulti-doble.webp"
-              ]
+        {
+            "id": "DS-FUT-002",
+            "tipo_diseno": "futbol",
+            "titulo": "Gloria Albiceleste",
+            "descripcion_diseno": "",
+            "variaciones": {
+                "oversize": {
+                    "colores_disponibles": [
+                        {
+                            "nombre": "Marfil",
+                            "codigo_hex": "#FFFFF0",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-cl-m-h1-Gloria Albiceleste.webp",
+                                "assets/img/productos/futbol/ov-f-cl-m-m1-Gloria Albiceleste.webp"
+                                
+                            ]
+                        },
+                        {
+                            "nombre": "Verde Oscuro",
+                            "codigo_hex": "#013220",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-os-v-h1-Gloria Albiceleste.webp",
+                                "assets/img/productos/futbol/ov-f-os-v-m1-Gloria Albiceleste.webp"
+                                
+                            ]
+                        },
+                        {
+                            "nombre": "Azul Oscuro",
+                            "codigo_hex": "#00008B",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-os-a-h1-Gloria Albiceleste.webp",
+                                "assets/img/productos/futbol/ov-f-os-a-m1-Gloria Albiceleste.webp"
+                                
+                            ]
+                        },
+                        {
+                            "nombre": "Negro",
+                            "codigo_hex": "#000000",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-os-n-h1-Gloria Albiceleste.webp",
+                                "assets/img/productos/futbol/ov-f-os-n-m1-Gloria Albiceleste.webp"
+                                
+                            ]
+                        }
+                    ],
+                    "tallas_disponibles": [
+                        "S",
+                        "M",
+                        "L",
+                        "XL"
+                    ],
+                    "precios_y_descuentos": {
+                        "precio_regular": 76556,
+                        "tiene_descuento": true,
+                        "porcentaje_descuento": 10,
+                        "precio_final": 68900,
+                        "texto_badge": "-10%"
+                    },
+                    "guia_de_tallas": {
+                        "imagen_guia": "assets/img/iconos/tallas-ov.jpeg",
+                        "unidad_medida": "cm",
+                        "tabla_medidas": []
+                    },
+                    "detalles": {
+                        "descripcion_producto": "Oversize con excelentes acabados.",
+                        "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+                        "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+                    }
+                },
+                "croptop": {
+                    "colores_disponibles": [
+                        {
+                            "nombre": "Marfil",
+                            "codigo_hex": "#FFFFF0",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ct-f-cl-m-m1-Gloria Albiceleste.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Beige",
+                            "codigo_hex": "#F5F5DC",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ct-f-cl-b-m1-Gloria Albiceleste.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Negro",
+                            "codigo_hex": "#000000",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ct-f-os-n-m1-Gloria Albiceleste.webp"
+                            ]
+                        }
+                    ],
+                    "tallas_disponibles": [
+                        "S",
+                        "M",
+                        "L"
+                    ],
+                    "precios_y_descuentos": {
+                        "precio_regular": 69889,
+                        "tiene_descuento": true,
+                        "porcentaje_descuento": 10,
+                        "precio_final": 62900,
+                        "texto_badge": "-10%"
+                    },
+                    "guia_de_tallas": {
+                        "imagen_guia": "assets/img/iconos/tallas-ct.jpeg",
+                        "unidad_medida": "cm",
+                        "tabla_medidas": []
+                    },
+                    "detalles": {
+                        "descripcion_producto": "Croptop con excelentes acabados.",
+                        "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+                        "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+                    }
+                }
             }
-          ],
-          "tallas_disponibles": ["S", "M", "L", "XL"],
-          "precios_y_descuentos": {
-            "precio_regular": 64000,
-            "tiene_descuento": true,
-            "porcentaje_descuento": 10,
-            "precio_final": 56900,
-            "texto_badge": "-10%"
-          },
-          "guia_de_tallas": {
-            "imagen_guia": "assets/img/iconos/tallas-coptop.jpeg",
-            "unidad_medida": "cm",
-            "tabla_medidas": []
-          },
-          "detalles": {
-            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
-            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
-            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
-          }
-        }
-      }
-    },
-    {
-      "id": "DS-FUT-COL",
-      "tipo_diseno": "futbol",
-      "titulo": "Jogo Bonito",
-      "descripcion_diseno": "Inspirado en la magia y el ritmo del fútbol que conquistó al mundo. Un diseño que celebra la alegría de la canarinha, el legado de los grandes ídolos y la pasión infinita de un pueblo que vive y respira fútbol.",
-      "variaciones": {
-        "oversize": {
-          "colores_disponibles": [
-            {
-              "nombre": "Marfil",
-              "codigo_hex": "#FFFFF0",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-m_BrasilMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Negro",
-              "codigo_hex": "#000000",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-n_BrasilMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Verde Oscuro",
-              "codigo_hex": "#013220",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-v_BrasilMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Azul Oscuro",
-              "codigo_hex": "#00008B",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-a_BrasilMulti-doble.webp"
-              ]
-            }
-          ],
-          "tallas_disponibles": ["S", "M", "L", "XL"],
-          "precios_y_descuentos": {
-            "precio_regular": 69900,
-            "tiene_descuento": true,
-            "porcentaje_descuento": 10,
-            "precio_final": 62900,
-            "texto_badge": "-10%"
-          },
-          "guia_de_tallas": {
-            "imagen_guia": "assets/img/iconos/tallas-oversize.jpeg",
-            "unidad_medida": "cm",
-            "tabla_medidas": []
-          },
-          "detalles": {
-            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
-            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
-            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
-          }
         },
-        "croptop": {
-          "colores_disponibles": [
-            {
-              "nombre": "Marfil",
-              "codigo_hex": "#FFFFF0",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/cf-m_BrasilMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Negro",
-              "codigo_hex": "#000000",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/cf-n_BrasilMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Beige",
-              "codigo_hex": "#F5F5DC",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/cf-b_BrasilMulti-doble.webp"
-              ]
+        {
+            "id": "DS-FUT-003",
+            "tipo_diseno": "futbol",
+            "titulo": "Joga Bonito",
+            "descripcion_diseno": "",
+            "variaciones": {
+                "oversize": {
+                    "colores_disponibles": [
+                        {
+                            "nombre": "Marfil",
+                            "codigo_hex": "#FFFFF0",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-cl-m-m1-Joga Bonito.webp",
+                                "assets/img/productos/futbol/ov-f-cl-m-h1-Joga Bonito.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Verde Oscuro",
+                            "codigo_hex": "#013220",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-os-v-m1-Joga Bonito.webp",
+                                "assets/img/productos/futbol/ov-f-os-v-h1-Joga Bonito.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Azul Oscuro",
+                            "codigo_hex": "#00008B",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-os-a-m1-Joga Bonito.webp",
+                                "assets/img/productos/futbol/ov-f-os-a-h1-Joga Bonito.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Negro",
+                            "codigo_hex": "#000000",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ov-f-os-n-m1-Joga Bonito.webp",
+                                "assets/img/productos/futbol/ov-f-os-n-h1-Joga Bonito.webp"
+                            ]
+                        }
+                    ],
+                    "tallas_disponibles": [
+                        "S",
+                        "M",
+                        "L",
+                        "XL"
+                    ],
+                    "precios_y_descuentos": {
+                        "precio_regular": 76556,
+                        "tiene_descuento": true,
+                        "porcentaje_descuento": 10,
+                        "precio_final": 68900,
+                        "texto_badge": "-10%"
+                    },
+                    "guia_de_tallas": {
+                        "imagen_guia": "assets/img/iconos/tallas-ov.jpeg",
+                        "unidad_medida": "cm",
+                        "tabla_medidas": []
+                    },
+                    "detalles": {
+                        "descripcion_producto": "Oversize con excelentes acabados.",
+                        "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+                        "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+                    }
+                },
+                "croptop": {
+                    "colores_disponibles": [
+                        {
+                            "nombre": "Marfil",
+                            "codigo_hex": "#FFFFF0",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ct-f-cl-m-m1-Joga Bonito.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Beige",
+                            "codigo_hex": "#F5F5DC",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ct-f-cl-b-m1-Joga Bonito.webp"
+                            ]
+                        },
+                        {
+                            "nombre": "Negro",
+                            "codigo_hex": "#000000",
+                            "imagenes": [
+                                "assets/img/productos/futbol/ct-f-os-n-m1-Joga Bonito.webp"
+                            ]
+                        }
+                    ],
+                    "tallas_disponibles": [
+                        "S",
+                        "M",
+                        "L"
+                    ],
+                    "precios_y_descuentos": {
+                        "precio_regular": 69889,
+                        "tiene_descuento": true,
+                        "porcentaje_descuento": 10,
+                        "precio_final": 62900,
+                        "texto_badge": "-10%"
+                    },
+                    "guia_de_tallas": {
+                        "imagen_guia": "assets/img/iconos/tallas-ct.jpeg",
+                        "unidad_medida": "cm",
+                        "tabla_medidas": []
+                    },
+                    "detalles": {
+                        "descripcion_producto": "Croptop con excelentes acabados.",
+                        "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora. Para proteger el estampado DTF, no planchar directamente sobre el gráfico; planchar la prenda al revés.",
+                        "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
+                    }
+                }
             }
-          ],
-          "tallas_disponibles": ["S", "M", "L", "XL"],
-          "precios_y_descuentos": {
-            "precio_regular": 64000,
-            "tiene_descuento": true,
-            "porcentaje_descuento": 10,
-            "precio_final": 56900,
-            "texto_badge": "-10%"
-          },
-          "guia_de_tallas": {
-            "imagen_guia": "assets/img/iconos/tallas-coptop.jpeg",
-            "unidad_medida": "cm",
-            "tabla_medidas": []
-          },
-          "detalles": {
-            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
-            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
-            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
-          }
         }
-      }
-    },
-    {
-      "id": "DS-FUT-BRA",
-      "tipo_diseno": "futbol",
-      "titulo": "Furia Cafetera",
-      "descripcion_diseno": "Inspirado en la garra y el corazón de una nación que vibra con cada gol. Un diseño que captura la pasión de la tricolor, el orgullo de ser cafetero y la épica de una selección que siempre lucha hasta el final.",
-      "variaciones": {
-        "oversize": {
-          "colores_disponibles": [
-            {
-              "nombre": "Marfil",
-              "codigo_hex": "#FFFFF0",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-m_ColombiaMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Negro",
-              "codigo_hex": "#000000",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-n_ColombiaMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Verde Oscuro",
-              "codigo_hex": "#013220",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-v_ColombiaMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Azul Oscuro",
-              "codigo_hex": "#00008B",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/of-a_ColombiaMulti-doble.webp"
-              ]
-            }
-          ],
-          "tallas_disponibles": ["S", "M", "L", "XL"],
-          "precios_y_descuentos": {
-            "precio_regular": 69900,
-            "tiene_descuento": true,
-            "porcentaje_descuento": 10,
-            "precio_final": 62900,
-            "texto_badge": "-10%"
-          },
-          "guia_de_tallas": {
-            "imagen_guia": "assets/img/iconos/tallas-oversize.jpeg",
-            "unidad_medida": "cm",
-            "tabla_medidas": []
-          },
-          "detalles": {
-            "descripcion_producto": "Camiseta de corte holgado estilo americano.",
-            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
-            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
-          }
-        },
-        "croptop": {
-          "colores_disponibles": [
-            {
-              "nombre": "Marfil",
-              "codigo_hex": "#FFFFF0",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/cf-m_ColombiaMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Negro",
-              "codigo_hex": "#000000",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/cf-n_ColombiaMulti-doble.webp"
-              ]
-            },
-            {
-              "nombre": "Beige",
-              "codigo_hex": "#F5F5DC",
-              "imagenes": [
-                "assets/img/productos/FUTBOL/cf-b_ColombiaMulti-doble.webp"
-              ]
-            }
-          ],
-          "tallas_disponibles": ["S", "M", "L", "XL"],
-          "precios_y_descuentos": {
-            "precio_regular": 64000,
-            "tiene_descuento": true,
-            "porcentaje_descuento": 10,
-            "precio_final": 56900,
-            "texto_badge": "-10%"
-          },
-          "guia_de_tallas": {
-            "imagen_guia": "assets/img/iconos/tallas-coptop.jpeg",
-            "unidad_medida": "cm",
-            "tabla_medidas": []
-          },
-          "detalles": {
-            "descripcion_producto": "Silueta Holagada con un corte a la altura de la cintura.",
-            "cuidado_prenda": "Lavar al revés con agua fría o máximo a 30°C. No usar secadora.",
-            "politica_envios_devoluciones": "Envíos nacionales de 3 a 5 días hábiles."
-          }
-        }
-      }
-    }
-  ]
+    ]
 }
