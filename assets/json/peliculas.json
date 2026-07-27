@@ -14,28 +14,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-m_86-claro.webp"
+                "assets/img/productos/peliculas/of-m_86-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-n_87-oscuro.webp"
+                "assets/img/productos/peliculas/of-n_87-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-v_87-oscuro.webp"
+                "assets/img/productos/peliculas/of-v_87-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-a_87-oscuro.webp"
+                "assets/img/productos/peliculas/of-a_87-oscuro.webp"
               ]
             }
           ],
@@ -54,21 +54,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-m_86-claro.webp"
+                "assets/img/productos/peliculas/cf-m_86-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-n_87-oscuro.webp"
+                "assets/img/productos/peliculas/cf-n_87-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-b_86-claro.webp"
+                "assets/img/productos/peliculas/cf-b_86-claro.webp"
               ]
             }
           ],
@@ -95,32 +95,32 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-m_carsfrenteblanca-claro-centrado.webp",
-                "assets/img/productos/PELICULAS/oe-m_carsespaldablanca-claro.webp"
+                "assets/img/productos/peliculas/of-m_carsfrenteblanca-claro-centrado.webp",
+                "assets/img/productos/peliculas/oe-m_carsespaldablanca-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-n_carsfrentenegra-oscuro-centrado-centrado.webp",
-                "assets/img/productos/PELICULAS/oe-n_carsespaldanegra-oscuro.webp"
+                "assets/img/productos/peliculas/of-n_carsfrentenegra-oscuro-centrado-centrado.webp",
+                "assets/img/productos/peliculas/oe-n_carsespaldanegra-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-v_carsfrentenegra-oscuro-centrado-centrado.webp",
-                "assets/img/productos/PELICULAS/oe-v_carsespaldanegra-oscuro.webp"
+                "assets/img/productos/peliculas/of-v_carsfrentenegra-oscuro-centrado-centrado.webp",
+                "assets/img/productos/peliculas/oe-v_carsespaldanegra-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-a_carsfrentenegra-oscuro-centrado-centrado.webp",
-                "assets/img/productos/PELICULAS/oe-a_carsespaldanegra-oscuro.webp"
+                "assets/img/productos/peliculas/of-a_carsfrentenegra-oscuro-centrado-centrado.webp",
+                "assets/img/productos/peliculas/oe-a_carsespaldanegra-oscuro.webp"
               ]
             }
           ],
@@ -139,24 +139,24 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-m_carsfrenteblanca-claro-centrado.webp",
-                "assets/img/productos/PELICULAS/ce-m_carsespaldablanca-claro.webp"
+                "assets/img/productos/peliculas/cf-m_carsfrenteblanca-claro-centrado.webp",
+                "assets/img/productos/peliculas/ce-m_carsespaldablanca-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-n_carsfrentenegra-oscuro-centrado-centrado.webp",
-                "assets/img/productos/PELICULAS/ce-n_carsespaldanegra-oscuro.webp"
+                "assets/img/productos/peliculas/cf-n_carsfrentenegra-oscuro-centrado-centrado.webp",
+                "assets/img/productos/peliculas/ce-n_carsespaldanegra-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-b_carsfrenteblanca-claro-centrado.webp",
-                "assets/img/productos/PELICULAS/ce-b_carsespaldablanca-claro.webp"
+                "assets/img/productos/peliculas/cf-b_carsfrenteblanca-claro-centrado.webp",
+                "assets/img/productos/peliculas/ce-b_carsespaldablanca-claro.webp"
               ]
             }
           ],
@@ -183,28 +183,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-m_harry-doble.webp"
+                "assets/img/productos/peliculas/of-m_harry-doble.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-n_harry-doble.webp"
+                "assets/img/productos/peliculas/of-n_harry-doble.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-v_harry-doble.webp"
+                "assets/img/productos/peliculas/of-v_harry-doble.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-a_harry-doble.webp"
+                "assets/img/productos/peliculas/of-a_harry-doble.webp"
               ]
             }
           ],
@@ -223,21 +223,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-m_harry-doble.webp"
+                "assets/img/productos/peliculas/cf-m_harry-doble.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-n_harry-doble.webp"
+                "assets/img/productos/peliculas/cf-n_harry-doble.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-b_harry-doble.webp"
+                "assets/img/productos/peliculas/cf-b_harry-doble.webp"
               ]
             }
           ],
@@ -264,28 +264,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-m_36-claro.webp"
+                "assets/img/productos/peliculas/of-m_36-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-n_37-oscuro.webp"
+                "assets/img/productos/peliculas/of-n_37-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-v_37-oscuro.webp"
+                "assets/img/productos/peliculas/of-v_37-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-a_37-oscuro.webp"
+                "assets/img/productos/peliculas/of-a_37-oscuro.webp"
               ]
             }
           ],
@@ -304,21 +304,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-m_36-claro.webp"
+                "assets/img/productos/peliculas/cf-m_36-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-n_37-oscuro.webp"
+                "assets/img/productos/peliculas/cf-n_37-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-b_36-claro.webp"
+                "assets/img/productos/peliculas/cf-b_36-claro.webp"
               ]
             }
           ],
@@ -345,28 +345,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-m_48-claro.webp"
+                "assets/img/productos/peliculas/of-m_48-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-n_49-oscuro.webp"
+                "assets/img/productos/peliculas/of-n_49-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-v_49-oscuro.webp"
+                "assets/img/productos/peliculas/of-v_49-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-a_49-oscuro.webp"
+                "assets/img/productos/peliculas/of-a_49-oscuro.webp"
               ]
             }
           ],
@@ -385,21 +385,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-m_48-claro.webp"
+                "assets/img/productos/peliculas/cf-m_48-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-n_49-oscuro.webp"
+                "assets/img/productos/peliculas/cf-n_49-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-b_48-claro.webp"
+                "assets/img/productos/peliculas/cf-b_48-claro.webp"
               ]
             }
           ],
@@ -426,28 +426,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-m_70 (1)-claro.webp"
+                "assets/img/productos/peliculas/of-m_70 (1)-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-n_71-oscuro.webp"
+                "assets/img/productos/peliculas/of-n_71-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-v_71-oscuro.webp"
+                "assets/img/productos/peliculas/of-v_71-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/PELICULAS/of-a_71-oscuro.webp"
+                "assets/img/productos/peliculas/of-a_71-oscuro.webp"
               ]
             }
           ],
@@ -466,21 +466,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-m_71-claro.webp"
+                "assets/img/productos/peliculas/cf-m_71-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-n_71-oscuro.webp"
+                "assets/img/productos/peliculas/cf-n_71-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/PELICULAS/cf-b_70-claro.webp"
+                "assets/img/productos/peliculas/cf-b_70-claro.webp"
               ]
             }
           ],
