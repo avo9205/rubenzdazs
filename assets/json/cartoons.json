@@ -14,32 +14,32 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-m_28-claro-centrado.webp",
-                "assets/img/productos/CARTOONS/oe-m_25-claro.webp"
+                "assets/img/productos/cartoons/of-m_28-claro-centrado.webp",
+                "assets/img/productos/cartoons/oe-m_25-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-n_27-oscuro-centrado.webp",
-                "assets/img/productos/CARTOONS/oe-n_26-oscuro.webp"
+                "assets/img/productos/cartoons/of-n_27-oscuro-centrado.webp",
+                "assets/img/productos/cartoons/oe-n_26-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-v_27-oscuro-centrado.webp",
-                "assets/img/productos/CARTOONS/oe-v_26-oscuro.webp"
+                "assets/img/productos/cartoons/of-v_27-oscuro-centrado.webp",
+                "assets/img/productos/cartoons/oe-v_26-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-a_27-oscuro-centrado.webp",
-                "assets/img/productos/CARTOONS/oe-a_26-oscuro.webp"
+                "assets/img/productos/cartoons/of-a_27-oscuro-centrado.webp",
+                "assets/img/productos/cartoons/oe-a_26-oscuro.webp"
               ]
             }
           ],
@@ -58,24 +58,24 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-m_28-claro-centrado.webp",
-                "assets/img/productos/CARTOONS/ce-m_25-claro.webp"
+                "assets/img/productos/cartoons/cf-m_28-claro-centrado.webp",
+                "assets/img/productos/cartoons/ce-m_25-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-n_27-oscuro-centrado.webp",
-                "assets/img/productos/CARTOONS/ce-n_26-oscuro.webp"
+                "assets/img/productos/cartoons/cf-n_27-oscuro-centrado.webp",
+                "assets/img/productos/cartoons/ce-n_26-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-b_28-claro-centrado.webp",
-                "assets/img/productos/CARTOONS/ce-b_25-claro.webp"
+                "assets/img/productos/cartoons/cf-b_28-claro-centrado.webp",
+                "assets/img/productos/cartoons/ce-b_25-claro.webp"
               ]
             }
           ],
@@ -102,28 +102,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-m_30-claro.webp"
+                "assets/img/productos/cartoons/of-m_30-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-n_31-oscuro.webp"
+                "assets/img/productos/cartoons/of-n_31-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-v_31-oscuro.webp"
+                "assets/img/productos/cartoons/of-v_31-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-a_31-oscuro.webp"
+                "assets/img/productos/cartoons/of-a_31-oscuro.webp"
               ]
             }
           ],
@@ -142,21 +142,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-m_30-claro.webp"
+                "assets/img/productos/cartoons/cf-m_30-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-n_31-oscuro.webp"
+                "assets/img/productos/cartoons/cf-n_31-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-b_30-claro.webp"
+                "assets/img/productos/cartoons/cf-b_30-claro.webp"
               ]
             }
           ],
@@ -183,32 +183,32 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-m_35-claro-centrado.webp",
-                "assets/img/productos/CARTOONS/oe-m_33-claro.webp"
+                "assets/img/productos/cartoons/of-m_35-claro-centrado.webp",
+                "assets/img/productos/cartoons/oe-m_33-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-n_34-oscuro-centrado.webp",
-                "assets/img/productos/CARTOONS/oe-n_32-oscuro.webp"
+                "assets/img/productos/cartoons/of-n_34-oscuro-centrado.webp",
+                "assets/img/productos/cartoons/oe-n_32-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-v_34-oscuro-centrado.webp",
-                "assets/img/productos/CARTOONS/oe-v_32-oscuro.webp"
+                "assets/img/productos/cartoons/of-v_34-oscuro-centrado.webp",
+                "assets/img/productos/cartoons/oe-v_32-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-a_34-oscuro-centrado.webp",
-                "assets/img/productos/CARTOONS/oe-a_32-oscuro.webp"
+                "assets/img/productos/cartoons/of-a_34-oscuro-centrado.webp",
+                "assets/img/productos/cartoons/oe-a_32-oscuro.webp"
               ]
             }
           ],
@@ -227,24 +227,24 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-m_35-claro-centrado.webp",
-                "assets/img/productos/CARTOONS/ce-m_33-claro.webp"
+                "assets/img/productos/cartoons/cf-m_35-claro-centrado.webp",
+                "assets/img/productos/cartoons/ce-m_33-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-n_34-oscuro-centrado.webp",
-                "assets/img/productos/CARTOONS/ce-n_32-oscuro.webp"
+                "assets/img/productos/cartoons/cf-n_34-oscuro-centrado.webp",
+                "assets/img/productos/cartoons/ce-n_32-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-b_35-claro-centrado.webp",
-                "assets/img/productos/CARTOONS/ce-b_33-claro.webp"
+                "assets/img/productos/cartoons/cf-b_35-claro-centrado.webp",
+                "assets/img/productos/cartoons/ce-b_33-claro.webp"
               ]
             }
           ],
@@ -271,28 +271,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-m_72-claro.webp"
+                "assets/img/productos/cartoons/of-m_72-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-n_73-oscuro.webp"
+                "assets/img/productos/cartoons/of-n_73-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-v_73-oscuro.webp"
+                "assets/img/productos/cartoons/of-v_73-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-a_73-oscuro.webp"
+                "assets/img/productos/cartoons/of-a_73-oscuro.webp"
               ]
             }
           ],
@@ -311,21 +311,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-m_72-claro.webp"
+                "assets/img/productos/cartoons/cf-m_72-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-n_73-oscuro.webp"
+                "assets/img/productos/cartoons/cf-n_73-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-b_72-claro.webp"
+                "assets/img/productos/cartoons/cf-b_72-claro.webp"
               ]
             }
           ],
@@ -352,28 +352,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-m_50-doble.webp"
+                "assets/img/productos/cartoons/of-m_50-doble.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-n_50-doble.webp"
+                "assets/img/productos/cartoons/of-n_50-doble.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-v_50-doble.webp"
+                "assets/img/productos/cartoons/of-v_50-doble.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-a_50-doble.webp"
+                "assets/img/productos/cartoons/of-a_50-doble.webp"
               ]
             }
           ],
@@ -392,21 +392,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-m_50-doble.webp"
+                "assets/img/productos/cartoons/cf-m_50-doble.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-n_50-doble.webp"
+                "assets/img/productos/cartoons/cf-n_50-doble.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-b_50-doble.webp"
+                "assets/img/productos/cartoons/cf-b_50-doble.webp"
               ]
             }
           ],
@@ -433,28 +433,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-m_navidad-claro.webp"
+                "assets/img/productos/cartoons/of-m_navidad-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-n_Diseño sin título (3)-oscuro.webp"
+                "assets/img/productos/cartoons/of-n_Diseño sin título (3)-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-v_Diseño sin título (3)-oscuro.webp"
+                "assets/img/productos/cartoons/of-v_Diseño sin título (3)-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-a_Diseño sin título (3)-oscuro.webp"
+                "assets/img/productos/cartoons/of-a_Diseño sin título (3)-oscuro.webp"
               ]
             }
           ],
@@ -473,21 +473,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-m_navidad-claro.webp"
+                "assets/img/productos/cartoons/cf-m_navidad-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-n_Diseño sin título (3)-oscuro.webp"
+                "assets/img/productos/cartoons/cf-n_Diseño sin título (3)-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-b_navidad-claro.webp"
+                "assets/img/productos/cartoons/cf-b_navidad-claro.webp"
               ]
             }
           ],
@@ -514,28 +514,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-m_grinch-doble.webp"
+                "assets/img/productos/cartoons/of-m_grinch-doble.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-n_grinch-doble.webp"
+                "assets/img/productos/cartoons/of-n_grinch-doble.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-v_grinch-doble.webp"
+                "assets/img/productos/cartoons/of-v_grinch-doble.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-a_grinch-doble.webp"
+                "assets/img/productos/cartoons/of-a_grinch-doble.webp"
               ]
             }
           ],
@@ -554,21 +554,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-m_grinch-doble.webp"
+                "assets/img/productos/cartoons/cf-m_grinch-doble.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-n_grinch-doble.webp"
+                "assets/img/productos/cartoons/cf-n_grinch-doble.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-b_grinch-doble.webp"
+                "assets/img/productos/cartoons/cf-b_grinch-doble.webp"
               ]
             }
           ],
@@ -595,8 +595,8 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-m_pajaro-doble-bolsillo.webp",
-                "assets/img/productos/CARTOONS/oe-m_91-claro.webp"
+                "assets/img/productos/cartoons/of-m_pajaro-doble-bolsillo.webp",
+                "assets/img/productos/cartoons/oe-m_91-claro.webp"
               ]
             }
           ],
@@ -615,16 +615,16 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-m_pajaro-doble-bolsillo.webp",
-                "assets/img/productos/CARTOONS/ce-m_91-claro.webp"
+                "assets/img/productos/cartoons/cf-m_pajaro-doble-bolsillo.webp",
+                "assets/img/productos/cartoons/ce-m_91-claro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-b_pajaro-doble-bolsillo.webp",
-                "assets/img/productos/CARTOONS/ce-b_91-claro.webp"
+                "assets/img/productos/cartoons/cf-b_pajaro-doble-bolsillo.webp",
+                "assets/img/productos/cartoons/ce-b_91-claro.webp"
               ]
             }
           ],
@@ -651,28 +651,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-m_77-claro.webp"
+                "assets/img/productos/cartoons/of-m_77-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-n_76-oscuro.webp"
+                "assets/img/productos/cartoons/of-n_76-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-v_76-oscuro.webp"
+                "assets/img/productos/cartoons/of-v_76-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/CARTOONS/of-a_76-oscuro.webp"
+                "assets/img/productos/cartoons/of-a_76-oscuro.webp"
               ]
             }
           ],
@@ -691,21 +691,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-m_77-claro.webp"
+                "assets/img/productos/cartoons/cf-m_77-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-n_76-oscuro.webp"
+                "assets/img/productos/cartoons/cf-n_76-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/CARTOONS/cf-b_77-claro.webp"
+                "assets/img/productos/cartoons/cf-b_77-claro.webp"
               ]
             }
           ],

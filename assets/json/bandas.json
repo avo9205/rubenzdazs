@@ -14,32 +14,32 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/BANDAS/oe-m_41-claro.webp",
-                "assets/img/productos/BANDAS/of-m_43-claro-bolsillo.webp"
+                "assets/img/productos/bandas/oe-m_41-claro.webp",
+                "assets/img/productos/bandas/of-m_43-claro-bolsillo.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/BANDAS/oe-n_40-oscuro.webp",
-                "assets/img/productos/BANDAS/of-n_42-oscuro-bolsillo.webp"
+                "assets/img/productos/bandas/oe-n_40-oscuro.webp",
+                "assets/img/productos/bandas/of-n_42-oscuro-bolsillo.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/BANDAS/oe-v_40-oscuro.webp",
-                "assets/img/productos/BANDAS/of-v_42-oscuro-bolsillo.webp"
+                "assets/img/productos/bandas/oe-v_40-oscuro.webp",
+                "assets/img/productos/bandas/of-v_42-oscuro-bolsillo.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/BANDAS/oe-a_40-oscuro.webp",
-                "assets/img/productos/BANDAS/of-a_42-oscuro-bolsillo.webp"
+                "assets/img/productos/bandas/oe-a_40-oscuro.webp",
+                "assets/img/productos/bandas/of-a_42-oscuro-bolsillo.webp"
               ]
             }
           ],
@@ -58,24 +58,24 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/BANDAS/ce-m_41-claro.webp",
-                "assets/img/productos/BANDAS/cf-m_43-claro-bolsillo.webp"
+                "assets/img/productos/bandas/ce-m_41-claro.webp",
+                "assets/img/productos/bandas/cf-m_43-claro-bolsillo.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/BANDAS/ce-n_40-oscuro.webp",
-                "assets/img/productos/BANDAS/cf-n_42-oscuro-bolsillo.webp"
+                "assets/img/productos/bandas/ce-n_40-oscuro.webp",
+                "assets/img/productos/bandas/cf-n_42-oscuro-bolsillo.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/BANDAS/ce-b_41-claro.webp",
-                "assets/img/productos/BANDAS/cf-b_43-claro-bolsillo.webp"
+                "assets/img/productos/bandas/ce-b_41-claro.webp",
+                "assets/img/productos/bandas/cf-b_43-claro-bolsillo.webp"
               ]
             }
           ],
@@ -102,7 +102,7 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/BANDAS/of-m_metalica-claro-principal.webp"
+                "assets/img/productos/bandas/of-m_metalica-claro-principal.webp"
               ]
             }
           ],
@@ -121,14 +121,14 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/BANDAS/cf-b_metalica-claro-principal.webp"
+                "assets/img/productos/bandas/cf-b_metalica-claro-principal.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/BANDAS/cf-m_metalica-claro-principal.webp"
+                "assets/img/productos/bandas/cf-m_metalica-claro-principal.webp"
               ]
             }
           ],
@@ -155,21 +155,21 @@
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/BANDAS/of-n_Metallica-negra-oscuro.webp"
+                "assets/img/productos/bandas/of-n_Metallica-negra-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/BANDAS/of-v_Metallica-negra-oscuro.webp"
+                "assets/img/productos/bandas/of-v_Metallica-negra-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/BANDAS/of-a_Metallica-negra-oscuro.webp"
+                "assets/img/productos/bandas/of-a_Metallica-negra-oscuro.webp"
               ]
             }
           ],
@@ -188,7 +188,7 @@
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/BANDAS/cf-n_Metallica-negra-oscuro.webp"
+                "assets/img/productos/bandas/cf-n_Metallica-negra-oscuro.webp"
               ]
             }
           ],
@@ -215,32 +215,32 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/BANDAS/oe-m_44-claro.webp",
-                "assets/img/productos/BANDAS/of-m_47-claro-bolsillo.webp"
+                "assets/img/productos/bandas/oe-m_44-claro.webp",
+                "assets/img/productos/bandas/of-m_47-claro-bolsillo.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/BANDAS/oe-n_45-oscuro.webp",
-                "assets/img/productos/BANDAS/of-n_46-oscuro-bolsillo.webp"
+                "assets/img/productos/bandas/oe-n_45-oscuro.webp",
+                "assets/img/productos/bandas/of-n_46-oscuro-bolsillo.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/BANDAS/oe-v_45-oscuro.webp",
-                "assets/img/productos/BANDAS/of-v_46-oscuro-bolsillo.webp"
+                "assets/img/productos/bandas/oe-v_45-oscuro.webp",
+                "assets/img/productos/bandas/of-v_46-oscuro-bolsillo.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/BANDAS/oe-a_45-oscuro.webp",
-                "assets/img/productos/BANDAS/of-a_46-oscuro-bolsillo.webp"
+                "assets/img/productos/bandas/oe-a_45-oscuro.webp",
+                "assets/img/productos/bandas/of-a_46-oscuro-bolsillo.webp"
               ]
             }
           ],
@@ -259,24 +259,24 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/BANDAS/ce-m_44-claro.webp",
-                "assets/img/productos/BANDAS/cf-m_47-claro-bolsillo.webp"
+                "assets/img/productos/bandas/ce-m_44-claro.webp",
+                "assets/img/productos/bandas/cf-m_47-claro-bolsillo.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/BANDAS/ce-n_45-oscuro.webp",
-                "assets/img/productos/BANDAS/cf-n_46-oscuro-bolsillo.webp"
+                "assets/img/productos/bandas/ce-n_45-oscuro.webp",
+                "assets/img/productos/bandas/cf-n_46-oscuro-bolsillo.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/BANDAS/ce-b_44-claro.webp",
-                "assets/img/productos/BANDAS/cf-b_47-claro-bolsillo.webp"
+                "assets/img/productos/bandas/ce-b_44-claro.webp",
+                "assets/img/productos/bandas/cf-b_47-claro-bolsillo.webp"
               ]
             }
           ],

@@ -14,28 +14,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-m_65silksongfront-claro-centrado.webp"
+                "assets/img/productos/videojuegos/of-m_65silksongfront-claro-centrado.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-n_67Silksongfront-oscuro-centrado.webp"
+                "assets/img/productos/videojuegos/of-n_67Silksongfront-oscuro-centrado.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-v_67Silksongfront-oscuro-centrado.webp"
+                "assets/img/productos/videojuegos/of-v_67Silksongfront-oscuro-centrado.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-a_67Silksongfront-oscuro-centrado.webp"
+                "assets/img/productos/videojuegos/of-a_67Silksongfront-oscuro-centrado.webp"
               ]
             }
           ],
@@ -64,21 +64,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/cf-m_65silksongfront-claro-centrado.webp"
+                "assets/img/productos/videojuegos/cf-m_65silksongfront-claro-centrado.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/cf-n_65Silksongfront-oscuro-centrado.webp"
+                "assets/img/productos/videojuegos/cf-n_65Silksongfront-oscuro-centrado.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/cf-b_65silksongfront-claro-centrado.webp"
+                "assets/img/productos/videojuegos/cf-b_65silksongfront-claro-centrado.webp"
               ]
             }
           ],
@@ -115,28 +115,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-m_70-claro.webp"
+                "assets/img/productos/videojuegos/of-m_70-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-n_69-oscuro.webp"
+                "assets/img/productos/videojuegos/of-n_69-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-v_69-oscuro.webp"
+                "assets/img/productos/videojuegos/of-v_69-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-a_69-oscuro.webp"
+                "assets/img/productos/videojuegos/of-a_69-oscuro.webp"
               ]
             }
           ],
@@ -165,21 +165,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/cf-m_70-claro.webp"
+                "assets/img/productos/videojuegos/cf-m_70-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/cf-n_70-oscuro.webp"
+                "assets/img/productos/videojuegos/cf-n_70-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/cf-b_70-claro.webp"
+                "assets/img/productos/videojuegos/cf-b_70-claro.webp"
               ]
             }
           ],
@@ -216,28 +216,28 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-m_64silksongback-claro.webp"
+                "assets/img/productos/videojuegos/of-m_64silksongback-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-n_66silksongback-oscuro.webp"
+                "assets/img/productos/videojuegos/of-n_66silksongback-oscuro.webp"
               ]
             },
             {
               "nombre": "Verde Oscuro",
               "codigo_hex": "#013220",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-v_66silksongback-oscuro.webp"
+                "assets/img/productos/videojuegos/of-v_66silksongback-oscuro.webp"
               ]
             },
             {
               "nombre": "Azul Oscuro",
               "codigo_hex": "#00008B",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/of-a_66silksongback-oscuro.webp"
+                "assets/img/productos/videojuegos/of-a_66silksongback-oscuro.webp"
               ]
             }
           ],
@@ -266,21 +266,21 @@
               "nombre": "Marfil",
               "codigo_hex": "#FFFFF0",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/cf-m_64silksongback-claro.webp"
+                "assets/img/productos/videojuegos/cf-m_64silksongback-claro.webp"
               ]
             },
             {
               "nombre": "Negro",
               "codigo_hex": "#000000",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/cf-n_64silksongback-oscuro.webp"
+                "assets/img/productos/videojuegos/cf-n_64silksongback-oscuro.webp"
               ]
             },
             {
               "nombre": "Beige",
               "codigo_hex": "#F5F5DC",
               "imagenes": [
-                "assets/img/productos/VIDEOJUEGOS/cf-b_64silksongback-claro.webp"
+                "assets/img/productos/videojuegos/cf-b_64silksongback-claro.webp"
               ]
             }
           ],
