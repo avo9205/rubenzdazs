@@ -19,7 +19,7 @@ html {
 }
 
 .box-main {
-    margin: 5px 30px 15px 30px;
+    margin: 5px 15px 15px 15px; /* Ligeramente reducido en PC también */
     border: 4px solid black; 
     box-sizing: border-box;
     background-color: #ffffff;
@@ -32,7 +32,7 @@ html {
 }
 
 @media (max-width: 500px) {
-    .box-main { margin: 10px 15px; } /* Reduje márgenes laterales para ganar espacio */
+    .box-main { margin: 10px 5px; } /* MODIFICADO: Márgenes a 5px en móvil para ganar espacio */
 }
 
 /* --- EFECTO FLASH EXCLUSIVO PARA LA CAJA MAIN --- */
@@ -52,28 +52,30 @@ html {
 }
 
 /* ==========================================================================
-   2. SISTEMA DE FILTROS (NUEVO)
+   2. SISTEMA DE FILTROS 
    ========================================================================== */
-/* NUEVO: Contenedor que mantiene todo fijo en la parte superior */
 .sticky-header {
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: #f4f4f4; /* Fondo sólido para que los productos no se vean detrás al hacer scroll */
+    background-color: #f4f4f4; 
     border-bottom: 4px solid #000000;
 }
 
-/* MODIFICADO: Sistema de filtros original */
 .filters-container {
     display: flex;
     flex-wrap: wrap;
+    align-items: center; 
     gap: 12px;
     padding: 10px;
     justify-content: center;
-    /* Las propiedades sticky y de borde se movieron al .sticky-header */
+    border-bottom: 4px solid #000000;
+    background-color: #f4f4f4;
+    position: sticky;
+    top: 0;
+    z-index: 100; 
 }
 
-/* El resto de tu CSS para .filter-btn se mantiene exactamente igual */
 .filter-btn {
     padding: 1px 1px;
     font-size: 0.85rem;
@@ -108,24 +110,25 @@ html {
     transform: translate(3px, 3px) !important;
     box-shadow: 0px 0px 0px #000000 !important;
 }
+
 /* ==========================================================================
    3. CUADRÍCULA (GRID) Y DISEÑO MÓVIL
    ========================================================================== */
 .box-main .product-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; 
-    padding: 10px; 
-    justify-content: flex-start; /* Alinea a la izquierda para el cálculo exacto */
+    gap: 6px;  /* MODIFICADO: Reducido a 6px */
+    padding: 6px; /* MODIFICADO: Reducido a 6px */
+    justify-content: flex-start; 
     width: 100%;
     box-sizing: border-box;
 }
 
 .box-main .product-grid .product-card {
-    /* SOLUCIÓN: Obliga matemáticamente a que sean 2 tarjetas por fila (50% menos el espacio del gap) */
-    width: calc(50% - 5px); 
-    flex: 0 0 calc(50% - 5px); 
-    max-width: none; /* Anulamos el límite máximo en celular para que ocupe su mitad exacta */
+    /* MODIFICADO: Matemáticamente 2 tarjetas por fila con gap de 6px (mitad es 3px) */
+    width: calc(50% - 3px); 
+    flex: 0 0 calc(50% - 3px); 
+    max-width: none; 
     
     background-color: #ffffff;
     border: 4px solid #000000;
@@ -143,7 +146,7 @@ html {
    ========================================================================== */
 .box-main .product-grid .card-image-container {
     width: 100%;
-    height: auto; /* Cambiado a auto para que escale según el ancho de la tarjeta */
+    height: auto; 
     aspect-ratio: 4/5;
     border-bottom: 4px solid #000000;
     background-color: #f4f4f4;
@@ -192,7 +195,7 @@ html {
     color: #000000;
     border: 3px solid #000000;
     box-shadow: 2px 2px 0px #000000;
-    width: 24px; /* Más pequeño en móvil */
+    width: 24px; 
     height: 24px;
     font-size: 0.65rem;
     font-weight: 900;
@@ -218,16 +221,16 @@ html {
    5. INFORMACIÓN DEL PRODUCTO
    ========================================================================== */
 .box-main .product-grid .card-info {
-    padding: 8px; /* Reducido en móvil */
+    padding: 8px; 
     display: flex;
     flex-direction: column;
-    gap: 6px; /* Reducido en móvil */
+    gap: 6px; 
     flex-grow: 1;
     color: #000000;
 }
 
 .box-main .product-grid .product-name {
-    font-size: 0.8rem; /* Reducido para móvil */
+    font-size: 0.8rem; 
     font-weight: 900;
     margin: 0;
     text-transform: uppercase;
@@ -238,11 +241,11 @@ html {
     display: flex;
     align-items: center;
     gap: 6px;
-    flex-wrap: wrap; /* Permite que el precio baje si no hay espacio */
+    flex-wrap: wrap; 
 }
 
 .box-main .product-grid .price-final {
-    font-size: 0.95rem; /* Reducido para móvil */
+    font-size: 0.95rem; 
     font-weight: 900;
 }
 
@@ -274,7 +277,7 @@ html {
 .box-main .product-grid .hidden-selector { display: none; }
 
 .box-main .product-grid .type-badge {
-    font-size: 0.7rem; /* Reducido para móvil */
+    font-size: 0.7rem; 
     background: #ffffff;
     color: #000000;
     font-weight: 900;
@@ -293,7 +296,7 @@ html {
 }
 
 .box-main .product-grid .color-box {
-    width: 16px; /* Más pequeño para móvil */
+    width: 16px; 
     height: 16px;
     border: 2px solid #000000;
     box-shadow: 2px 2px 0px #000000;
@@ -314,7 +317,7 @@ html {
 }
 
 .box-main .product-grid .size-badge {
-    font-size: 0.65rem; /* Reducido para móvil */
+    font-size: 0.65rem; 
     background: #ffffff;
     color: #000000;
     font-weight: 900;
@@ -360,13 +363,13 @@ html {
     background-color: #ffffff;
     color: #000000;
     font-weight: 900;
-    font-size: 0.75rem; /* Reducido para móvil */
+    font-size: 0.75rem; 
     text-transform: uppercase;
     cursor: pointer;
 }
 
 .box-main .product-grid .btn-cart {
-    width: 35px; /* Más pequeño para móvil */
+    width: 35px; 
     flex-shrink: 0;
     background-color: #ffea00; 
     display: flex;
@@ -424,15 +427,13 @@ html {
         padding: 20px;
         justify-content: flex-start; 
     }
-    /* Restaurar tamaño grande de tarjetas en PC */
     .box-main .product-grid .product-card {
-        width: auto; /* IMPORTANTE: Cancela el 50% de los celulares */
+        width: auto; 
         flex: 1 1 200px;
         max-width: 240px;
         border: 4px solid #000000;
         box-shadow: 5px 5px 0px #000000;
     }
-    /* Restaurar tamaños de fuentes y contenedores */
     .box-main .product-grid .card-info { padding: 10px; gap: 8px; }
     .box-main .product-grid .product-name { font-size: 1rem; }
     .box-main .product-grid .price-final { font-size: 1.15rem; }
@@ -537,29 +538,9 @@ html {
 
 .box-main .product-grid.single-view .product-card {
     width: 100%;
-    max-width: 320px; /* Tamaño máximo para que se vea bien centrado en vista única */
+    max-width: 320px; 
     flex: 0 0 auto;
 }
-
-
-/* ==========================================================================
-   SISTEMA DE FILTROS Y BOTÓN DE VISTA (BARRA FIJA)
-   ========================================================================== */
-.filters-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center; /* Centra los botones verticalmente */
-    gap: 12px;
-    padding: 10px;
-    border-bottom: 4px solid #000000;
-    background-color: #f4f4f4;
-    
-    /* --- HACE QUE TODA LA BARRA BAJE CON EL SCROLL --- */
-    position: sticky;
-    top: 0;
-    z-index: 100; 
-}
-
 
 #view-toggle-btn:active {
     transform: translate(3px, 3px) !important;
@@ -568,5 +549,45 @@ html {
     color: #000000 !important;
 }
 
+/* ==========================================================================
+   13. EXPANSIÓN MÁXIMA EN CELULARES (¡NUEVO!)
+   ========================================================================== */
+@media (max-width: 500px) {
+    /* 1. Elementos externos de la página */
+    /* ↓↓↓ REEMPLAZA ESTAS CLASES POR LAS DE TU HTML (ej: .navbar, footer, etc.) ↓↓↓ */
+    .nav-bar, 
+    .message-bar, 
+    .social-media-container, 
+    .terms-and-conditions,
+    header,
+    footer {
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+        width: auto !important;
+    }
 
+    /* 2. Expande la barra de filtros */
+    .filters-container {
+        padding: 10px 4px !important; 
+        gap: 6px !important; 
+    }
 
+    /* 3. Expande el botón "Cargar Más" */
+    .load-more-container {
+        padding: 15px 5px !important; 
+    }
+    .btn-load-more {
+        width: 100%; 
+        max-width: none; 
+    }
+
+    /* 4. Expande el contenido interno de las tarjetas de producto */
+    .box-main .product-grid .card-info {
+        padding: 8px 5px !important; 
+    }
+
+    /* 5. Expande las tarjetas en modo vista individual (1 por fila) */
+    .box-main .product-grid.single-view .product-card {
+        max-width: 100% !important; 
+    }
+}

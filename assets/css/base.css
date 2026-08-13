@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-	font-family: "Roboto", sans-serif;
-	font-size: 1.2rem;
-	min-height: 100vh;
-	padding: 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    min-height: 100vh;
+    padding: 20px; /* Este padding se reducirá solo en celulares más abajo */
 }
 
 body::before {
@@ -49,16 +49,16 @@ a {
 
 /*GRID LAYOUT*/
 .grid-container {
-	display: grid;
-	min-height: 100vh;
-	/*definimos el orden de los bloques*/
-	grid-template:
-		"sidebar"   60px
-		"header" 	1fr
-		"main"		auto
-		"social" 	1fr
-		"footer"	50px
-		;
+    display: grid;
+    min-height: 100vh;
+    /*definimos el orden de los bloques*/
+    grid-template:
+        "sidebar"   60px
+        "header"    1fr
+        "main"      auto
+        "social"    1fr
+        "footer"    50px
+        ;
 
     .box-header{margin: 15px 30px 15px 30px ;grid-area:header; background-color: transparent;}
     .box-main{grid-area:main; background-color: transparent;}
@@ -69,44 +69,44 @@ a {
 
     @media (min-width: 768px) {
         grid-template:
-            "header header" 	0fr
-            "main sidebar"		auto
-            "social sidebar" 	0fr
-            "footer footer"		50px
+            "header header"     0fr
+            "main sidebar"      auto
+            "social sidebar"    0fr
+            "footer footer"     50px
             / 1fr 78px; 
     }
 
     @media (min-width: 992px) {
         grid-template:
-            "header header "		1fr
-            "main  sidebar"			auto	 
-            "social  sidebar"		0fr
-            "footer  footer"		50px
+            "header header "        1fr
+            "main  sidebar"         auto    
+            "social  sidebar"       0fr
+            "footer  footer"        50px
             / 1fr  60px; 
     }
 }
 
 /*1.HEADER BANNER*/
 .box-header {
-	margin: 10px 30px 15px 30px;
-	border: 5px solid black;
-	box-sizing: border-box;
-	display: flex;
-	flex-flow: row wrap;
-	align-content: center;
+    margin: 10px 30px 15px 30px;
+    border: 5px solid black;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
 }
 
 .header-menu,
 .header-cart,
 .header-img { 
-	flex: 1; /* ¡MAGIA PURA! Esto hace que ocupen todo el espacio disponible equitativamente */
-	background-color: white;
-	margin: 5px;
-	border: 5px solid black;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: center; 
-	align-items: center;   
+    flex: 1; /* ¡MAGIA PURA! Esto hace que ocupen todo el espacio disponible equitativamente */
+    background-color: white;
+    margin: 5px;
+    border: 5px solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
 }
 
 .header-menu { order: 1; }
@@ -128,50 +128,50 @@ a {
 /*.header-img{background-color: black;}*/
 
 @media (min-width: 768px) {
-	.header-menu { order: 1; }
-	.header-cart { order: 3; }
-	.header-img { order: 2; }
+    .header-menu { order: 1; }
+    .header-cart { order: 3; }
+    .header-img { order: 2; }
 
     .header-menu > img,
     .header-cart > img,
     .header-img > img { width: auto; height: 60px; }
 
-	/* Ocultamos los archivos .gif por defecto */
-	.icono-interactivo .img-animada {
-	    display: none;
-	}
+    /* Ocultamos los archivos .gif por defecto */
+    .icono-interactivo .img-animada {
+        display: none;
+    }
 
-	.icono-interactivo:active {
+    .icono-interactivo:active {
         transform: scale(0.95);
-	}
+    }
 }
 
 @media (min-width: 992px) {
-	.box-header{
-		height: 200px;
-	}
+    .box-header{
+        height: 200px;
+    }
 
-	.header-menu > img,
-	.header-cart > img,
-	.header-img > img { width:auto; height: 80px; }
+    .header-menu > img,
+    .header-cart > img,
+    .header-img > img { width:auto; height: 80px; }
 
-	/* Ocultamos los archivos .gif por defecto */
-	.icono-interactivo .img-animada {
-	    display: none;
-	}
+    /* Ocultamos los archivos .gif por defecto */
+    .icono-interactivo .img-animada {
+        display: none;
+    }
 
-	/* Cuando el usuario pasa el mouse o hace clic en el contenedor... */
-	/* 1. Ocultamos la imagen original (.png o .svg) */
-	.icono-interactivo:hover .img-estatica,
-	.icono-interactivo:active .img-estatica {
-	    display: none;
-	}
+    /* Cuando el usuario pasa el mouse o hace clic en el contenedor... */
+    /* 1. Ocultamos la imagen original (.png o .svg) */
+    .icono-interactivo:hover .img-estatica,
+    .icono-interactivo:active .img-estatica {
+        display: none;
+    }
 
-	/* 2. Mostramos el archivo .gif */
-	.icono-interactivo:hover .img-animada,
-	.icono-interactivo:active .img-animada {
-	    display: block; 
-	}
+    /* 2. Mostramos el archivo .gif */
+    .icono-interactivo:hover .img-animada,
+    .icono-interactivo:active .img-animada {
+        display: block; 
+    }
 
     /* 1. Definimos la animación de "temblor" */
     @keyframes efecto-temblor {
@@ -184,7 +184,7 @@ a {
     }
 
     .header-img:hover,
-    .header-img:active {	
+    .header-img:active {    
         background-color: transparent; 
     }
 
@@ -239,7 +239,7 @@ a {
     width: 150px;
     height: 40px;
     justify-self: center; 
-    align-self: end;      
+    align-self: end;       
     margin-bottom: 40px;  
     position: sticky; 
     bottom: 30px;         
@@ -277,9 +277,9 @@ a {
 }
 
 @media (min-width: 992px) {
-	.box-main {
-		margin: 15px 15px 15px 30px;
-		padding: 10px;
+    .box-main {
+        margin: 15px 15px 15px 30px;
+        padding: 10px;
     }
 
     .main-video > video {
@@ -309,143 +309,143 @@ a {
 
 /*3.BOX ASIDE (Diseño Base / Celular) */
 aside {
-	margin: 15px 30px 0px 30px;
-	border: 5px solid black;
-	box-sizing: border-box;
+    margin: 15px 30px 0px 30px;
+    border: 5px solid black;
+    box-sizing: border-box;
 
-	overflow: hidden; 
-	position: relative;
-	height: 50px; 
-	display: flex;
-	align-items: center;
+    overflow: hidden; 
+    position: relative;
+    height: 50px; 
+    display: flex;
+    align-items: center;
 }
 
 /* MODIFICADO: Ticker para Celular (Derecha a Izquierda) */
 .ticker-track {
-	background-color:#FFFD99 ;
-	border: solid black;
-	display: flex;
-	position: absolute;
-	white-space: nowrap;
-	
-	flex-direction: row; 
-	left: 100%; 
-	gap: 100vw; 
-	padding-right: 100vw; 
+    background-color:#FFFD99 ;
+    border: solid black;
+    display: flex;
+    position: absolute;
+    white-space: nowrap;
+    
+    flex-direction: row; 
+    left: 100%; 
+    gap: 100vw; 
+    padding-right: 100vw; 
 
-	animation: mover-der-izq 15s linear infinite;
+    animation: mover-der-izq 15s linear infinite;
 }
 
 .ticker-text {
-	margin: 0;
-	font-size: 24px; 
-	font-weight: 900; 
-	letter-spacing: 2px; 
+    margin: 0;
+    font-size: 24px; 
+    font-weight: 900; 
+    letter-spacing: 2px; 
 }
 
 @keyframes mover-der-izq {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(-100%); } 
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } 
 }
 
 /* --- DISEÑO PARA PANTALLAS GRANDES --- */
 @media (min-width: 768px) {
-	aside {
-		margin: 15px 30px 10px 0px;
-		height: auto; 
-		justify-content: center;
-	}
+    aside {
+        margin: 15px 30px 10px 0px;
+        height: auto; 
+        justify-content: center;
+    }
 
     /* MODIFICADO: Ticker para Tablet (Sube de Abajo hacia Arriba) */
-	.ticker-track {
-		background-color:#FFFD99 ;
-		border: solid black;
-		flex-direction: column;
-		top: 100%; /* Arranca debajo del marco visible */
-		left: auto;
-		gap: 100vh;
-		padding-bottom: 100vh; /* Permite que el último mensaje termine de subir */
-		padding-right: 0;
-		animation: mover-arriba 15s linear infinite;
-	}
+    .ticker-track {
+        background-color:#FFFD99 ;
+        border: solid black;
+        flex-direction: column;
+        top: 100%; /* Arranca debajo del marco visible */
+        left: auto;
+        gap: 100vh;
+        padding-bottom: 100vh; /* Permite que el último mensaje termine de subir */
+        padding-right: 0;
+        animation: mover-arriba 15s linear infinite;
+    }
 
-	.ticker-text {
-		writing-mode: vertical-rl; /* Letras verticales */
-		transform: none; /* Sin voltear para que se lea como créditos de película */
-		margin: 0 auto;
-	}
+    .ticker-text {
+        writing-mode: vertical-rl; /* Letras verticales */
+        transform: none; /* Sin voltear para que se lea como créditos de película */
+        margin: 0 auto;
+    }
 
-	@keyframes mover-arriba {
-		0% { transform: translateY(0); } /* Comienza en su posición inicial (abajo) */
-		100% { transform: translateY(-100%); } /* Sube todo su propio tamaño */
-	}
+    @keyframes mover-arriba {
+        0% { transform: translateY(0); } /* Comienza en su posición inicial (abajo) */
+        100% { transform: translateY(-100%); } /* Sube todo su propio tamaño */
+    }
 }
 
 @media (min-width: 992px) {
     aside {
-		margin: 15px 30px 10px 0px;
-		width: 40px;
-		height: auto; 
-		justify-content: center;
-	}
+        margin: 15px 30px 10px 0px;
+        width: 40px;
+        height: auto; 
+        justify-content: center;
+    }
 
     /* MODIFICADO: Ticker para PC (Sube de Abajo hacia Arriba) */
-	.ticker-track {
-		background-color:#FFFD99 ;
-		border: solid black 1px;
-		flex-direction: column;
-		top: 100%; /* Arranca debajo del marco visible */
-		left: auto;
-		gap: 100vh;
-		padding-bottom: 100vh; /* Permite que el último mensaje termine de subir */
-		padding-right: 0;
-		animation: mover-arriba 15s linear infinite;
-	}
+    .ticker-track {
+        background-color:#FFFD99 ;
+        border: solid black 1px;
+        flex-direction: column;
+        top: 100%; /* Arranca debajo del marco visible */
+        left: auto;
+        gap: 100vh;
+        padding-bottom: 100vh; /* Permite que el último mensaje termine de subir */
+        padding-right: 0;
+        animation: mover-arriba 15s linear infinite;
+    }
 
-	.ticker-text {
-		writing-mode: vertical-rl;
-		transform: none;
-		margin: 0 auto;
-	}
+    .ticker-text {
+        writing-mode: vertical-rl;
+        transform: none;
+        margin: 0 auto;
+    }
 
-	@keyframes mover-arriba {
-		0% { transform: translateY(0); }
-		100% { transform: translateY(-100%); }
-	}
+    @keyframes mover-arriba {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-100%); }
+    }
 }
 
 /*4.BOX SOCIAL*/
 .box-socialmedia {
-	margin: 0px 30px 10px 30px;
-	border: 5px solid black;
-	box-sizing: border-box;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: flex-start;
-	align-content: center;
+    margin: 0px 30px 10px 30px;
+    border: 5px solid black;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: center;
 }
 
 .social-face,
 .social-insta,
 .social-tiktok,
 .social-messege { 
-	flex: 1; 
-	margin: 2px;
-	border: 5px solid black;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: center; 
-	align-items: center;     
+    flex: 1; 
+    margin: 2px;
+    border: 5px solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
 }
 
 .social-face > img,
 .social-insta > img,
 .social-tiktok > img,
 .social-messege > p {
-	font-size: 14px;
-	height: 30px;
-	width:50px;
-	position: center;
+    font-size: 14px;
+    height: 30px;
+    width:50px;
+    position: center;
 }
 
 .box-socialmedia a { background-color: white }
@@ -485,7 +485,7 @@ aside {
     .social-insta > img,
     .social-tiktok > img,
     .social-messege > p {
-        font-size: 25px;	
+        font-size: 25px;    
     }
 
     .box-socialmedia a { transition: background-color 0.2s ease, fill 0.2s ease; transition: transform 0.1s ease; }
@@ -497,25 +497,25 @@ aside {
     .box-socialmedia a:active { background-color: var(--accent-color); fill: white; transform: scale(0.95); }
     .box-socialmedia a:active img { filter: brightness(0) invert(1); }
 
-	.box-socialmedia div {
-	    transition: transform 0.15s ease-in-out;
-	    cursor: pointer;
-	}
+    .box-socialmedia div {
+        transition: transform 0.15s ease-in-out;
+        cursor: pointer;
+    }
 
-	.box-socialmedia p { transition: color 0.15s ease-in-out; }
-	.box-socialmedia div:active { transform: scale(0.95); }
-	.box-socialmedia div:active p { color: #FD99FF; }
+    .box-socialmedia p { transition: color 0.15s ease-in-out; }
+    .box-socialmedia div:active { transform: scale(0.95); }
+    .box-socialmedia div:active p { color: #FD99FF; }
 }
 
 @media (min-width: 992px) {
-	.social-face > img,
-	.social-insta > img,
-	.social-tiktok > img,
-	.social-messege > p {
-		font-size: 20px;
-		height: 25px;
-		width:70px;
-		position: center;
+    .social-face > img,
+    .social-insta > img,
+    .social-tiktok > img,
+    .social-messege > p {
+        font-size: 20px;
+        height: 25px;
+        width:70px;
+        position: center;
     }
 
     .box-socialmedia a::before {
@@ -564,23 +564,23 @@ aside {
 
 /*4.BOX FOOTER*/
 .box-footer {
-	background-color: #CEFF99;
-	border: 5px solid black;
-	font-size: 20px;
-	height: 50px;
-	display: flex;
-	justify-content: space-between;
+    background-color: #CEFF99;
+    border: 5px solid black;
+    font-size: 20px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .box-footer  > p,
 .box-footer  > a {
-	margin: 0 10px 0 10px;
-	display: flex;
-	align-items: center;
+    margin: 0 10px 0 10px;
+    display: flex;
+    align-items: center;
 }
 
 .box-footer  > a:hover {
-	color: #FD99FF;
+    color: #FD99FF;
 }
 
 /* =========================================
@@ -592,4 +592,34 @@ aside {
     }
     #main-nav-menu { top: 190px; left: 45px; }
     #cart-nav-menu { top: 190px; right: 45px; }
+}
+
+/* ==========================================================================
+   ¡NUEVO! EXPANSIÓN MÁXIMA PARA CELULARES
+   ========================================================================== */
+@media (max-width: 500px) {
+    /* 1. Reducimos el padding general del body para no perder espacio a los lados */
+    body {
+        padding: 10px 5px !important; 
+    }
+
+    /* 2. Reducimos los márgenes de absolutamente todas las cajas a 5px */
+    .grid-container .box-header,
+    .grid-container .box-main,
+    .grid-container aside,
+    .grid-container .box-socialmedia,
+    .grid-container .box-footer {
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+
+    /* 3. Ajuste fino para los botones del header para que respiren un poco */
+    .header-menu, .header-cart, .header-img {
+        margin: 3px !important; 
+    }
+
+    /* 4. Ajuste para la caja del video (para que el video llegue bien a los bordes) */
+    .main-video {
+        margin: 5px !important;
+    }
 }
