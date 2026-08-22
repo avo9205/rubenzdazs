@@ -224,13 +224,25 @@ a {
     box-sizing: border-box;
 }
 
-/* VIDEO - Ahora es fluido y se adapta a su caja sin modificarla */
+/* =====================================
+   🔥 CONTROL DE VIDEOS (MÓVIL VS PC)
+   ===================================== */
+/* Estilos base que comparten ambos videos */
 .main-video > video {
     grid-area: 1 / 1; 
     width: 100%;
-    height: 100%; /* Permite que el video crezca si la caja crece */
-    min-height: 550px; /* Asegura que nunca baje de 550px en móvil */
+    height: 100%; 
     object-fit: cover; /* Evita que el video se deforme */
+}
+
+/* Configuración Base: CELULARES */
+.video-pc {
+    display: none; /* Ocultamos el de PC en celulares */
+}
+
+.video-mobile {
+    display: block; /* Mostramos el vertical */
+    min-height: 550px; 
 }
 
 /* BOTÓN */
@@ -242,7 +254,7 @@ a {
     align-self: end;       
     margin-bottom: 40px;  
     position: sticky; 
-    bottom: 30px;         
+    bottom: 30px;          
     z-index: 10;
     cursor: pointer;
     font-weight: 700;
@@ -276,17 +288,25 @@ a {
     color: #FD99FF;
 }
 
+/* TABLETS Y PANTALLAS MÁS GRANDES (768px+) */
+@media (min-width: 768px) {
+    .video-mobile {
+        display: none; /* Ocultamos el vertical */
+    }
+    .video-pc {
+        display: block; /* Mostramos el horizontal */
+        min-height: 550px;
+    }
+}
+
 @media (min-width: 992px) {
     .box-main {
         margin: 15px 15px 15px 30px;
         padding: 10px;
     }
 
-    .main-video > video {
-        width: 100%;
-        height: 100%; 
-        min-height: 750px; /* Base mínima para escritorio */
-        object-fit: cover; 
+    .video-pc {
+        min-height: 750px; /* Base mínima para escritorio que ya tenías */
     }
 
     .cta {
@@ -406,11 +426,6 @@ aside {
         writing-mode: vertical-rl;
         transform: none;
         margin: 0 auto;
-    }
-
-    @keyframes mover-arriba {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(-100%); }
     }
 }
 
@@ -622,4 +637,93 @@ aside {
     .main-video {
         margin: 5px !important;
     }
+}
+
+/* =========================================
+   🔥 BOCADILLO RUBENZLAB TIPO CÓMIC
+   ========================================= */
+.lab-popup-bubble {
+    position: absolute;
+    top: 110%; /* Se ubica justo debajo del botón */
+    right: -10px; /* Alineado hacia la izquierda para que no se salga de la pantalla */
+    width: 240px;
+    background-color: #ffea00; /* Amarillo de advertencia que hace contraste */
+    border: 4px solid black;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 6px 6px 0px black; /* Efecto relieve duro/brutalista */
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: left;
+    z-index: 1000;
+    
+    /* Configuración para la animación */
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: top right;
+    pointer-events: none; /* Inactivo hasta que aparezca */
+}
+
+/* Triángulo del bocadillo (borde negro) */
+.lab-popup-bubble::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    right: 25px;
+    border-width: 0 12px 12px 12px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+/* Triángulo del bocadillo (fondo amarillo) */
+.lab-popup-bubble::after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    right: 25px;
+    border-width: 0 12px 12px 12px;
+    border-style: solid;
+    border-color: transparent transparent #ffea00 transparent;
+}
+
+/* Botón de cerrar (X) */
+.lab-popup-bubble .close-popup {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: black;
+    color: white;
+    border: 3px solid #ffea00;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    box-shadow: 2px 2px 0px black;
+}
+
+.lab-popup-bubble .close-popup:active {
+    transform: scale(0.9);
+}
+
+/* Animación de rebote tipo Microsoft Clippy */
+@keyframes bounceInComic {
+    0%   { transform: scale(0); opacity: 0; }
+    50%  { transform: scale(1.15); opacity: 1; }
+    70%  { transform: scale(0.95); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Clase que se activa con JS */
+.lab-popup-bubble.show-popup {
+    animation: bounceInComic 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    pointer-events: auto; /* Vuelve a ser clickeable */
 }
