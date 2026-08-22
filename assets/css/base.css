@@ -109,9 +109,11 @@ a {
     align-items: center;   
 }
 
-.header-menu { order: 1; }
-.header-cart { order: 2; }
-.header-img { order: 3; }
+/* 🔥 ESTE ES EL SECRETO: ORDEN ESTRICTO GLOBAL 🔥 */
+#menu-btn { order: 1; }
+#home-btn { order: 2; }
+#lab-btn  { order: 3; }
+#cart-btn { order: 4; }
 
 .header-menu > img,
 .header-cart > img,
@@ -128,10 +130,6 @@ a {
 /*.header-img{background-color: black;}*/
 
 @media (min-width: 768px) {
-    .header-menu { order: 1; }
-    .header-cart { order: 3; }
-    .header-img { order: 2; }
-
     .header-menu > img,
     .header-cart > img,
     .header-img > img { width: auto; height: 60px; }
