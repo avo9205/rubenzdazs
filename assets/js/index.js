@@ -86,27 +86,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================================
-    // 🔥 4. RESPALDO Y PERSISTENCIA DEL CARRITO
+    // 🔥 4. RESPALDO Y PERSISTENCIA DEL CARRITO (CORREGIDO)
     // =============================================
-    window.addEventListener('beforeunload', function() {
-        localStorage.removeItem('rubenzCart');
-        console.log('🧹 Carrito limpiado al salir de la página');
-    });
-
+    
     function guardarCopiaEnSesion() {
         const carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
-        if (carrito.length > 0) {
-            sessionStorage.setItem('rubenzCartBackup', JSON.stringify(carrito));
-        }
+        // AHORA SIEMPRE actualiza el backup, incluso si el carrito está vacío ([])
+        sessionStorage.setItem('rubenzCartBackup', JSON.stringify(carrito));
     }
 
     function recuperarCarritoDeSesion() {
         const carritoLocal = localStorage.getItem('rubenzCart');
-        if (!carritoLocal || carritoLocal === '[]') {
+        // Si por alguna razón el carrito local no existe, recuperamos el backup
+        if (!carritoLocal) {
             const carritoBackup = sessionStorage.getItem('rubenzCartBackup');
             if (carritoBackup) {
                 localStorage.setItem('rubenzCart', carritoBackup);
-                sessionStorage.removeItem('rubenzCartBackup');
                 console.log('♻️ Carrito recuperado de sessionStorage');
             }
         }
@@ -141,6 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p style="text-align:center; margin-top: 50px;">Tu carrito está vacío.</p>
                 <button class="btn-brutalist btn-close-cart-mobile" onclick="cerrarCarritoManual()" style="margin-top: 20px;">Seguir Comprando</button>
             `;
+            // Asegurarnos de que el respaldo también sepa que está vacío
+            guardarCopiaEnSesion();
             return;
         }
 
@@ -384,4 +381,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-}); // <-- FIN DEL DOMContentLoaded
+});
