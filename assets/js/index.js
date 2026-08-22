@@ -1,60 +1,24 @@
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
     // =============================================
-    // 🔥 INICIALIZAR SESIÓN DE CARRITO
+    // 🔥 1. INICIALIZAR SESIÓN DE CARRITO
     // =============================================
-    function inicializarSesionCarrito() {
-        const sessionId = sessionStorage.getItem('rubenzSessionId');
-        
-        if (!sessionId) {
-            // Nueva sesión - Limpiar carrito antiguo
-            localStorage.removeItem('rubenzCart');
-            sessionStorage.setItem('rubenzSessionId', Date.now().toString());
-            console.log('🔄 Nueva sesión - Carrito reiniciado');
-        }
+    const sessionId = sessionStorage.getItem('rubenzSessionId');
+    if (!sessionId) {
+        localStorage.removeItem('rubenzCart');
+        sessionStorage.setItem('rubenzSessionId', Date.now().toString());
+        console.log('🔄 Nueva sesión - Carrito reiniciado');
     }
-    
-    inicializarSesionCarrito();
 
+    // =============================================
+    // 🔥 2. LÓGICA UI DE MENÚS Y CARRITO
+    // =============================================
     const menuBtn = document.getElementById('menu-btn');
     const cartBtn = document.getElementById('cart-btn');
     const mainNav = document.getElementById('main-nav-menu');
     const cartNav = document.getElementById('cart-nav-menu');
     const closeNav = document.getElementById('close-nav');
     const closeCart = document.getElementById('close-cart');
-
-    // GENERACIÓN DINÁMICA DEL MENÚ
-    const menuCategorias = document.querySelector('#main-nav-menu .menu-items');
-    
-    if (menuCategorias) {
-        const cacheBuster = new Date().getTime();
-        fetch(`assets/json/categorias_index.json?v=${cacheBuster}`)
-            .then(res => res.json())
-            .then(data => {
-                const categorias = data.categorias || [];
-                let menuHtml = '';
-                
-                categorias.forEach(tipo => {
-                    const tipoCapitalizado = tipo.charAt(0).toUpperCase() + tipo.slice(1);
-                    menuHtml += `<li><a href="collection.html?categoria=${tipo}">${tipoCapitalizado}</a></li>`;
-                });
-                
-                menuHtml += `<li style="margin-top: 15px; border-top: 2px solid #fff; padding-top: 10px;">
-                                <a href="collection.html?categoria=todos">Ver Todo</a>
-                             </li>`;
-                
-                menuCategorias.innerHTML = menuHtml;
-            })
-            .catch(error => console.error('Error cargando el menú:', error));
-    }
-    
-    // LÓGICA UI DE MENÚS
-    let navTimeout;
-    const isDesktop = () => window.matchMedia("(min-width: 992px) and (hover: hover) and (pointer: fine)").matches;
 
     const updateButtonStates = () => {
         if(menuBtn && mainNav) menuBtn.classList.toggle('is-active', mainNav.classList.contains('show'));
@@ -95,21 +59,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // 🗑️ LIMPIAR CARRITO AL CERRAR LA PÁGINA
-    // ==========================================
-    function limpiarCarritoAlSalir() {
-        window.addEventListener('beforeunload', function() {
-            localStorage.removeItem('rubenzCart');
-            console.log('🧹 Carrito limpiado al salir de la página');
-        });
+    // =============================================
+    // 🔥 3. FETCH: GENERACIÓN DINÁMICA DEL MENÚ
+    // =============================================
+    const menuCategorias = document.querySelector('#main-nav-menu .menu-items');
+    if (menuCategorias) {
+        const cacheBuster = new Date().getTime();
+        fetch(`assets/json/categorias_index.json?v=${cacheBuster}`)
+            .then(res => res.json())
+            .then(data => {
+                const categorias = data.categorias || [];
+                let menuHtml = '';
+                
+                categorias.forEach(tipo => {
+                    const tipoCapitalizado = tipo.charAt(0).toUpperCase() + tipo.slice(1);
+                    menuHtml += `<li><a href="collection.html?categoria=${tipo}">${tipoCapitalizado}</a></li>`;
+                });
+                
+                menuHtml += `<li style="margin-top: 15px; border-top: 2px solid #fff; padding-top: 10px;">
+                                <a href="collection.html?categoria=todos">Ver Todo</a>
+                             </li>`;
+                
+                menuCategorias.innerHTML = menuHtml;
+            })
+            .catch(error => console.error('Error cargando el menú:', error));
     }
 
-    limpiarCarritoAlSalir();
+    // =============================================
+    // 🔥 4. RESPALDO Y PERSISTENCIA DEL CARRITO
+    // =============================================
+    window.addEventListener('beforeunload', function() {
+        localStorage.removeItem('rubenzCart');
+        console.log('🧹 Carrito limpiado al salir de la página');
+    });
 
-    // ==========================================
-    // 🛒 USAR sessionStorage como respaldo
-    // ==========================================
     function guardarCopiaEnSesion() {
         const carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
         if (carrito.length > 0) {
@@ -131,9 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     recuperarCarritoDeSesion();
 
-    // ==========================================
-    // LÓGICA DEL CARRITO DE COMPRAS
-    // ==========================================
+    // =============================================
+    // 🔥 5. FUNCIONALIDAD PRINCIPAL DEL CARRITO
+    // =============================================
     const formatoMoneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 });
     let destinoEnvio = 'bogota';
 
@@ -227,14 +210,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                 <div class="cart-action-buttons">
-                <button class="btn-brutalist btn-checkout-wa" onclick="enviarPedidoWhatsApp(${totalFinal}, ${costoEnvio})">
-                    <img src="assets/img/iconos/whatsapp.png" alt="WA" style="width: 30px; margin-right: 8px;">
-                    Confirmar Pedido
-                </button>
-                <button class="btn-brutalist btn-close-cart-mobile" onclick="cerrarCarritoManual()">
-                    Seguir Comprando
-                </button>
-            </div>
+                    <button class="btn-brutalist btn-checkout-wa" onclick="enviarPedidoWhatsApp(${totalFinal}, ${costoEnvio})">
+                        <img src="assets/img/iconos/whatsapp.png" alt="WA" style="width: 30px; margin-right: 8px;">
+                        Confirmar Pedido
+                    </button>
+                    <button class="btn-brutalist btn-close-cart-mobile" onclick="cerrarCarritoManual()">
+                        Seguir Comprando
+                    </button>
+                </div>
             </div>
         `;
 
@@ -271,7 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ANIMACIÓN BURBUJA Y GIF AL AÑADIR
     let animacionCarritoTimeout;
-    
     window.animarIconoCarrito = function(event) {
         const cartIcon = document.getElementById('cart-btn');
         if(!cartIcon) return;
@@ -315,9 +297,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     }
 
-    // ==========================================
-    // ENVÍO DE PEDIDO A WHATSAPP
-    // ==========================================
+    // =============================================
+    // 🔥 6. ENVÍO DE PEDIDO A WHATSAPP
+    // =============================================
     window.enviarPedidoWhatsApp = function(totalFinal, costoEnvio) {
         let carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
         const numeroWhatsApp = "573002535381";
@@ -346,7 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let mensaje = `¡Hola RubenzDazs! 🔥 Vengo del carrito de compras y quiero confirmar el siguiente pedido:\n\n`;
-
         const dominioBase = window.location.origin;
         let rutaBaseUrl = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
         const urlSitio = dominioBase + rutaBaseUrl;
@@ -380,38 +361,27 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarCarrito();
 
     // =============================================
-    // 🔥 POPUP RUBENZLAB (SE RESETEA AL CERRAR LA PÁGINA)
+    // 🔥 7. POPUP RUBENZLAB (AISLADO Y SEGURO)
     // =============================================
-    function inicializarPopupLab() {
-        const popup = document.getElementById('lab-popup');
-        const closeBtn = document.getElementById('close-lab-popup');
+    const popup = document.getElementById('lab-popup');
+    const closeBtn = document.getElementById('close-lab-popup');
 
-        if (!popup || !closeBtn) return;
-
-        // CAMBIO CLAVE: Usamos sessionStorage en lugar de localStorage
-        // Esto hace que la memoria se borre al cerrar la pestaña
+    if (popup && closeBtn) {
         const popupMostrado = sessionStorage.getItem('rubenzLabVisto');
 
         if (!popupMostrado) {
-            // Le damos 1.5 segundos de retraso
             setTimeout(() => {
                 popup.classList.add('show-popup');
             }, 1500); 
         }
 
-        // Función para cerrar la X
         closeBtn.addEventListener('click', (e) => {
             e.preventDefault(); 
             e.stopPropagation(); 
             
-            // Ocultamos el bocadillo
             popup.style.display = 'none';
-            
-            // Guardamos en sessionStorage para no molestar al usuario mientras navega hoy
             sessionStorage.setItem('rubenzLabVisto', 'true');
         });
     }
-
-    inicializarPopupLab();
 
 }); // <-- FIN DEL DOMContentLoaded
