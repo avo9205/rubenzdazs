@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // 1. Cargar Banners JSON
             try {
-                const bannerRes = await fetch(`assets/json/banners_prendas.json?v=${cacheBuster}`);
+                const bannerRes = await fetch(`assets/json/banner-ropa.json?v=${cacheBuster}`);
                 if (bannerRes.ok) {
                     window.bannersPrendas = await bannerRes.json();
                 }
