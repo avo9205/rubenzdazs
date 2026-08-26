@@ -4,15 +4,15 @@
 
 const headerHTML = `
     <a href="#" id="menu-btn" class="header-menu icono-interactivo">
-        <img class="img-estatica" src="assets/img/iconos/menu.png" alt="menu" width="40" height="40">
+        <img class="img-estatica" src="assets/img/iconos/menu.webp" alt="menu" width="40" height="40">
         <img class="img-animada" src="assets/img/iconos/menu.gif" alt="menu animado" width="40" height="40" loading="lazy">
     </a>
     <a href="index.html" id="home-btn" class="header-img icono-interactivo">
-        <img class="img-estatica" src="assets/img/iconos/logo-red.png" alt="logo" width="40" height="40">
+        <img class="img-estatica" src="assets/img/iconos/logo-red.webp" alt="logo" width="40" height="40">
         <img class="img-animada" src="assets/img/iconos/home.gif" alt="logo animado" width="40" height="40" loading="lazy">
     </a>
     <a href="rubenzlab.html" id="lab-btn" class="header-img icono-interactivo" style="position: relative; overflow: visible;">
-        <img class="img-estatica" src="assets/img/iconos/lab.png" alt="lab" width="40" height="40">
+        <img class="img-estatica" src="assets/img/iconos/lab.webp" alt="lab" width="40" height="40">
         <img class="img-animada" src="assets/img/iconos/lab.gif" alt="lab animado" width="40" height="40" loading="lazy"> 
         <div id="lab-popup" class="lab-popup-bubble">
             <span class="close-popup" id="close-lab-popup">X</span>
@@ -20,7 +20,7 @@ const headerHTML = `
         </div>
     </a>
     <a href="#" id="cart-btn" class="header-cart icono-interactivo" style="position: relative;">
-        <img class="img-estatica" src="assets/img/iconos/bag.png" alt="cart" width="40" height="40">
+        <img class="img-estatica" src="assets/img/iconos/bag.webp" alt="cart" width="40" height="40">
         <img class="img-animada" src="assets/img/iconos/bag.gif" alt="cart animado" width="40" height="40" loading="lazy">   
         <span id="cart-count" style="position: absolute; top: -5px; right: -10px; background: #ffea00; color: #000; font-family: 'Courier New', Courier, monospace; font-weight: 900; border: 2px solid #000; border-radius: 50%; width: 22px; height: 22px; display: flex; justify-content: center; align-items: center; font-size: 0.75rem; z-index: 10;">0</span>
     </a>
