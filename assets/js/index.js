@@ -60,44 +60,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================================
-    // 🔥 3. FETCH: GENERACIÓN DINÁMICA DEL MENÚ
+    // 🔥 3. GENERACIÓN DINÁMICA DEL MENÚ (GLOBAL)
     // =============================================
-    const menuCategorias = document.querySelector('#main-nav-menu .menu-items');
+    const menuCategorias = document.getElementById('lista-categorias-menu');
+    
     if (menuCategorias) {
-        const cacheBuster = new Date().getTime();
-        fetch(`assets/json/categorias_index.json?v=${cacheBuster}`)
-            .then(res => res.json())
-            .then(data => {
-                const categorias = data.categorias || [];
-                let menuHtml = '';
-                
-                categorias.forEach(tipo => {
-                    const tipoCapitalizado = tipo.charAt(0).toUpperCase() + tipo.slice(1);
-                    menuHtml += `<li><a href="collection.html?categoria=${tipo}">${tipoCapitalizado}</a></li>`;
-                });
-                
-                menuHtml += `<li style="margin-top: 15px; border-top: 2px solid #fff; padding-top: 10px;">
-                                <a href="collection.html?categoria=todos">Ver Todo</a>
+        // LISTA MANUAL DE PRENDAS PARA EL MENÚ GLOBAL
+        // Cuando saques un nuevo tipo de producto (ej: "hoodie"), lo agregas aquí.
+        const prendasMenu = ["oversize", "croptop"]; 
+        
+        const esPaginaColeccion = window.location.pathname.includes('collection.html');
+        const urlParams = new URLSearchParams(window.location.search);
+        const prendaActiva = urlParams.get('prenda') || 'todos';
+
+        let menuHtml = '<ul class="menu-items" style="list-style: none; padding: 0; margin: 0;">';
+        
+        // Generar botones de prendas iterando sobre la lista manual
+        prendasMenu.forEach(prenda => {
+            const prendaCap = prenda.charAt(0).toUpperCase() + prenda.slice(1);
+            const isActive = (prendaActiva === prenda) ? 'active' : '';
+
+            if (esPaginaColeccion) {
+                // En la tienda: Filtra en vivo (JS)
+                menuHtml += `<li style="margin: 15px 0;">
+                                <a href="#" class="menu-prenda-link ${isActive}" onclick="cambiarFiltroPrenda(event, '${prenda}', this)">${prendaCap}</a>
                              </li>`;
-                
-                menuCategorias.innerHTML = menuHtml;
-            })
-            .catch(error => console.error('Error cargando el menú:', error));
+            } else {
+                // En otras páginas (index, rubenzlab): Navega a la tienda
+                menuHtml += `<li style="margin: 15px 0;">
+                                <a href="collection.html?prenda=${encodeURIComponent(prenda)}" class="menu-prenda-link">${prendaCap}</a>
+                             </li>`;
+            }
+        });
+        
+        // Botón "TODAS LAS PRENDAS"
+        const isTodosActive = (prendaActiva === 'todos') ? 'active' : '';
+        if (esPaginaColeccion) {
+            menuHtml += `<li style="margin-top: 25px; border-top: 2px solid #fff; padding-top: 15px;">
+                            <a href="#" class="menu-prenda-link ${isTodosActive}" onclick="cambiarFiltroPrenda(event, 'todos', this)">TODAS LAS PRENDAS</a>
+                         </li>`;
+        } else {
+            menuHtml += `<li style="margin-top: 25px; border-top: 2px solid #fff; padding-top: 15px;">
+                            <a href="collection.html?prenda=todos" class="menu-prenda-link">TODAS LAS PRENDAS</a>
+                         </li>`;
+        }
+        
+        menuHtml += '</ul>';
+        menuCategorias.innerHTML = menuHtml;
     }
 
     // =============================================
-    // 🔥 4. RESPALDO Y PERSISTENCIA DEL CARRITO (CORREGIDO)
+    // 🔥 4. RESPALDO Y PERSISTENCIA DEL CARRITO
     // =============================================
-    
     function guardarCopiaEnSesion() {
         const carrito = JSON.parse(localStorage.getItem('rubenzCart')) || [];
-        // AHORA SIEMPRE actualiza el backup, incluso si el carrito está vacío ([])
         sessionStorage.setItem('rubenzCartBackup', JSON.stringify(carrito));
     }
 
     function recuperarCarritoDeSesion() {
         const carritoLocal = localStorage.getItem('rubenzCart');
-        // Si por alguna razón el carrito local no existe, recuperamos el backup
         if (!carritoLocal) {
             const carritoBackup = sessionStorage.getItem('rubenzCartBackup');
             if (carritoBackup) {
@@ -136,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p style="text-align:center; margin-top: 50px;">Tu carrito está vacío.</p>
                 <button class="btn-brutalist btn-close-cart-mobile" onclick="cerrarCarritoManual()" style="margin-top: 20px;">Seguir Comprando</button>
             `;
-            // Asegurarnos de que el respaldo también sepa que está vacío
             guardarCopiaEnSesion();
             return;
         }
@@ -381,4 +401,80 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+});
+
+
+
+/* ==========================================================================
+   CONTROL DE ANIMACIONES DE REDES SOCIALES
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const botonesSociales = document.querySelectorAll('.box-socialmedia a');
+    const TIEMPO_ESPERA = 300; 
+
+    botonesSociales.forEach(boton => {
+        boton.addEventListener('click', function(evento) {
+            const urlDestino = this.getAttribute('href');
+            const destinoTarget = this.getAttribute('target');
+            
+            if (urlDestino && urlDestino !== '#' && urlDestino !== '') {
+                evento.preventDefault(); 
+                
+                this.classList.add('animacion-en-progreso');
+                
+                setTimeout(() => {
+                    this.classList.remove('animacion-en-progreso');
+                    this.blur(); 
+                    
+                    if (destinoTarget === '_blank') {
+                        window.open(urlDestino, '_blank');
+                    } else {
+                        window.location.href = urlDestino;
+                    }
+                }, TIEMPO_ESPERA); 
+            }
+        });
+    });
+});
+
+window.addEventListener('pageshow', (evento) => {
+    if (evento.persisted) {
+        document.querySelectorAll('.box-socialmedia a').forEach(boton => {
+            boton.classList.remove('animacion-en-progreso');
+            boton.blur(); 
+        });
+    }
+});
+
+const botonesSocialesMovil = document.querySelectorAll('.box-socialmedia a');
+
+botonesSocialesMovil.forEach(boton => {
+    boton.addEventListener('touchstart', function() {
+        this.classList.add('efecto-forzado');
+    }, { passive: true });
+
+    boton.addEventListener('touchmove', function() {
+        this.classList.remove('efecto-forzado');
+    }, { passive: true });
+
+    boton.addEventListener('touchend', function() {
+        this.classList.remove('efecto-forzado');
+    });
+    boton.addEventListener('touchcancel', function() {
+        this.classList.remove('efecto-forzado');
+    });
+
+    boton.addEventListener('click', function(e) {
+        if (this.target !== '_blank' && this.href) {
+            e.preventDefault(); 
+            const destino = this.href;
+            
+            this.classList.add('efecto-forzado');
+            
+            setTimeout(() => {
+                this.classList.remove('efecto-forzado'); 
+                window.location.href = destino; 
+            }, 100);
+        }
+    });
 });

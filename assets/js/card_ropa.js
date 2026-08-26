@@ -1,26 +1,76 @@
 document.addEventListener('DOMContentLoaded', () => {
     const contenedorProductos = document.getElementById('contenedor-productos');
+    
+    // SEGURIDAD GLOBAL: Si no hay contenedor de productos, este script se apaga automáticamente
+    if (!contenedorProductos) {
+        return; 
+    }
+
     const loadMoreContainer = document.getElementById('load-more-container');
     
-    window.catalogoActual = []; 
-    let categoriasDisponibles = [];
+    window.catalogoGlobal = []; 
+    window.catalogoAplanado = []; 
+    window.prendasDisponibles = [];
+    window.bannersPrendas = {};
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    window.prendaSeleccionada = urlParams.get('prenda') || 'todos';
+    window.categoriaSeleccionada = urlParams.get('categoria') || 'todos';
 
     async function inicializarTienda() {
         const cacheBuster = new Date().getTime();
         try {
+            // 1. Cargar Banners JSON
+            try {
+                const bannerRes = await fetch(`assets/json/banners_prendas.json?v=${cacheBuster}`);
+                if (bannerRes.ok) {
+                    window.bannersPrendas = await bannerRes.json();
+                }
+            } catch(e) { console.warn("Aún no has creado banners_prendas.json"); }
+
+            // 2. Cargar índice de categorías
             const indexRes = await fetch(`assets/json/categorias_index.json?v=${cacheBuster}`);
             if (!indexRes.ok) throw new Error('No se pudo cargar el índice de categorías');
             
             const indexData = await indexRes.json();
-            categoriasDisponibles = indexData.categorias || [];
+            const categoriasDisponibles = indexData.categorias || [];
 
-            generarBotonesFiltro(categoriasDisponibles);
+            // 3. Cargar TODO el catálogo
+            const urlsToFetch = categoriasDisponibles.map(cat => `assets/json/${cat}.json?v=${cacheBuster}`);
+            const responses = await Promise.all(urlsToFetch.map(url => fetch(url).catch(()=>null)));
+            const dataArrays = await Promise.all(
+                responses.map(res => (res && res.ok ? res.json() : { catalogo: [] }))
+            );
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const categoriaFiltro = urlParams.get('categoria') || 'todos';
+            window.catalogoGlobal = dataArrays.flatMap(data => data.catalogo || []);
+            
+            // 4. Aplanar el catálogo para separar cada tipo de prenda como un producto independiente
+            let prendasSet = new Set();
+            window.catalogoAplanado = [];
 
-            actualizarEstadoBotonesFiltro(categoriaFiltro);
-            await cargarDatosCategoria(categoriaFiltro);
+            window.catalogoGlobal.forEach(diseno => {
+                if (diseno.variaciones) {
+                    Object.keys(diseno.variaciones).forEach(tipo => {
+                        prendasSet.add(tipo);
+                        window.catalogoAplanado.push({
+                            idProductoUnico: `${diseno.id}-${tipo}`,
+                            idDiseno: diseno.id,
+                            titulo: diseno.titulo,
+                            tipoDiseno: diseno.tipo_diseno || 'otros',
+                            tipoPrenda: tipo,
+                            variacion: diseno.variaciones[tipo],
+                            disenoCompleto: diseno
+                        });
+                    });
+                }
+            });
+
+            window.prendasDisponibles = Array.from(prendasSet);
+
+            // 5. Inicializar la vista
+            generarFiltrosCategorias();
+            actualizarBanner(window.prendaSeleccionada);
+            renderizarPaginaFiltrada();
 
         } catch (error) {
             console.error('Error:', error);
@@ -28,130 +78,160 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    window.cargarDatosCategoria = async function(categoria) {
-        const cacheBuster = new Date().getTime();
-        let urlsToFetch = [];
+    // ==========================================
+    // ESTRUCTURA 1: BANNER DINÁMICO (Responsive)
+    // ==========================================
+   window.actualizarBanner = function(prenda) {
+        const container = document.getElementById('banner-prenda-container');
+        if (!container) return;
 
-        if (categoria === 'todos') {
-            urlsToFetch = categoriasDisponibles.map(cat => `assets/json/${cat}.json?v=${cacheBuster}`);
+        if (window.bannersPrendas && window.bannersPrendas[prenda]) {
+            container.innerHTML = `<img src="${window.bannersPrendas[prenda]}" alt="Banner de ${prenda}">`;
+            container.style.display = 'block';
         } else {
-            urlsToFetch = [`assets/json/${categoria}.json?v=${cacheBuster}`];
-        }
-
-        try {
-            const responses = await Promise.all(urlsToFetch.map(url => fetch(url)));
-            const dataArrays = await Promise.all(responses.map(res => res.json()));
-
-            window.catalogoActual = dataArrays.flatMap(data => data.catalogo || []);
-            if(contenedorProductos) contenedorProductos.innerHTML = '';
-            
-            renderizarPagina();
-        } catch (error) {
-            console.error("Error cargando productos:", error);
-            if(contenedorProductos) contenedorProductos.innerHTML = '<p style="padding:20px; font-weight:900;">Error al cargar la categoría.</p>';
+            container.style.display = 'none';
+            container.innerHTML = '';
         }
     };
 
-    function renderizarPagina() {
-        if (window.catalogoActual.length === 0) {
-            if(contenedorProductos) contenedorProductos.innerHTML = '<p style="padding:20px; font-weight:900;">No hay prendas en este drop.</p>';
+    // ==========================================
+    // ESTRUCTURA 2: BARRA DE FILTROS (Solo Categorías)
+    // ==========================================
+    window.generarFiltrosCategorias = function() {
+        const contenedorFiltros = document.getElementById('filtros-diseno');
+        if (!contenedorFiltros) return;
+
+        let categoriasValidas = new Set();
+        window.catalogoAplanado.forEach(item => {
+            if (window.prendaSeleccionada === 'todos' || item.tipoPrenda === window.prendaSeleccionada) {
+                categoriasValidas.add(item.tipoDiseno);
+            }
+        });
+
+        let botonesHtml = `<button class="btn-brutalist filter-btn ${window.categoriaSeleccionada === 'todos' ? 'active' : ''}" onclick="cambiarFiltroCategoria('todos')">Todas</button>`;
+        
+        categoriasValidas.forEach(cat => {
+            const capitalizado = cat.charAt(0).toUpperCase() + cat.slice(1);
+            const isActive = window.categoriaSeleccionada === cat ? 'active' : '';
+            botonesHtml += `<button class="btn-brutalist filter-btn ${isActive}" onclick="cambiarFiltroCategoria('${cat}')">${capitalizado}</button>`;
+        });
+
+        contenedorFiltros.innerHTML = botonesHtml;
+    };
+
+    // ==========================================
+    // LÓGICA DE CONTROL DE CAMBIOS
+    // ==========================================
+    window.cambiarFiltroPrenda = function(event, prenda, elementoClickeado) {
+        if(event) event.preventDefault();
+        window.prendaSeleccionada = prenda;
+        
+        let categoriaValida = false;
+        if (window.categoriaSeleccionada !== 'todos') {
+            categoriaValida = window.catalogoAplanado.some(item => 
+                (prenda === 'todos' || item.tipoPrenda === prenda) && item.tipoDiseno === window.categoriaSeleccionada
+            );
+            if(!categoriaValida) window.categoriaSeleccionada = 'todos';
+        }
+        
+        actualizarUrl();
+        generarFiltrosCategorias();
+        actualizarBanner(prenda);
+        renderizarPaginaFiltrada();
+
+        // Mover la clase 'active' visualmente en el menú de prendas (inyectado por index.js)
+        if (elementoClickeado) {
+            document.querySelectorAll('.menu-prenda-link').forEach(link => link.classList.remove('active'));
+            elementoClickeado.classList.add('active');
+        }
+
+        const menuOverlay = document.getElementById('main-nav-menu');
+        if (menuOverlay) menuOverlay.classList.remove('show');
+    };
+
+    window.cambiarFiltroCategoria = function(categoria) {
+        window.categoriaSeleccionada = categoria;
+        actualizarUrl();
+        generarFiltrosCategorias(); 
+        renderizarPaginaFiltrada();
+    };
+
+    function actualizarUrl() {
+        const url = new URL(window.location);
+        if(window.prendaSeleccionada === 'todos') url.searchParams.delete('prenda');
+        else url.searchParams.set('prenda', window.prendaSeleccionada);
+        
+        if(window.categoriaSeleccionada === 'todos') url.searchParams.delete('categoria');
+        else url.searchParams.set('categoria', window.categoriaSeleccionada);
+        
+        window.history.pushState({}, '', url);
+    }
+
+    // ==========================================
+    // ESTRUCTURA 3: RENDERIZAR PRODUCTOS
+    // ==========================================
+    window.renderizarPaginaFiltrada = function() {
+        if (!contenedorProductos) return;
+
+        const itemsFiltrados = window.catalogoAplanado.filter(item => {
+            const pasaPrenda = (window.prendaSeleccionada === 'todos') || (item.tipoPrenda === window.prendaSeleccionada);
+            const pasaCat = (window.categoriaSeleccionada === 'todos') || (item.tipoDiseno === window.categoriaSeleccionada);
+            return pasaPrenda && pasaCat;
+        });
+
+        contenedorProductos.innerHTML = '';
+
+        if (itemsFiltrados.length === 0) {
+            contenedorProductos.innerHTML = '<p style="padding:20px; font-weight:900;">No hay prendas en esta selección.</p>';
             if(loadMoreContainer) loadMoreContainer.style.display = 'none';
             return;
         }
 
-        // Renderizamos TODO el catálogo sin límites
-        window.renderizarTarjetasHTML(window.catalogoActual);
-
-        // Ocultamos el botón "Cargar Más" porque ya se muestra todo
-        if (loadMoreContainer) {
-            loadMoreContainer.style.display = 'none'; 
-        }
-    }
-
-    function generarBotonesFiltro(categorias) {
-        const contenedorFiltros = document.getElementById('filtros-diseno');
-        if (!contenedorFiltros) return;
-
-        let botonesHtml = `<button class="btn-brutalist filter-btn" onclick="cambiarFiltroManual('todos')">Todos</button>`;
-        categorias.forEach(tipo => {
-            const tipoCapitalizado = tipo.charAt(0).toUpperCase() + tipo.slice(1);
-            botonesHtml += `<button class="btn-brutalist filter-btn" onclick="cambiarFiltroManual('${tipo}')">${tipoCapitalizado}</button>`;
-        });
-        contenedorFiltros.innerHTML = botonesHtml;
-    }
-
-    window.cambiarFiltroManual = function(tipoSeleccionado) {
-        actualizarEstadoBotonesFiltro(tipoSeleccionado);
-        const url = new URL(window.location);
-        url.searchParams.set('categoria', tipoSeleccionado);
-        window.history.pushState({}, '', url);
-        cargarDatosCategoria(tipoSeleccionado);
+        window.renderizarTarjetasHTML(itemsFiltrados);
+        if (loadMoreContainer) loadMoreContainer.style.display = 'flex'; 
     };
-
-    function actualizarEstadoBotonesFiltro(tipoSeleccionado) {
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-            const btnText = btn.innerText.toLowerCase();
-            if (btnText === tipoSeleccionado.toLowerCase() || (tipoSeleccionado === 'todos' && btnText === 'todos')) {
-                btn.classList.add('active');
-            }
-        });
-    }
 
     inicializarTienda();
 });
 
-window.renderizarTarjetasHTML = function(productos) {
+// ==========================================
+// RENDERIZADO DE LAS TARJETAS (CARDS)
+// ==========================================
+window.renderizarTarjetasHTML = function(items) {
     const contenedorProductos = document.getElementById('contenedor-productos');
     if(!contenedorProductos) return;
     
     let htmlContent = '';
 
-    productos.forEach(diseno => {
-        const tiposDePrenda = Object.keys(diseno.variaciones);
-        if (tiposDePrenda.length === 0) return;
+    items.forEach(item => {
+        const idUnico = item.idProductoUnico; 
+        const tipoCapitalizado = item.tipoPrenda.charAt(0).toUpperCase() + item.tipoPrenda.slice(1);
 
-        const tipoPorDefecto = tiposDePrenda.includes('oversize') ? 'oversize' : tiposDePrenda[0];
-
-        let carruselHtml = `<div class="carousel-track" id="track-${diseno.id}" data-index="0" data-total="0"></div>`;
+        let carruselHtml = `<div class="carousel-track" id="track-${idUnico}" data-index="0" data-total="0"></div>`;
         let botonesCarruselHtml = `
-            <button class="carousel-btn prev" style="display: none;" onclick="moverCarrusel(event, '${diseno.id}', -1)">◀</button>
-            <button class="carousel-btn next" style="display: none;" onclick="moverCarrusel(event, '${diseno.id}', 1)">▶</button>
+            <button class="carousel-btn prev" style="display: none;" onclick="moverCarrusel(event, '${idUnico}', -1)">◀</button>
+            <button class="carousel-btn next" style="display: none;" onclick="moverCarrusel(event, '${idUnico}', 1)">▶</button>
         `;
 
-        let tiposHtml = '';
-        tiposDePrenda.forEach(tipo => {
-            const checked = tipo === tipoPorDefecto ? 'checked' : '';
-            const tipoCapitalizado = tipo.charAt(0).toUpperCase() + tipo.slice(1);
-            tiposHtml += `
-                <input type="radio" id="tipo-${diseno.id}-${tipo}" name="tipo-${diseno.id}" value="${tipo}" ${checked} class="hidden-selector" 
-                       onchange="cambiarTipoPrenda('${diseno.id}', '${tipo}')">
-                <label for="tipo-${diseno.id}-${tipo}" class="type-badge" title="Seleccionar ${tipoCapitalizado}">${tipoCapitalizado}</label>
-            `;
-        });
-
         htmlContent += `
-            <article class="product-card" id="card-${diseno.id}" onclick="irAlDetalle(event, '${diseno.id}')" style="cursor: pointer;">
-                <div class="card-image-container" id="img-container-${diseno.id}">
-                    <div class="discount-badge" id="badge-${diseno.id}" style="display:none;"></div>
+            <article class="product-card" id="card-${idUnico}" onclick="irAlDetalle(event, '${item.idDiseno}', '${item.tipoPrenda}', '${idUnico}')" style="cursor: pointer;">
+                <div class="card-image-container" id="img-container-${idUnico}">
+                    <div class="discount-badge" id="badge-${idUnico}" style="display:none;"></div>
                     ${carruselHtml}
                     ${botonesCarruselHtml}
                 </div>
                 <div class="card-info">
-                    <h2 class="product-name">${diseno.titulo}</h2>
-                    <div class="price-container" id="price-${diseno.id}"></div>
+                    <h2 class="product-name">${item.titulo} <br><span style="font-size: 0.80em; color: gray; font-weight: normal;">${tipoCapitalizado}</span></h2>
+                    <div class="price-container" id="price-${idUnico}"></div>
                     <div class="options-section">
-                        <div class="types-wrapper" style="margin-bottom: 15px; display: flex; gap: 8px; flex-wrap: wrap;">
-                            ${tiposHtml}
-                        </div>
-                        <div class="colors-wrapper" id="colors-${diseno.id}" style="margin-bottom: 10px;"></div>
-                        <div class="sizes-wrapper" id="sizes-${diseno.id}"></div>
+                        <div class="colors-wrapper" id="colors-${idUnico}" style="margin-bottom: 10px;"></div>
+                        <div class="sizes-wrapper" id="sizes-${idUnico}"></div>
                     </div>
                     <div class="card-actions">
-                        <button type="button" class="btn-brutalist btn-details" onclick="irAlDetalle(event, '${diseno.id}')">
+                        <button type="button" class="btn-brutalist btn-details" onclick="irAlDetalle(event, '${item.idDiseno}', '${item.tipoPrenda}', '${idUnico}')">
                             Ver Más
                         </button>
-                        <button type="button" class="btn-brutalist btn-cart" title="Añadir al carrito" onclick="agregarAlCarritoDesdeTarjeta(event, '${diseno.id}')">
+                        <button type="button" class="btn-brutalist btn-cart" title="Añadir al carrito" onclick="agregarAlCarritoDesdeTarjeta(event, '${item.idDiseno}', '${item.tipoPrenda}', '${idUnico}')">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter">
                                 <circle cx="9" cy="21" r="1"></circle>
                                 <circle cx="20" cy="21" r="1"></circle>
@@ -166,52 +246,18 @@ window.renderizarTarjetasHTML = function(productos) {
 
     contenedorProductos.insertAdjacentHTML('beforeend', htmlContent);
 
-    productos.forEach(diseno => {
-        const tiposDePrenda = Object.keys(diseno.variaciones);
-        if (tiposDePrenda.length > 0) {
-            const tipoPorDefecto = tiposDePrenda.includes('oversize') ? 'oversize' : tiposDePrenda[0];
-            cambiarTipoPrenda(diseno.id, tipoPorDefecto);
-        }
+    items.forEach(item => {
+        inicializarTarjetaPrenda(item);
     });
 };
 
-window.generarHTMLColores = function(idDiseno, colores) {
-    if (!colores) return '';
-    let html = '';
-    colores.forEach((color, index) => {
-        const checked = index === 0 ? 'checked' : '';
-        const imagenesStr = color.imagenes.join(',');
-        html += `
-            <input type="radio" id="color-${idDiseno}-${index}" name="color-${idDiseno}" value="${color.nombre}" ${checked} class="hidden-selector" 
-                   onchange="cambiarColorPrenda('${idDiseno}', '${imagenesStr}')">
-            <label for="color-${idDiseno}-${index}" class="color-box" style="background-color: ${color.codigo_hex};" title="${color.nombre}"></label>
-        `;
-    });
-    return html;
-};
-
-window.generarHTMLTallas = function(idDiseno, tallas) {
-    if (!tallas) return '';
-    let html = '';
-    tallas.forEach((talla, index) => {
-        const checked = index === 0 ? 'checked' : '';
-        html += `
-            <input type="radio" id="talla-${idDiseno}-${index}" name="talla-${idDiseno}" value="${talla}" ${checked} class="hidden-selector">
-            <label for="talla-${idDiseno}-${index}" class="size-badge">${talla}</label>
-        `;
-    });
-    return html;
-};
-
-window.cambiarTipoPrenda = function(idDiseno, tipoPrenda) {
-    const diseno = window.catalogoActual.find(d => d.id === idDiseno);
-    if (!diseno || !diseno.variaciones[tipoPrenda]) return;
-
-    const detalles = diseno.variaciones[tipoPrenda];
+function inicializarTarjetaPrenda(item) {
+    const idUnico = item.idProductoUnico;
+    const detalles = item.variacion;
     const formatoMoneda = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 });
 
-    const containerPrecio = document.getElementById(`price-${idDiseno}`);
-    const badgeDescuento = document.getElementById(`badge-${idDiseno}`);
+    const containerPrecio = document.getElementById(`price-${idUnico}`);
+    const badgeDescuento = document.getElementById(`badge-${idUnico}`);
     const preciosInfo = detalles.precios_y_descuentos;
 
     if (preciosInfo.tiene_descuento) {
@@ -228,24 +274,51 @@ window.cambiarTipoPrenda = function(idDiseno, tipoPrenda) {
         if(badgeDescuento) badgeDescuento.style.display = 'none';
     }
 
-    document.getElementById(`colors-${idDiseno}`).innerHTML = generarHTMLColores(idDiseno, detalles.colores_disponibles);
-    document.getElementById(`sizes-${idDiseno}`).innerHTML = generarHTMLTallas(idDiseno, detalles.tallas_disponibles);
+    document.getElementById(`colors-${idUnico}`).innerHTML = window.generarHTMLColores(idUnico, detalles.colores_disponibles);
+    document.getElementById(`sizes-${idUnico}`).innerHTML = window.generarHTMLTallas(idUnico, detalles.tallas_disponibles);
 
     if (detalles.colores_disponibles && detalles.colores_disponibles.length > 0) {
         const imagenesPrimerColor = detalles.colores_disponibles[0].imagenes.join(',');
-        cambiarColorPrenda(idDiseno, imagenesPrimerColor);
+        window.cambiarColorPrenda(idUnico, imagenesPrimerColor);
     }
+}
+
+window.generarHTMLColores = function(idUnico, colores) {
+    if (!colores) return '';
+    let html = '';
+    colores.forEach((color, index) => {
+        const checked = index === 0 ? 'checked' : '';
+        const imagenesStr = color.imagenes.join(',');
+        html += `
+            <input type="radio" id="color-${idUnico}-${index}" name="color-${idUnico}" value="${color.nombre}" ${checked} class="hidden-selector" 
+                   onchange="cambiarColorPrenda('${idUnico}', '${imagenesStr}')">
+            <label for="color-${idUnico}-${index}" class="color-box" style="background-color: ${color.codigo_hex};" title="${color.nombre}"></label>
+        `;
+    });
+    return html;
 };
 
-window.cambiarColorPrenda = function(idDiseno, imagenesStr) {
-    const track = document.getElementById(`track-${idDiseno}`);
-    const card = document.getElementById(`card-${idDiseno}`);
+window.generarHTMLTallas = function(idUnico, tallas) {
+    if (!tallas) return '';
+    let html = '';
+    tallas.forEach((talla, index) => {
+        const checked = index === 0 ? 'checked' : '';
+        html += `
+            <input type="radio" id="talla-${idUnico}-${index}" name="talla-${idUnico}" value="${talla}" ${checked} class="hidden-selector">
+            <label for="talla-${idUnico}-${index}" class="size-badge">${talla}</label>
+        `;
+    });
+    return html;
+};
+
+window.cambiarColorPrenda = function(idUnico, imagenesStr) {
+    const track = document.getElementById(`track-${idUnico}`);
+    const card = document.getElementById(`card-${idUnico}`);
     
     if (!track || !imagenesStr) return;
 
     const nuevasImagenes = imagenesStr.split(',');
     
-    // El loading="lazy" ayuda a que no se cuelgue al cargar todas las camisetas de golpe.
     track.innerHTML = nuevasImagenes.map(img => `<img src="${img}" alt="Prenda Variante" loading="lazy">`).join('');
     track.dataset.index = 0;
     track.dataset.total = nuevasImagenes.length;
@@ -265,9 +338,9 @@ window.cambiarColorPrenda = function(idDiseno, imagenesStr) {
     }
 };
 
-window.moverCarrusel = function(event, idDiseno, direccion) {
+window.moverCarrusel = function(event, idUnico, direccion) {
     event.stopPropagation(); 
-    const track = document.getElementById(`track-${idDiseno}`);
+    const track = document.getElementById(`track-${idUnico}`);
     let currentIndex = parseInt(track.dataset.index);
     const total = parseInt(track.dataset.total);
 
@@ -279,33 +352,30 @@ window.moverCarrusel = function(event, idDiseno, direccion) {
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
 };
 
-window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
+window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno, tipoPrenda, idUnico) {
     event.stopPropagation(); 
 
-    const diseno = window.catalogoActual.find(d => d.id === idDiseno);
-    if (!diseno) return;
+    const itemAplanado = window.catalogoAplanado.find(i => i.idProductoUnico === idUnico);
+    if (!itemAplanado) return;
+    
+    const diseno = itemAplanado.disenoCompleto;
+    const detalles = itemAplanado.variacion;
 
-    let tipoPrendaInput = document.querySelector(`input[name="tipo-${idDiseno}"]:checked`) || document.querySelector(`input[name="tipo-${idDiseno}"]`);
-    const tipoPrenda = tipoPrendaInput ? tipoPrendaInput.value : 'No especificado';
-
-    let tallaInput = document.querySelector(`input[name="talla-${idDiseno}"]:checked`) || document.querySelector(`input[name="talla-${idDiseno}"]`);
+    let tallaInput = document.querySelector(`input[name="talla-${idUnico}"]:checked`) || document.querySelector(`input[name="talla-${idUnico}"]`);
     const talla = tallaInput ? tallaInput.value : 'Única';
 
-    let colorInput = document.querySelector(`input[name="color-${idDiseno}"]:checked`) || document.querySelector(`input[name="color-${idDiseno}"]`);
+    let colorInput = document.querySelector(`input[name="color-${idUnico}"]:checked`) || document.querySelector(`input[name="color-${idUnico}"]`);
     let color = 'Único';
-    let colorIndex = 0; // <<<<<<<<<<<< NUEVO: Inicializar colorIndex
-    
-    const detalles = diseno.variaciones[tipoPrenda];
+    let colorIndex = 0; 
     
     if (colorInput && detalles) {
         const idParts = colorInput.id.split('-');
         const indexColor = parseInt(idParts[idParts.length - 1]);
         if (!isNaN(indexColor) && detalles.colores_disponibles[indexColor]) {
             color = detalles.colores_disponibles[indexColor].nombre;
-            colorIndex = indexColor; // <<<<<<<<<<<< NUEVO: Guardar el índice
+            colorIndex = indexColor;
         } else {
             color = colorInput.value;
-            // Buscar el índice del color en el array de colores disponibles
             if (detalles.colores_disponibles) {
                 const foundIndex = detalles.colores_disponibles.findIndex(c => c.nombre === color);
                 colorIndex = foundIndex !== -1 ? foundIndex : 0;
@@ -313,22 +383,19 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
         }
     }
 
-    if (!detalles) return;
-
     const preciosInfo = detalles.precios_y_descuentos;
     const precioAplicable = preciosInfo.tiene_descuento ? preciosInfo.precio_final : preciosInfo.precio_regular;
 
-    const track = document.getElementById(`track-${idDiseno}`);
+    const track = document.getElementById(`track-${idUnico}`);
     const primeraImagen = track.querySelector('img') ? track.querySelector('img').src : '';
 
-    // Crear el item del carrito con colorIndex
     const nuevoItem = {
         id: diseno.id,
         titulo: diseno.titulo,
         tipo: tipoPrenda,
         talla: talla,
         color: color,
-        colorIndex: colorIndex, // <<<<<<<<<<<< NUEVO: Guardar el índice del color
+        colorIndex: colorIndex, 
         precio: precioAplicable,
         cantidad: 1, 
         imagen: primeraImagen
@@ -349,7 +416,6 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
 
     if (indexExistente !== -1) {
         carrito[indexExistente].cantidad += nuevoItem.cantidad;
-        // Asegurar que el colorIndex se actualice si el producto ya existe
         carrito[indexExistente].colorIndex = colorIndex;
     } else {
         carrito.push(nuevoItem);
@@ -366,7 +432,7 @@ window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno) {
     }
 };
 
-window.irAlDetalle = function(event, idDiseno) {
+window.irAlDetalle = function(event, idDiseno, tipoPrenda, idUnico) {
     const elementoClickeado = event.target;
     const esBotonVerMas = elementoClickeado.closest('.btn-details');
 
@@ -379,42 +445,22 @@ window.irAlDetalle = function(event, idDiseno) {
         return; 
     }
 
-    const tipoPrendaInput = document.querySelector(`input[name="tipo-${idDiseno}"]:checked`);
-    const tipoPrenda = tipoPrendaInput ? tipoPrendaInput.value : '';
-
-    const colorInput = document.querySelector(`input[name="color-${idDiseno}"]:checked`);
+    const colorInput = document.querySelector(`input[name="color-${idUnico}"]:checked`);
     let colorIndex = 0; 
     if (colorInput) {
         const idParts = colorInput.id.split('-');
         colorIndex = idParts[idParts.length - 1]; 
     }
 
-    const tallaInput = document.querySelector(`input[name="talla-${idDiseno}"]:checked`);
+    const tallaInput = document.querySelector(`input[name="talla-${idUnico}"]:checked`);
     const tallaSeleccionada = tallaInput ? tallaInput.value : '';
 
-    const diseno = window.catalogoActual.find(d => d.id === idDiseno);
-    if (diseno && typeof window.rastrearVerProducto === 'function') {
-        window.rastrearVerProducto(idDiseno, diseno.titulo, tipoPrenda);
+    const itemAplanado = window.catalogoAplanado.find(i => i.idProductoUnico === idUnico);
+    if (itemAplanado && typeof window.rastrearVerProducto === 'function') {
+        window.rastrearVerProducto(itemAplanado.idDiseno, itemAplanado.titulo, tipoPrenda);
     }
 
-    // Asegurar que colorIndex sea un número
     const colorIndexNum = parseInt(colorIndex) || 0;
     const urlDestino = `detalle_producto.html?id=${idDiseno}&tipo=${tipoPrenda}&color=${colorIndexNum}&talla=${tallaSeleccionada}`;
     setTimeout(() => window.location.href = urlDestino, 150); 
-};
-
-// ---- FUNCIÓN INFALIBLE PARA AGRANDAR/REDUCIR TARJETAS ----
-window.alternarVista = function() {
-    const grid = document.getElementById('contenedor-productos');
-    const btn = document.getElementById('view-toggle-btn');
-    
-    if (grid && btn) {
-        grid.classList.toggle('single-view');
-        
-        if (grid.classList.contains('single-view')) {
-            btn.innerText = "Ver Varias ⊞";
-        } else {
-            btn.innerText = "Ver Una ⊟";
-        }
-    }
 };

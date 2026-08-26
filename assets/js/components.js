@@ -52,7 +52,8 @@ const menusHTML = `
     <!-- DropDown Menu -->
     <div id="main-nav-menu" class="overlay-menu">
         <a href="#" class="close-btn" id="close-nav">&times;</a>
-        <ul class="menu-items" id="lista-categorias-menu"></ul>
+        <!-- NUEVO CONTENEDOR PARA EL MENÚ DE PRENDAS -->
+        <div id="lista-categorias-menu" style="width: 100%; text-align: center; padding-top: 50px;"></div>
     </div>
 
     <!--Cart Menu  -->

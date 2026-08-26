@@ -525,3 +525,115 @@
     animation: bounceInComic 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     pointer-events: auto; 
 }
+
+/* =========================================
+   ESTILOS NUEVO MENÚ DE PRENDAS (FILTROS)
+   ========================================= */
+.menu-filtros-prenda {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-prenda-grupo {
+    width: 80%;
+    max-width: 300px;
+    border: 3px solid #ffea00;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.5);
+}
+
+.menu-prenda-titulo {
+    display: block;
+    width: 100%;
+    background: #ffea00;
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 10px;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px #000;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.1s ease;
+}
+
+.menu-prenda-titulo:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+.menu-prenda-titulo.active {
+    background: #fff;
+    color: #000;
+}
+
+.menu-categorias-sublista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.menu-btn-categoria {
+    background: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.1s ease;
+}
+
+.menu-btn-categoria.active {
+    background: #ffea00;
+    color: #000;
+    border-color: #000;
+}
+
+.menu-btn-categoria:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================================
+   ESTILO MINIMALISTA PARA EL MENÚ DE PRENDAS
+   ========================================= */
+.overlay-menu .menu-items li {
+    margin: 20px 0; 
+}
+
+.menu-prenda-link {
+    padding: 10px 15px !important;
+    font-size: 0.8rem !important; 
+    color: #ffffff !important; /* TEXTO BLANCO */
+    background-color: transparent !important; /* Sin fondo */
+    border: none !important; /* Sin bordes */
+    box-shadow: none !important; /* Sin sombras */
+    display: inline-block;
+    transition: all 0.3s ease !important;
+    font-weight: 400 !important; /* Peso de fuente más ligero */
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Mayor separación de letras */
+    text-decoration: none;
+}
+
+/* ESTADO SELECCIONADO Y HOVER (Solo cambia color y grosor) */
+.menu-prenda-link.active,
+.menu-prenda-link:hover {
+    color: #ffea00 !important; /* Cambia al amarillo */
+    font-weight: 900 !important; /* Letra más gruesa para destacar */
+}
+
+/* Efecto suave al hacer clic (Móvil y PC) */
+.menu-prenda-link:active {
+    transform: scale(0.95) !important; 
+    opacity: 0.7;
+}

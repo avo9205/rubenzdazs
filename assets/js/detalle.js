@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tiposDisponibles = Object.keys(productoActual.variaciones);
         if (tiposDisponibles.length === 0) return;
 
+        // Detectar la prenda elegida desde la URL
         let tipoInicial = tiposDisponibles[0];
         if (urlTipo && tiposDisponibles.includes(urlTipo)) {
             tipoInicial = urlTipo;
@@ -126,17 +127,20 @@ document.addEventListener('DOMContentLoaded', () => {
             window.rastrearVerProducto(productoActual.id, productoActual.titulo, tipoInicial);
         }
 
-        let tiposHtml = '';
-        tiposDisponibles.forEach((tipo) => {
-            const tipoCapitalizado = tipo.charAt(0).toUpperCase() + tipo.slice(1);
-            const isChecked = tipo === tipoInicial ? 'checked' : '';
-            tiposHtml += `
-                <input type="radio" id="dtipo-${tipo}" name="detail-tipo" value="${tipo}" class="hidden-selector" ${isChecked}>
-                <label for="dtipo-${tipo}" class="type-badge">${tipoCapitalizado}</label>
-            `;
-        });
+        // SE MODIFICÓ: Renderizar únicamente el tipoInicial como etiqueta (sin los demás)
+        const tipoCapitalizado = tipoInicial.charAt(0).toUpperCase() + tipoInicial.slice(1);
+        
+        // Se le añade pointer-events: none y cursor: default para que actúe como un indicador estático y no como un botón
+        const tiposHtml = `
+            <input type="radio" id="dtipo-${tipoInicial}" name="detail-tipo" value="${tipoInicial}" class="hidden-selector" checked>
+            <label for="dtipo-${tipoInicial}" class="type-badge" style="cursor: default; pointer-events: none; opacity: 1;">
+                ${tipoCapitalizado}
+            </label>
+        `;
+        
         document.getElementById('detail-types').innerHTML = tiposHtml;
 
+        // Aunque solo hay uno, mantenemos el listener por seguridad estructural del código
         document.querySelectorAll('input[name="detail-tipo"]').forEach(radio => {
             radio.addEventListener('change', (e) => {
                 actualizarVistaVariacion(e.target.value, false);

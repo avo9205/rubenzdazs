@@ -14,8 +14,11 @@
 
 </head>
 
+
+
+
 <body>
-    <div class="grid-container">
+   <div class="grid-container">
         
         <!-- ========================================== -->
         <!-- 1. HEADER (Se inyecta automáticamente)     -->
@@ -23,16 +26,21 @@
         <header class="box-header" id="template-header"></header>
 
         <!-- ========================================== -->
+        <!-- 2. BANNER DE PRENDA (Ahora parte del Grid) -->
+        <!-- ========================================== -->
+        <div id="banner-prenda-container" class="box-banner-top"></div>
+
+        <!-- ========================================== -->
         <!-- COMIENZA CONTENIDO ÚNICO DE ESTA PÁGINA    -->
         <!-- ========================================== -->
-
         <main class="box-main">
-            <!-- NUEVO: Contenedor padre que será "sticky" -->
+            <!-- Contenedor padre que será "sticky" -->
             <div class="sticky-header">
+                <!-- FILTROS DE CATEGORÍAS -->
                 <div class="filters-container" id="filtros-diseno"></div>
                 
-                <div style="width: 100%; display: flex; justify-content: flex-end; padding-bottom: 10px;">
-                    <button id="view-toggle-btn" class="filter-btn" style="margin-right: 40px;">Ver Una ⊟</button>
+                <div style="width: 100%; display: flex; justify-content: flex-end; padding-bottom: 10px; background-color: #f4f4f4;">
+                    <button id="view-toggle-btn" class="filter-btn" style="margin-right: 40px;">Vista Ampliada ⊟</button>
                 </div>
             </div>
 
@@ -159,15 +167,17 @@
                 observer.observe(grid, { childList: true, subtree: true });
             }
 
-            /* --- LÓGICA DE CAMBIO DE VISTA (1 a varias) --- */
+           /* --- LÓGICA DE CAMBIO DE VISTA (Estándar e-commerce) --- */
             const viewToggleBtn = document.getElementById('view-toggle-btn');
             if(viewToggleBtn) {
                 viewToggleBtn.addEventListener('click', () => {
                     grid.classList.toggle('single-view');
                     if(grid.classList.contains('single-view')) {
-                        viewToggleBtn.innerText = "Ver Varias ⊞";
+                        // Cuando están gigantes, el botón te invita a volver a la cuadrícula
+                        viewToggleBtn.innerText = "Vista Cuadrícula ⊞";
                     } else {
-                        viewToggleBtn.innerText = "Ver Una ⊟";
+                        // Cuando hay muchos, el botón te invita a ampliarlos
+                        viewToggleBtn.innerText = "Vista Ampliada ⊟";
                     }
                 });
             }
