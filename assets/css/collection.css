@@ -14,28 +14,21 @@ html {
     border: 4px solid black; 
     box-sizing: border-box;
     background-color: #ffffff;
-    
-    /* MODIFICACIÓN: Quitar el padding interno para sellar el sticky header */
     padding: 0 !important; 
     
-    /* 1. TAMAÑO FLEXIBLE CON LÍMITE: Mantiene el tamaño grande pero evita atrapar el scroll */
-    height: auto; 
-    max-height: 85vh; /* Sigue siendo aprox 1/4 más grande que la tarjeta */
+    max-height: 85vh; 
     min-height: 500px; 
     
-    /* 2. SCROLL INTERNO Y TRANSFERENCIA AL BODY */
-    overflow-y: auto;
-    overflow-x: hidden;
-    
-    /* ¡LA MAGIA!: Esta regla obliga a que el movimiento pase a la página principal 
-       cuando llegas al límite superior o inferior */
-    overscroll-behavior-y: auto; 
+    /* Configuración para contener estrictamente los elementos y el scroll interno */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
 }
 
 /* Ajuste sutil para celulares */
 @media (max-width: 500px) {
     .box-main { 
-        max-height: 80vh; /* Se cambia a max-height para conservar la flexibilidad */
+        max-height: 80vh; 
     }
 }  
 
@@ -69,24 +62,32 @@ html {
 @media (min-width: 992px) { .box-banner-top { box-shadow: 6px 6px 0px #000000; } }
 
 /* ==========================================================================
-   3. BARRA DE FILTROS STICKY
+   3. BARRA DE FILTROS Y HEADER INTERNO
    ========================================================================== */
 .sticky-header {
-    position: sticky; 
-    /* MODIFICACIÓN: Top en 0 y margen negativo para sellar la rendija superior */
-    top: 0; 
-    margin-top: -1px; 
-    /* MODIFICACIÓN: Z-index altísimo para que las tarjetas no pasen por encima */
+    position: relative; 
     z-index: 100; 
     background-color: #f4f4f4; 
     border-bottom: 4px solid #000000;
+    flex-shrink: 0;
 }
 
 .filters-container {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
-    padding: 10px; justify-content: center;
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
+    padding: 10px; 
+    justify-content: center; /* Centrado para que se vea ordenado al saltar de línea */
     border-bottom: 4px solid #000000;
     background-color: #f4f4f4;
+    
+    /* LA CLAVE: Permite que los botones bajen a la siguiente línea si no caben */
+    flex-wrap: wrap; 
+}
+
+/* Ocultar barra de scroll en los filtros */
+.filters-container::-webkit-scrollbar {
+    display: none;
 }
 
 .filter-btn {
@@ -105,7 +106,18 @@ html {
 }
 
 /* ==========================================================================
-   4. CUADRÍCULA DE PRODUCTOS (GRID BASE)
+   4. CONTENEDOR DE SCROLL EXCLUSIVO PARA PRODUCTOS
+   ========================================================================== */
+.scroll-productos {
+    flex-grow: 1; 
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: auto;
+}
+
+/* ==========================================================================
+   5. CUADRÍCULA DE PRODUCTOS (GRID BASE)
    ========================================================================== */
 .box-main .product-grid {
     display: flex; flex-wrap: wrap; 
@@ -126,7 +138,6 @@ html {
 
 /* VISTA CUADRÍCULA (PC / Tablet) -> Muchas tarjetas pequeñas */
 @media (min-width: 768px) {
-    /* Mantenemos el padding aquí para que las tarjetas no toquen los bordes laterales */
     .box-main .product-grid { gap: 20px; padding: 20px; }
     .box-main .product-grid:not(.single-view) .product-card {
         flex: 1 1 160px !important; max-width: 200px !important;
@@ -141,7 +152,7 @@ html {
 }
 
 /* ==========================================================================
-   5. VISTA AMPLIADA (MODO SINGLE-VIEW)
+   6. VISTA AMPLIADA (MODO SINGLE-VIEW)
    ========================================================================== */
 /* Móvil: 1 por fila */
 .box-main .product-grid.single-view { flex-direction: column; align-items: center; }
@@ -165,7 +176,7 @@ html {
 }
 
 /* ==========================================================================
-   6. INTERIORES DE LA TARJETA (IMAGEN, INFO, BOTONES)
+   7. INTERIORES DE LA TARJETA (IMAGEN, INFO, BOTONES)
    ========================================================================== */
 .card-image-container {
     width: 100%; aspect-ratio: 4/5;
@@ -217,7 +228,7 @@ html {
 .btn-cart:active svg { stroke: #ffea00 !important; }
 
 /* ==========================================================================
-   7. SISTEMA "CARGAR MÁS"
+   8. SISTEMA "CARGAR MÁS"
    ========================================================================== */
 .product-card.hidden { display: none; }
 .load-more-container { width: 100%; display: flex; justify-content: center; padding: 20px 0; margin-top: 10px; }
@@ -229,7 +240,7 @@ html {
 .btn-load-more:active { transform: translate(6px, 6px) !important; box-shadow: 0px 0px 0px #000000 !important; background-color: #000000 !important; color: #ffea00 !important; }
 
 /* ==========================================================================
-   8. EXPANSIÓN MÁXIMA EN CELULARES (AJUSTES)
+   9. EXPANSIÓN MÁXIMA EN CELULARES (AJUSTES)
    ========================================================================== */
 @media (max-width: 500px) {
     .filters-container { padding: 10px 4px !important; gap: 6px !important; }

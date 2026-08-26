@@ -33,24 +33,26 @@
         <!-- ========================================== -->
         <!-- COMIENZA CONTENIDO ÚNICO DE ESTA PÁGINA    -->
         <!-- ========================================== -->
-        <main class="box-main">
-            <!-- Contenedor padre que será "sticky" -->
+       <main class="box-main">
+            <!-- Contenedor del Menú (Filtros y Botón) -->
             <div class="sticky-header">
-                <!-- FILTROS DE CATEGORÍAS -->
                 <div class="filters-container" id="filtros-diseno"></div>
-                
                 <div style="width: 100%; display: flex; justify-content: flex-end; padding-bottom: 10px; background-color: #f4f4f4;">
                     <button id="view-toggle-btn" class="filter-btn" style="margin-right: 40px;">Vista Ampliada ⊟</button>
                 </div>
             </div>
 
-            <div class="product-grid" id="contenedor-productos">
-                <!-- Los productos se cargan aquí mediante JS -->
-            </div>
+            <!-- 🟢 NUEVO CONTENEDOR ENVOLVENTE (Este tendrá el scroll) -->
+            <div class="scroll-productos">
+                <div class="product-grid" id="contenedor-productos">
+                    <!-- Los productos se cargan aquí mediante JS -->
+                </div>
 
-            <div class="load-more-container" id="load-more-container" style="display: none;">
-                <button id="load-more-btn" class="btn-load-more">Cargar Más Diseños</button>
+                <div class="load-more-container" id="load-more-container" style="display: none;">
+                    <button id="load-more-btn" class="btn-load-more">Cargar Más Diseños</button>
+                </div>
             </div>
+            <!-- 🟢 FIN DEL NUEVO CONTENEDOR -->
         </main>
 
         <aside class="box-sidebar">
