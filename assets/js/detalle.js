@@ -47,16 +47,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    async function cargarProducto() {
-        const cacheBuster = new Date().getTime();
+  async function cargarProducto() {
         try {
-            const indexRes = await fetch(`assets/json/categorias_index.json?v=${cacheBuster}`);
+            // 1. Cargar el índice de categorías SIN el bloqueador de caché
+            const indexRes = await fetch(`assets/json/categorias_index.json`);
+            if (!indexRes.ok) throw new Error("No se pudo cargar el índice de categorías");
+            
             const indexData = await indexRes.json();
             const categorias = indexData.categorias || [];
 
-            const urls = categorias.map(cat => `assets/json/${cat}.json?v=${cacheBuster}`);
-            const responses = await Promise.all(urls.map(url => fetch(url)));
-            const dataArrays = await Promise.all(responses.map(res => res.json()));
+            // 2. Cargar todas las categorías en paralelo y sin bloqueador de caché
+            const urls = categorias.map(cat => `assets/json/${cat}.json`);
+            // Añadimos un catch individual por si alguna categoría falla, no rompa todo el catálogo
+            const responses = await Promise.all(urls.map(url => fetch(url).catch(()=>null)));
+            const dataArrays = await Promise.all(
+                responses.map(res => (res && res.ok ? res.json() : { catalogo: [] }))
+            );
             
             const catalogoCompleto = dataArrays.flatMap(data => data.catalogo || []);
             

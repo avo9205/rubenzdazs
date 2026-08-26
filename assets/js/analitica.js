@@ -1,16 +1,18 @@
-// analytics.js - Archivo centralizado de Google Tag Manager para Rubenz Dazs
+// analitica.js - Archivo centralizado de Google Tag Manager para Rubenz Dazs
 
-// 1. Inyectar el script principal de GTM dinámicamente
-(function(w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-    var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-    j.async = true;
-    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-    f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer', 'GTM-PBFKSNZ8'); // Tu ID de GTM
+// 1. Inyectar el script principal de GTM con un retraso de 3 segundos
+setTimeout(function() {
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PBFKSNZ8'); // Tu ID de GTM
+}, 3000); 
 
 // 2. Inicializar la Capa de Datos (DataLayer)
 window.dataLayer = window.dataLayer || [];

@@ -18,25 +18,26 @@ document.addEventListener('DOMContentLoaded', () => {
     window.categoriaSeleccionada = urlParams.get('categoria') || 'todos';
 
     async function inicializarTienda() {
-        const cacheBuster = new Date().getTime();
         try {
-            // 1. Cargar Banners JSON
-            try {
-                const bannerRes = await fetch(`assets/json/banner-ropa.json?v=${cacheBuster}`);
-                if (bannerRes.ok) {
-                    window.bannersPrendas = await bannerRes.json();
-                }
-            } catch(e) { console.warn("Aún no has creado banners_prendas.json"); }
+            // 1. Lanzar las dos peticiones iniciales AL MISMO TIEMPO (En paralelo)
+            const [bannerRes, indexRes] = await Promise.all([
+                fetch(`assets/json/banner-ropa.json`).catch(() => null),
+                fetch(`assets/json/categorias_index.json`).catch(() => null)
+            ]);
 
-            // 2. Cargar índice de categorías
-            const indexRes = await fetch(`assets/json/categorias_index.json?v=${cacheBuster}`);
-            if (!indexRes.ok) throw new Error('No se pudo cargar el índice de categorías');
+            // Procesar Banner
+            if (bannerRes && bannerRes.ok) {
+                window.bannersPrendas = await bannerRes.json();
+            }
+
+            // Procesar Índice de Categorías
+            if (!indexRes || !indexRes.ok) throw new Error('No se pudo cargar el índice de categorías');
             
             const indexData = await indexRes.json();
             const categoriasDisponibles = indexData.categorias || [];
 
-            // 3. Cargar TODO el catálogo
-            const urlsToFetch = categoriasDisponibles.map(cat => `assets/json/${cat}.json?v=${cacheBuster}`);
+            // 2. Cargar TODO el catálogo de forma simultánea
+            const urlsToFetch = categoriasDisponibles.map(cat => `assets/json/${cat}.json`);
             const responses = await Promise.all(urlsToFetch.map(url => fetch(url).catch(()=>null)));
             const dataArrays = await Promise.all(
                 responses.map(res => (res && res.ok ? res.json() : { catalogo: [] }))
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             window.catalogoGlobal = dataArrays.flatMap(data => data.catalogo || []);
             
-            // 4. Aplanar el catálogo para separar cada tipo de prenda como un producto independiente
+            // 3. Aplanar el catálogo para separar cada tipo de prenda como un producto independiente
             let prendasSet = new Set();
             window.catalogoAplanado = [];
 
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             window.prendasDisponibles = Array.from(prendasSet);
 
-            // 5. Inicializar la vista
+            // 4. Inicializar la vista
             generarFiltrosCategorias();
             actualizarBanner(window.prendaSeleccionada);
             renderizarPaginaFiltrada();
@@ -81,18 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // ESTRUCTURA 1: BANNER DINÁMICO (Responsive)
     // ==========================================
-   window.actualizarBanner = function(prenda) {
-        const container = document.getElementById('banner-prenda-container');
-        if (!container) return;
 
-        if (window.bannersPrendas && window.bannersPrendas[prenda]) {
-            container.innerHTML = `<img src="${window.bannersPrendas[prenda]}" alt="Banner de ${prenda}">`;
-            container.style.display = 'block';
-        } else {
-            container.style.display = 'none';
-            container.innerHTML = '';
-        }
-    };
+window.actualizarBanner = function(prenda) {
+    const container = document.getElementById('banner-prenda-container');
+    if (!container) return;
+
+    if (window.bannersPrendas && window.bannersPrendas[prenda]) {
+        // AQUÍ EL CAMBIO: Añadir fetchpriority="high"
+        container.innerHTML = `<img src="${window.bannersPrendas[prenda]}" alt="Banner de ${prenda}" fetchpriority="high">`;
+        container.style.display = 'block';
+    } else {
+        container.style.display = 'none';
+        container.innerHTML = '';
+    }
+};
 
     // ==========================================
     // ESTRUCTURA 2: BARRA DE FILTROS (Solo Categorías)
