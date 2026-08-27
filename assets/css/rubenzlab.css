@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;600;700&display=swap');
 
+/* ========================================= */
+/* CONTENEDOR PRINCIPAL Y ESTÉTICA Y2K       */
+/* ========================================= */
 .box-main {
     margin: 5px 30px 15px 30px;
     border: 5px solid black;
@@ -7,166 +10,341 @@
     display: flex;
     flex-direction: column;
     height: auto;
+    background-color: #f2f2f2;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.04),
+        rgba(0, 0, 0, 0.04) 1px,
+        transparent 1px,
+        transparent 2px
+    );
 }
 
 .lab-container {
-    padding: 20px;
-    font-family: 'Roboto', sans-serif;
-    color: #292929;
+    padding: 15px;
+    font-family: 'Roboto Mono', monospace;
+    color: #000;
+    max-width: 850px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
 }
 
-/* HERO SECTION */
-.lab-hero {
+.retro-box {
+    background-color: #fff;
+    border: 4px solid black;
+    box-shadow: 6px 6px 0px black;
+    padding: 25px;
+    margin-bottom: 0; 
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.yellow-box {
+    background-color: #E8F087; 
+}
+
+.retro-img {
+    width: 100%;
+    height: auto;
+    border: 4px solid black;
+    display: block;
+    margin-top: 15px;
+    filter: contrast(120%) grayscale(10%);
+}
+
+/* ========================================= */
+/* BANNER PRINCIPAL                          */
+/* ========================================= */
+.lab-header-banner {
+    border: 4px solid black;
+    border-radius: 50px;
+    padding: 12px;
     text-align: center;
-    margin-bottom: 40px;
-    padding: 30px 10px;
-    background-color: #2E2E2E;
-    color: whitesmoke;
-    border: 5px solid black;
-    border-radius: 10px;
+    background-color: #25D366;
+    box-shadow: inset 0 0 0 4px white, inset 0 0 0 7px black;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.lab-hero h1 {
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 900;
-    margin: 0 0 10px 0;
-    color: #CEFF99; 
+.lab-header-banner h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.2rem; /* REDUCIDO PARA MÓVIL */
+    margin: 5px 0;
+    color: #000;
+}
+
+/* ========================================= */
+/* TÍTULO Y HERO SECTION                     */
+/* ========================================= */
+.lab-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.hero-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .lab-subtitle {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0 0 20px 0;
-    color: #FD99FF; 
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem; /* REDUCIDO PARA MÓVIL */
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+    color: #000;
+    text-transform: uppercase;
 }
 
 .lab-intro {
-    font-size: 1.1rem;
+    font-size: 0.85rem; /* REDUCIDO PARA MÓVIL */
     line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto;
+    font-weight: 600;
+    margin: 0;
 }
 
-/* SERVICIOS (GRID) */
+.hero-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: auto;
+    border: 4px solid black;
+    display: block;
+}
+
+/* ========================================= */
+/* NUESTRA ESENCIA                           */
+/* ========================================= */
 .lab-services {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden; 
+}
+
+.lab-services h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.9rem; /* REDUCIDO PARA MÓVIL */
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 4px solid black;
+    padding-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.services-content-flex {
+    display: flex;
+    flex-direction: column; 
+    position: relative;
+}
+
+.service-image-container {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.retro-img-blend {
+    width: 85%; 
+    height: 85%;
+    object-fit: contain; 
+    mix-blend-mode: multiply; 
+    opacity: 0.15; 
+}
+
+.service-list {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
 }
 
 .service-card {
-    background-color: white;
-    border: 4px solid black;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 6px 6px 0px black;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; 
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 }
 
 .service-card h3 {
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 800;
-    margin-top: 0;
-    border-bottom: 2px solid #EBEBEB;
-    padding-bottom: 10px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.75rem; /* REDUCIDO PARA MÓVIL */
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #000;
+    line-height: 1.4;
 }
 
 .service-card p {
-    font-size: 1.05rem;
+    font-size: 0.85rem; /* REDUCIDO PARA MÓVIL */
     line-height: 1.5;
-    margin-bottom: 0;
+    margin-left: 20px; /* Reducido el margen izquierdo en móvil */
+    font-weight: 600;
+    color: #000;
+    margin-top: 0;
 }
 
-/* EFECTO CLICK FORZADO PARA LAS TARJETAS */
-.service-card:active {
-    transform: translate(4px, 4px) !important;
-    box-shadow: 2px 2px 0px black !important;
-    transition: all 0.05s ease !important; /* Lo hace más rápido para que se sienta el click */
-}
-
-/* EL FILTRO RUBENZ */
-.lab-filter {
-    background-color: #FFFD99; 
-    border: 5px solid black;
-    padding: 30px 20px;
-    text-align: center;
-    border-radius: 10px;
-    margin-bottom: 40px;
-}
-
-.lab-filter h2 {
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 2rem;
-    font-weight: 900;
-    margin: 0 0 15px 0;
-    letter-spacing: 1px;
-}
-
-.lab-filter p {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* CALL TO ACTION Y WHATSAPP */
-.lab-cta {
-    text-align: center;
-    padding: 20px 0 40px 0;
-}
-
-.lab-cta h2 {
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.cta-whatsapp {
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 800;
-    font-size: 1.2rem;
+/* ========================================= */
+/* COLECCIONES RETRO (Grilla de Camisetas)   */
+/* ========================================= */
+.colecciones-retro-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+    gap: 15px;
+    width: 100%;
     margin-top: 20px;
-    padding: 15px 30px; 
-    border-radius: 50px;
-    background-color: #25D366; 
-    color: white;
-    border: 4px solid black;
-    box-shadow: 4px 4px 0px black;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    text-transform: uppercase;
-    -webkit-tap-highlight-color: transparent;
-    
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
 }
 
-.cta-whatsapp img {
-    width: 28px;
+.shirt-retro-card {
+    position: relative;
+    background-color: #EBEBEB;
+    border: 4px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.shirt-retro-card img {
+    width: 100%;
     height: auto;
     display: block;
 }
 
-/* EFECTO CLICK FORZADO PARA EL BOTÓN WHATSAPP */
-.cta-whatsapp:active {
-    transform: translate(4px, 4px) !important;
-    box-shadow: 0px 0px 0px black !important;
-    transition: all 0.05s ease !important;
+.retro-badge {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background-color: #FFFD99;
+    color: #000;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    padding: 8px 6px;
+    border: 3px solid black;
+    z-index: 5;
 }
 
-/* RESPONSIVE PANTALLAS GRANDES */
+/* ========================================= */
+/* PANEL LATERAL Y WHATSAPP                  */
+/* ========================================= */
+.lab-side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+.lab-filter h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.9rem; /* REDUCIDO PARA MÓVIL */
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.lab-filter p {
+    font-size: 0.85rem; /* REDUCIDO PARA MÓVIL */
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.lab-cta {
+    text-align: center;
+}
+
+.lab-cta h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.9rem; /* REDUCIDO PARA MÓVIL */
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.lab-cta p {
+    font-weight: 600;
+    font-size: 0.85rem; /* REDUCIDO PARA MÓVIL */
+    margin-bottom: 20px;
+}
+
+.cta-whatsapp {
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.75rem;
+    padding: 18px 15px; 
+    background-color: #25D366; 
+    color: #000;
+    border: 4px solid black;
+    box-shadow: 6px 6px 0px black;
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.cta-whatsapp img {
+    width: 24px;
+    height: auto;
+    display: block;
+}
+
+@media (hover: hover) {
+    .cta-whatsapp:hover {
+        background-color: #000;
+        color: #25D366;
+    }
+    .cta-whatsapp:hover img {
+        filter: brightness(0) invert(1) sepia(100%) hue-rotate(80deg) saturate(500%);
+    }
+}
+
+.cta-whatsapp:active,
+.cta-whatsapp.is-pressed {
+    transform: translate(6px, 6px) !important;
+    box-shadow: 0px 0px 0px black !important;
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN (PANTALLAS GRANDES)     */
+/* ========================================= */
 @media (min-width: 992px) {
     .box-main { margin: 15px 15px 15px 30px; }
     .lab-container { padding: 40px; }
-    .lab-hero h1 { font-size: 4rem; }
-    .lab-services { grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .lab-filter { padding: 40px; }
+    
+    /* Restaurar tamaños grandes para PC */
+    .lab-header-banner h1 { font-size: 2.5rem; }
+    .lab-subtitle { font-size: 1.1rem; }
+    .lab-intro { font-size: 1rem; }
+    .lab-services h2 { font-size: 1.1rem; }
+    .service-card h3 { font-size: 0.85rem; }
+    .service-card p { font-size: 1rem; margin-left: 35px; }
+    .lab-filter h2 { font-size: 1rem; }
+    .lab-filter p { font-size: 1rem; }
+    .lab-cta h2 { font-size: 1rem; }
+    .lab-cta p { font-size: 1rem; }
+    
+    .lab-hero {
+        padding: 40px;
+    }
+    
+    .lab-grid-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
 }

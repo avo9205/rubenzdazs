@@ -17,58 +17,84 @@
 <body>
     <div class="grid-container">
         
-        <!-- ========================================== -->
-        <!-- 1. HEADER (Se inyecta automáticamente)     -->
-        <!-- ========================================== -->
+        <!-- 1. HEADER -->
         <header class="box-header" id="template-header"></header>
 
-        <!-- ========================================== -->
-        <!-- COMIENZA CONTENIDO ÚNICO DE ESTA PÁGINA    -->
-        <!-- ========================================== -->
-
         <!-- SECCIÓN RUBENZLAB -->
-        <main class="box-main" style="background-color:#EBEBEB">
+        <main class="box-main">
             <div class="lab-container">
                 
-                <div class="lab-hero">
-                    <h1>🧪 BIENVENIDO A RUBENZLAB</h1>
-                    <p class="lab-subtitle">Transforma tu idea con el estilo RubenzDasz.</p>
-                    <p class="lab-intro">Este es nuestro laboratorio creativo. Un área especializada donde tú pones la visión y nosotros la convertimos en una prenda única con calidad DTF premium.</p>
+                <!-- ESTILO PASTILLA (HEADER BANNER) -->
+                <div class="lab-header-banner">
+                    <h1>[ RUBENZ LAB ]</h1>
                 </div>
 
-                <div class="lab-services">
-                    <!-- ontouchstart fuerza a los celulares a reconocer el toque -->
-                    <div class="service-card" ontouchstart="">
-                        <h3>🎨 Tu Arte, Tu Prenda</h3>
-                        <p>¿Ya tienes un diseño increíble? Envíanos tu ilustración, logo o fotografía (preferiblemente en alta resolución) y nosotros nos encargamos de que tu idea se vea plasmada en la prenda de tu elección .</p>
+                <!-- HERO SECTION -->
+                <div class="lab-hero retro-box">
+                    <div class="hero-text">
+                        <p class="lab-subtitle">TRANSFORMA TU IDEA CON EL ESTILO RUBENZDAZS.</p>
+                        <p class="lab-intro">Este es nuestro laboratorio creativo. Un área especializada donde tú pones la visión y nosotros la convertimos en una prenda única con calidad DTF premium.</p>
+                    </div>
+                    <!-- IMAGEN HERO -->
+                    <div class="hero-image-container">
+                        <img src="assets/img/iconos/lab.png" alt="RubenzLab DTF" class="retro-img">
+                    </div>
+                </div>
+
+                <!-- ESTRUCTURA PRINCIPAL (2 COLUMNAS EN PC) -->
+                <div class="lab-grid-layout">
+                    
+                    <!-- COLUMNA IZQ: NUESTRA ESENCIA -->
+                    <div class="lab-services retro-box yellow-box">
+                        <h2>> NUESTRA ESENCIA</h2>
+                        
+                        <div class="services-content-flex">
+                            <!-- IMAGEN PLANCHA DTF -->
+                            <div class="service-image-container">
+                                <img src="assets/img/iconos/plancha.png" alt="Plancha de calor DTF" class="retro-img-blend">
+                            </div>
+                            
+                            <!-- TEXTOS ORIGINALES -->
+                            <div class="service-list">
+                                <div class="service-card" ontouchstart="">
+                                    <h3>>] Tu Arte, Tu Prenda</h3>
+                                    <p>¿Ya tienes un diseño increíble? Envíanos tu ilustración, logo o fotografía (preferiblemente en alta resolución) y nosotros nos encargamos de que tu idea se vea plasmada en la prenda de tu elección.</p>
+                                </div>
+                                
+                                <div class="service-card" ontouchstart="">
+                                    <h3>>] Tipografía con Estilo</h3>
+                                    <p>A veces menos es más. Si tienes una frase, un nombre o un manifiesto, creamos diseños tipográficos que se ajusten a lo que quieres.</p>
+                                </div>
+                                
+                                <div class="service-card" ontouchstart="">
+                                    <h3>>] Desde Cero</h3>
+                                    <p>Cuéntanos lo que imaginas y nosotros desarrollaremos una ilustración exclusiva a tu medida desde cero.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLUMNA DER: PANEL LATERAL -->
+                    <div class="lab-side-panel">
+                        <div class="lab-filter retro-box">
+                            <h2>*** EL FILTRO RUBENZ ***</h2>
+                            <p>Todo diseño que entra al laboratorio pasa por nuestro "Filtro de Estilo": ajustamos contrastes, limpiamos bordes y adaptamos tu idea con el estilo <strong>RubenzDazs</strong>.</p>
+                            <!-- IMAGEN FILTRO -->
+                            <img src="assets/img/iconos/camisetas.png" alt="Filtro Estilo" class="retro-img">
+                        </div>
+
+                        <div class="lab-cta retro-box">
+                            <h2>¿LISTO PARA MATERIALIZAR TU IDEA?</h2>
+                            <p>Contacta con nosotros, cuéntanos tu proyecto y coticemos sin compromiso.</p>
+                            
+                            <button id="btn-whatsapp-lab" class="cta-whatsapp" ontouchstart="">
+                                <span>COTIZA POR WHATSAPP</span>
+                                <img src="assets/img/iconos/whatsapp.png" alt="WhatsApp">
+                            </button>
+                        </div>
                     </div>
                     
-                    <div class="service-card" ontouchstart="">
-                        <h3>🔤 Tipografia con Estilo</h3>
-                        <p>A veces menos es más. Si tienes una frase, un nombre o un manifiesto, creamos diseños tipográficos que se ajusten a lo que quieres.</p>
-                    </div>
-                    
-                    <div class="service-card" ontouchstart="">
-                        <h3>⚡Desde Cero</h3>
-                        <p>Cuéntanos lo que imaginas y nosotros desarrollaremos una ilustración exclusiva a tu medida desde cero.</p>
-                    </div>
-                </div>
-
-                <div class="lab-filter">
-                    <h2>🔥 EL FILTRO RUBENZ</h2>
-                    <p>Todo diseño que entra al laboratorio pasa por nuestro "Filtro de Estilo": ajustamos contrastes, limpiamos bordes y adaptamos tu idea con el estilo <strong>RubenzDazs</strong>.</p>
-                </div>
-
-                <div class="lab-cta">
-                    <h2>¿Listo para materializar tu idea?</h2>
-                    <p>Contacta con nosotros, cuéntanos tu proyecto y coticemos sin compromiso.</p>
-                    <!-- Agregamos ontouchstart también al botón por seguridad -->
-                    <button id="btn-whatsapp-lab" class="cta-whatsapp" ontouchstart="">
-                        <span>Haz Realidad tu Idea</span>
-                        <img src="assets/img/iconos/whatsapp.png" alt="WhatsApp">
-                    </button>
-                </div>
-
+                </div> <!-- Fin lab-grid-layout -->
             </div>
         </main>
 
@@ -80,34 +106,22 @@
             </div>
         </aside>
 
- <!-- ========================================== -->
-        <!-- FIN DEL CONTENIDO ÚNICO DE ESTA PÁGINA     -->
-        <!-- ========================================== -->
-
-        <!-- ========================================== -->
-        <!-- 2. SOCIAL MEDIA (Se inyecta automáticamente)-->
-        <!-- ========================================== -->
+        <!-- 2. SOCIAL MEDIA -->
         <div class="box-socialmedia" id="template-social"></div>
 
-        <!-- ========================================== -->
-        <!-- 3. FOOTER (Se inyecta automáticamente)      -->
-        <!-- ========================================== -->
+        <!-- 3. FOOTER -->
         <footer class="box-footer" style="background-color: #292929; color: whitesmoke;" id="template-footer"></footer>
     </div>
 
-    <!-- ========================================== -->
-    <!-- 4. MENÚS OCULTOS (Se inyecta automáticamente) -->
-    <!-- ========================================== -->
+    <!-- 4. MENÚS OCULTOS -->
     <div id="template-menus"></div>
     
-    <!-- ========================================== -->
-    <!-- SCRIPTS (El orden es vital)                -->
-    <!-- ========================================== -->
-    <!-- components.js DEBE ir primero para crear el HTML antes de que index.js intente leerlo -->
+    <!-- SCRIPTS -->
     <script src="assets/js/components.js"></script> 
     <script src="assets/js/carrito.js"></script>
     <script src="assets/js/index.js"></script>
     <script src="assets/js/card_ropa.js"></script>
     <script src="assets/js/seguridad.js"></script>
+    <script src="assets/js/rubenzlab.js"></script>
 </body> 
 </html>
