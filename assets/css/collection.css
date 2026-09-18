@@ -295,3 +295,23 @@ html {
     .btn-load-more { width: 100%; }
     .box-main .product-grid .card-info { padding: 8px 5px !important; }
 }
+
+
+/* ==========================================================================
+   10. AJUSTE DE ALTURA EXCLUSIVO PARA EL BANNER EN PC (Sin recortes)
+   ========================================================================== */
+@media (min-width: 992px) {
+    .box-banner-top {
+        height: 60vh; /* Limita la altura del contenedor al 35% de la pantalla */
+        max-height: 700px; /* Límite absoluto en píxeles */
+        display: flex; /* Ayuda a centrar perfectamente la imagen */
+        justify-content: center;
+    }
+
+    .box-banner-top img {
+        height: 100%; 
+        width: 100%;
+        object-fit: contain; /* Ajusta toda la imagen dentro del alto sin recortar ni deformar */
+        object-position: center; /* Mantiene la imagen en el centro */
+    }
+}
