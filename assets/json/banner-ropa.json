@@ -1,25 +1,18 @@
 {
   "todos": "assets/img/todos.webp",
-  "oversize": {
-    "ajedrez": "https://cdni.pornpics.com/460/7/245/34136335/34136335_072_2339.jpg",
-    "anime": "https://thumbs-gcore.xvideos-cdn.com/d3e45c5a-0305-449f-8dbc-6ba61f36eaef/0/xv_29_p.jpg",
-    "bandas": "https://ei.phncdn.com/videos/202401/14/446519001/original/(m=eaSaaTbaAaaaa)(mh=Jz5vVzn5ARMrD-n2)11.jpg",
-    "cartoons": "https://wimg.rule34.xxx//images/1445/bcde9b890bbd3eb072056c591e02db24.png?18528753",
-    "futbol": "https://i3.anysex.com/videos_screenshots/457000/457158/608x342/1.jpg",
-    "originales": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtdSYi0ST-9GoWgrW2T5NZM5gNbFxTY_KbpCtsHZGI1U6PyzYBc10q4_Q&s=10",
-    "peliculas": "https://hitomigoods.com/11090-product_main/dvd-japanese-porn-sassy-little-bitch-in-black-tights.webp",
-    "videojuegos": "https://imggen.eporner.com/12863540/1280/720/5.jpg",
-    "todos":"assets/img/banners/over.webp"
+  "categorias_compartidas": {
+    "ajedrez": "assets/img/banners/ajedrez.webp",
+    "anime": "assets/img/banners/anime.webp",
+    "bandas": "assets/img/banners/bandas.webp",
+    "cartoons": "assets/img/banners/cartoons.webp",
+    "futbol": "assets/img/banners/futbol.webp",
+    "originales": "assets/img/banners/originales.webp",
+    "peliculas": "assets/img/banners/peliculas.webp",
+    "videojuegos": "assets/img/banners/videojuegos.webp"
   },
-  "croptop": {
-    "ajedrez": "assets/img/banners/croptop-ajedrez.jpg",
-    "anime": "assets/img/banners/croptop-anime.jpg",
-    "bandas": "assets/img/banners/croptop-bandas.jpg",
-    "cartoons": "assets/img/banners/croptop-cartoons.jpg",
-    "futbol": "assets/img/banners/croptop-futbol.jpg",
-    "originales": "assets/img/banners/croptop-originales.jpg",
-    "peliculas": "assets/img/banners/croptop-peliculas.jpg",
-    "videojuegos": "assets/img/banners/croptop-videojuegos.jpg",
-    "todos":"assets/img/banners/crop.webp"
+  "prendas_todos": {
+    "oversize": "",
+    "croptop": ""
+
   }
 }

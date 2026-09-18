@@ -1,3 +1,7 @@
+// ==========================================
+// Archivo: assets/js/card_ropa.js (Optimizado y Dinámico)
+// ==========================================
+
 document.addEventListener('DOMContentLoaded', () => {
     const contenedorProductos = document.getElementById('contenedor-productos');
     
@@ -12,14 +16,26 @@ document.addEventListener('DOMContentLoaded', () => {
     window.catalogoAplanado = []; 
     window.prendasDisponibles = [];
     window.bannersPrendas = {};
+    window.categoriasDisponibles = [];
+    
+    let productosVisiblesCount = 12; // Límite inicial de productos renderizados por página
     
     const urlParams = new URLSearchParams(window.location.search);
     window.prendaSeleccionada = urlParams.get('prenda') || 'todos';
     window.categoriaSeleccionada = urlParams.get('categoria') || 'todos';
 
+    // Configurar evento para el botón "Cargar Más" si existe
+    if (loadMoreContainer && !loadMoreContainer.dataset.listenerAdded) {
+        loadMoreContainer.addEventListener('click', () => {
+            productosVisiblesCount += 12;
+            window.renderizarPaginaFiltrada();
+        });
+        loadMoreContainer.dataset.listenerAdded = 'true';
+    }
+
     async function inicializarTienda() {
         try {
-            // 1. Lanzar las dos peticiones iniciales AL MISMO TIEMPO (En paralelo)
+            // 1. Cargar banners y el índice general de categorías en paralelo
             const [bannerRes, indexRes] = await Promise.all([
                 fetch(`assets/json/banner-ropa.json`).catch(() => null),
                 fetch(`assets/json/categorias_index.json`).catch(() => null)
@@ -34,43 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!indexRes || !indexRes.ok) throw new Error('No se pudo cargar el índice de categorías');
             
             const indexData = await indexRes.json();
-            const categoriasDisponibles = indexData.categorias || [];
+            window.categoriasDisponibles = indexData.categorias || [];
 
-            // 2. Cargar TODO el catálogo de forma simultánea
-            const urlsToFetch = categoriasDisponibles.map(cat => `assets/json/${cat}.json`);
-            const responses = await Promise.all(urlsToFetch.map(url => fetch(url).catch(()=>null)));
-            const dataArrays = await Promise.all(
-                responses.map(res => (res && res.ok ? res.json() : { catalogo: [] }))
-            );
+            // 2. Cargar únicamente el catálogo necesario para la categoría actual (Carga por demanda)
+            await cargarCatalogoPorCategoria(window.categoriaSeleccionada);
 
-            window.catalogoGlobal = dataArrays.flatMap(data => data.catalogo || []);
-            
-            // 3. Aplanar el catálogo para separar cada tipo de prenda como un producto independiente
-            let prendasSet = new Set();
-            window.catalogoAplanado = [];
-
-            window.catalogoGlobal.forEach(diseno => {
-                if (diseno.variaciones) {
-                    Object.keys(diseno.variaciones).forEach(tipo => {
-                        prendasSet.add(tipo);
-                        window.catalogoAplanado.push({
-                            idProductoUnico: `${diseno.id}-${tipo}`,
-                            idDiseno: diseno.id,
-                            titulo: diseno.titulo,
-                            tipoDiseno: diseno.tipo_diseno || 'otros',
-                            tipoPrenda: tipo,
-                            variacion: diseno.variaciones[tipo],
-                            disenoCompleto: diseno
-                        });
-                    });
-                }
-            });
-
-            window.prendasDisponibles = Array.from(prendasSet);
-
-            // 4. Inicializar la vista
+            // 3. Inicializar la vista
             generarFiltrosCategorias();
-            actualizarBanner(window.prendaSeleccionada);
+            actualizarBanner(); 
             renderizarPaginaFiltrada();
 
         } catch (error) {
@@ -80,44 +67,124 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
+    // CARGA INTELIGENTE DE DATOS POR CATEGORÍA
+    // ==========================================
+    async function cargarCatalogoPorCategoria(categoria) {
+        let urlsToFetch = [];
+        
+        // INTERVENCIÓN: Si el menú principal está en "sin estamapado", SOLO cargamos ese JSON
+        if (window.prendaSeleccionada === 'sin estamapado') {
+            urlsToFetch = ['assets/json/sin_estamapdo.json'];
+        } else {
+            // MODO NORMAL (Catálogo regular con diseños)
+            if (categoria === 'todos') {
+                urlsToFetch = window.categoriasDisponibles.map(cat => `assets/json/${cat}.json`);
+            } else {
+                urlsToFetch = [`assets/json/${categoria}.json`];
+            }
+        }
+
+        const responses = await Promise.all(urlsToFetch.map(url => fetch(url).catch(() => null)));
+        const dataArrays = await Promise.all(
+            responses.map(res => (res && res.ok ? res.json() : { catalogo: [] }))
+        );
+
+        window.catalogoGlobal = dataArrays.flatMap(data => data.catalogo || []);
+        
+        let prendasSet = new Set();
+        window.catalogoAplanado = [];
+
+        window.catalogoGlobal.forEach(diseno => {
+            if (diseno.variaciones) {
+                Object.keys(diseno.variaciones).forEach(tipo => {
+                    prendasSet.add(tipo);
+                    window.catalogoAplanado.push({
+                        idProductoUnico: `${diseno.id}-${tipo}`,
+                        idDiseno: diseno.id,
+                        titulo: diseno.titulo,
+                        tipoDiseno: diseno.tipo_diseno || 'otros',
+                        tipoPrenda: tipo,
+                        variacion: diseno.variaciones[tipo],
+                        disenoCompleto: diseno
+                    });
+                });
+            }
+        });
+
+        window.prendasDisponibles = Array.from(prendasSet);
+        productosVisiblesCount = 12; // Reiniciar contador al cambiar de categoría o menú
+    }
+
+    // ==========================================
     // ESTRUCTURA 1: BANNER DINÁMICO (Responsive)
     // ==========================================
+    window.actualizarBanner = function() {
+        const container = document.getElementById('banner-prenda-container');
+        if (!container) return;
 
-window.actualizarBanner = function(prenda) {
-    const container = document.getElementById('banner-prenda-container');
-    if (!container) return;
+        const prenda = window.prendaSeleccionada || 'todos';
+        const categoria = window.categoriaSeleccionada || 'todos';
+        
+        let bannerSrc = '';
 
-    if (window.bannersPrendas && window.bannersPrendas[prenda]) {
-        // AQUÍ EL CAMBIO: Añadir fetchpriority="high"
-        container.innerHTML = `<img src="${window.bannersPrendas[prenda]}" alt="Banner de ${prenda}" fetchpriority="high">`;
-        container.style.display = 'block';
-    } else {
-        container.style.display = 'none';
-        container.innerHTML = '';
-    }
-};
+        if (window.bannersPrendas) {
+            const imagenGlobal = window.bannersPrendas['todos'];
+            const categoriasCompartidas = window.bannersPrendas['categorias_compartidas'] || {};
+            const prendasTodos = window.bannersPrendas['prendas_todos'] || {};
+
+            if (categoria !== 'todos' && categoriasCompartidas[categoria]) {
+                bannerSrc = categoriasCompartidas[categoria];
+            } else if (prenda !== 'todos' && prendasTodos[prenda]) {
+                bannerSrc = prendasTodos[prenda];
+            } else {
+                bannerSrc = imagenGlobal;
+            }
+        }
+
+        if (bannerSrc) {
+            container.innerHTML = `<img src="${bannerSrc}" alt="Banner Colección Rubenz Dazs" fetchpriority="high">`;
+            container.style.display = 'block';
+        } else {
+            container.style.display = 'none';
+            container.innerHTML = '';
+        }
+    };
 
     // ==========================================
-    // ESTRUCTURA 2: BARRA DE FILTROS (Solo Categorías)
+    // ESTRUCTURA 2: BARRA DE FILTROS DINÁMICA
     // ==========================================
     window.generarFiltrosCategorias = function() {
         const contenedorFiltros = document.getElementById('filtros-diseno');
         if (!contenedorFiltros) return;
 
-        let categoriasValidas = new Set();
-        window.catalogoAplanado.forEach(item => {
-            if (window.prendaSeleccionada === 'todos' || item.tipoPrenda === window.prendaSeleccionada) {
-                categoriasValidas.add(item.tipoDiseno);
-            }
-        });
-
         let botonesHtml = `<button class="btn-brutalist filter-btn ${window.categoriaSeleccionada === 'todos' ? 'active' : ''}" onclick="cambiarFiltroCategoria('todos')">Todas</button>`;
         
-        categoriasValidas.forEach(cat => {
-            const capitalizado = cat.charAt(0).toUpperCase() + cat.slice(1);
-            const isActive = window.categoriaSeleccionada === cat ? 'active' : '';
-            botonesHtml += `<button class="btn-brutalist filter-btn ${isActive}" onclick="cambiarFiltroCategoria('${cat}')">${capitalizado}</button>`;
-        });
+        if (window.prendaSeleccionada === 'sin estamapado') {
+            // MODO BÁSICOS: Extraer dinámicamente los tipos de prenda (oversize, hoodie...)
+            const prendasDisponibles = [...new Set(window.catalogoAplanado.map(item => item.tipoPrenda))];
+            
+            prendasDisponibles.forEach(prenda => {
+                const capitalizado = prenda.charAt(0).toUpperCase() + prenda.slice(1);
+                const isActive = window.categoriaSeleccionada === prenda ? 'active' : '';
+                botonesHtml += `<button class="btn-brutalist filter-btn ${isActive}" onclick="cambiarFiltroCategoria('${prenda}')">${capitalizado}</button>`;
+            });
+            contenedorFiltros.style.display = 'flex';
+            
+        } else {
+            // MODO NORMAL: Mostrar los temas (futbol, anime, ajedrez...)
+            if (window.categoriasDisponibles.length === 0) {
+                contenedorFiltros.style.display = 'none';
+                return;
+            } else {
+                contenedorFiltros.style.display = 'flex';
+            }
+
+            window.categoriasDisponibles.forEach(cat => {
+                const capitalizado = cat.charAt(0).toUpperCase() + cat.slice(1);
+                const isActive = window.categoriaSeleccionada === cat ? 'active' : '';
+                botonesHtml += `<button class="btn-brutalist filter-btn ${isActive}" onclick="cambiarFiltroCategoria('${cat}')">${capitalizado}</button>`;
+            });
+        }
 
         contenedorFiltros.innerHTML = botonesHtml;
     };
@@ -125,24 +192,27 @@ window.actualizarBanner = function(prenda) {
     // ==========================================
     // LÓGICA DE CONTROL DE CAMBIOS
     // ==========================================
-    window.cambiarFiltroPrenda = function(event, prenda, elementoClickeado) {
+    window.cambiarFiltroPrenda = async function(event, prenda, elementoClickeado) {
         if(event) event.preventDefault();
-        window.prendaSeleccionada = prenda;
         
-        let categoriaValida = false;
-        if (window.categoriaSeleccionada !== 'todos') {
-            categoriaValida = window.catalogoAplanado.some(item => 
-                (prenda === 'todos' || item.tipoPrenda === prenda) && item.tipoDiseno === window.categoriaSeleccionada
-            );
-            if(!categoriaValida) window.categoriaSeleccionada = 'todos';
+        // Si entramos o salimos del menú "sin estamapado", reseteamos la barra secundaria
+        if (
+            (window.prendaSeleccionada === 'sin estamapado' && prenda !== 'sin estamapado') ||
+            (window.prendaSeleccionada !== 'sin estamapado' && prenda === 'sin estamapado')
+        ) {
+            window.categoriaSeleccionada = 'todos';
         }
+
+        window.prendaSeleccionada = prenda;
+        productosVisiblesCount = 12; 
+        
+        await cargarCatalogoPorCategoria(window.categoriaSeleccionada);
         
         actualizarUrl();
         generarFiltrosCategorias();
-        actualizarBanner(prenda);
+        actualizarBanner();
         renderizarPaginaFiltrada();
 
-        // Mover la clase 'active' visualmente en el menú de prendas (inyectado por index.js)
         if (elementoClickeado) {
             document.querySelectorAll('.menu-prenda-link').forEach(link => link.classList.remove('active'));
             elementoClickeado.classList.add('active');
@@ -152,10 +222,14 @@ window.actualizarBanner = function(prenda) {
         if (menuOverlay) menuOverlay.classList.remove('show');
     };
 
-    window.cambiarFiltroCategoria = function(categoria) {
+    window.cambiarFiltroCategoria = async function(categoria) {
         window.categoriaSeleccionada = categoria;
         actualizarUrl();
+        
+        await cargarCatalogoPorCategoria(categoria);
+        
         generarFiltrosCategorias(); 
+        actualizarBanner(); 
         renderizarPaginaFiltrada();
     };
 
@@ -171,15 +245,21 @@ window.actualizarBanner = function(prenda) {
     }
 
     // ==========================================
-    // ESTRUCTURA 3: RENDERIZAR PRODUCTOS
+    // ESTRUCTURA 3: RENDERIZAR PRODUCTOS (Paginado)
     // ==========================================
     window.renderizarPaginaFiltrada = function() {
         if (!contenedorProductos) return;
 
         const itemsFiltrados = window.catalogoAplanado.filter(item => {
-            const pasaPrenda = (window.prendaSeleccionada === 'todos') || (item.tipoPrenda === window.prendaSeleccionada);
-            const pasaCat = (window.categoriaSeleccionada === 'todos') || (item.tipoDiseno === window.categoriaSeleccionada);
-            return pasaPrenda && pasaCat;
+            if (window.prendaSeleccionada === 'sin estamapado') {
+                // MODO BÁSICOS: Comparamos el filtro seleccionado contra el tipo de prenda
+                return (window.categoriaSeleccionada === 'todos') || (item.tipoPrenda === window.categoriaSeleccionada);
+            } else {
+                // MODO NORMAL
+                const pasaPrenda = (window.prendaSeleccionada === 'todos') || (item.tipoPrenda === window.prendaSeleccionada);
+                const pasaCat = (window.categoriaSeleccionada === 'todos') || (item.tipoDiseno === window.categoriaSeleccionada);
+                return pasaPrenda && pasaCat;
+            }
         });
 
         contenedorProductos.innerHTML = '';
@@ -190,8 +270,22 @@ window.actualizarBanner = function(prenda) {
             return;
         }
 
-        window.renderizarTarjetasHTML(itemsFiltrados);
-        if (loadMoreContainer) loadMoreContainer.style.display = 'flex'; 
+        const itemsAMostrar = itemsFiltrados.slice(0, productosVisiblesCount);
+        window.renderizarTarjetasHTML(itemsAMostrar);
+
+        if (loadMoreContainer) {
+            const restantes = itemsFiltrados.length - itemsAMostrar.length;
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            
+            if (restantes > 0) {
+                loadMoreContainer.style.display = 'flex';
+                if (loadMoreBtn) {
+                    loadMoreBtn.innerText = `Cargar Más Diseños (${restantes} restantes)`;
+                }
+            } else {
+                loadMoreContainer.style.display = 'none';
+            }
+        }
     };
 
     inicializarTienda();
@@ -332,8 +426,8 @@ window.cambiarColorPrenda = function(idUnico, imagenesStr) {
 
     if (btnPrev && btnNext) {
         if (nuevasImagenes.length > 1) {
-            btnPrev.style.display = 'flex';
-            btnNext.style.display = 'flex';
+            btnPrev.style.display = 'none'; 
+            btnNext.style.display = 'flex'; 
         } else {
             btnPrev.style.display = 'none';
             btnNext.style.display = 'none';
@@ -344,15 +438,26 @@ window.cambiarColorPrenda = function(idUnico, imagenesStr) {
 window.moverCarrusel = function(event, idUnico, direccion) {
     event.stopPropagation(); 
     const track = document.getElementById(`track-${idUnico}`);
+    const card = document.getElementById(`card-${idUnico}`); 
+    
     let currentIndex = parseInt(track.dataset.index);
     const total = parseInt(track.dataset.total);
 
     currentIndex += direccion;
-    if (currentIndex < 0) currentIndex = total - 1; 
-    if (currentIndex >= total) currentIndex = 0;
+    
+    if (currentIndex < 0) currentIndex = 0; 
+    if (currentIndex >= total) currentIndex = total - 1;
 
     track.dataset.index = currentIndex;
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    const btnPrev = card.querySelector('.carousel-btn.prev');
+    const btnNext = card.querySelector('.carousel-btn.next');
+
+    if (btnPrev && btnNext) {
+        btnPrev.style.display = (currentIndex === 0) ? 'none' : 'flex';
+        btnNext.style.display = (currentIndex === total - 1) ? 'none' : 'flex';
+    }
 };
 
 window.agregarAlCarritoDesdeTarjeta = function(event, idDiseno, tipoPrenda, idUnico) {

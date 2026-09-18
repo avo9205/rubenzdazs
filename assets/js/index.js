@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuCategorias) {
         // LISTA MANUAL DE PRENDAS PARA EL MENÚ GLOBAL
         // Cuando saques un nuevo tipo de producto (ej: "hoodie"), lo agregas aquí.
-        const prendasMenu = ["oversize", "croptop"]; 
+        const prendasMenu = ["oversize", "croptop","sin estamapado"]; 
         
         const esPaginaColeccion = window.location.pathname.includes('collection.html');
         const urlParams = new URLSearchParams(window.location.search);

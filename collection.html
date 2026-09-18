@@ -91,93 +91,19 @@
     <script src="assets/js/seguridad.js" defer></script>
 
     <!-- SCRIPT DE LÓGICA "CARGAR MÁS" Y CAMBIO DE VISTA -->
+    <!-- SCRIPT DE LÓGICA DE CAMBIO DE VISTA -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            /* --- LÓGICA DE CARGAR MÁS --- */
-            const loadMoreBtn = document.getElementById('load-more-btn');
-            const loadMoreContainer = document.getElementById('load-more-container');
-            const grid = document.getElementById('contenedor-productos');
-            const filtrosContainer = document.getElementById('filtros-diseno');
-            
-            const itemsPerLoad = 8; // Cambiado a 10 productos por carga
-            let currentLimit = itemsPerLoad;
-
-            // Escuchar clics en los filtros para reiniciar el contador a 10
-            if(filtrosContainer) {
-                filtrosContainer.addEventListener('click', (e) => {
-                    if (e.target.classList.contains('filter-btn')) {
-                        currentLimit = itemsPerLoad;
-                    }
-                });
-            }
-
-            function updateVisibility() {
-                if (!grid) return;
-                const allCards = grid.querySelectorAll('.product-card');
-                if (allCards.length === 0) {
-                    loadMoreContainer.style.display = 'none';
-                    return;
-                }
-
-                // Calcula cuántos diseños faltan por mostrar
-                let remaining = allCards.length - currentLimit;
-                if (remaining < 0) remaining = 0;
-
-                // Mostrar u ocultar tarjetas según el límite actual
-                allCards.forEach((card, index) => {
-                    if (index < currentLimit) {
-                        card.classList.remove('hidden');
-                        card.style.display = ''; 
-                    } else {
-                        card.classList.add('hidden');
-                        card.style.display = 'none'; 
-                    }
-                });
-
-                // Si aún hay tarjetas ocultas, actualizar el botón con la cantidad restante
-                if (remaining > 0) {
-                    loadMoreContainer.style.display = 'flex';
-                    if (loadMoreBtn) {
-                        loadMoreBtn.innerText = `Cargar Más Diseños (${remaining} restantes)`;
-                    }
-                } else {
-                    loadMoreContainer.style.display = 'none';
-                }
-            }
-
-            // Acción del botón "Cargar Más"
-            if (loadMoreBtn) {
-                loadMoreBtn.addEventListener('click', () => {
-                    currentLimit += itemsPerLoad; // Aumentamos en 10 más
-                    updateVisibility();
-                });
-            }
-
-            // El observador detecta cuando se insertan los productos 
-            // desde card_ropa.js y actualiza la vista
-            if (grid) {
-                const observer = new MutationObserver((mutations) => {
-                    // Verificamos si la lista se vació (ej. al cambiar de filtro rápido)
-                    const currentCount = grid.querySelectorAll('.product-card').length;
-                    if (currentCount === 0) {
-                        currentLimit = itemsPerLoad;
-                    }
-                    updateVisibility();
-                });
-                // Escuchamos el árbol de nodos completo
-                observer.observe(grid, { childList: true, subtree: true });
-            }
-
            /* --- LÓGICA DE CAMBIO DE VISTA (Estándar e-commerce) --- */
+            const grid = document.getElementById('contenedor-productos');
             const viewToggleBtn = document.getElementById('view-toggle-btn');
-            if(viewToggleBtn) {
+            
+            if(viewToggleBtn && grid) {
                 viewToggleBtn.addEventListener('click', () => {
                     grid.classList.toggle('single-view');
                     if(grid.classList.contains('single-view')) {
-                        // Cuando están gigantes, el botón te invita a volver a la cuadrícula
                         viewToggleBtn.innerText = "Vista Cuadrícula ⊞";
                     } else {
-                        // Cuando hay muchos, el botón te invita a ampliarlos
                         viewToggleBtn.innerText = "Vista Ampliada ⊟";
                     }
                 });

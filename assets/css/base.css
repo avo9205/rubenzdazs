@@ -85,6 +85,9 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     flex-flow: row wrap;
     align-content: center;
+    /* --- LÍNEAS NUEVAS --- */
+    position: relative;
+    z-index: 9000; /* Mantiene el header y sus popups por encima del banner */
 }
 
 /* Botones del header equitativos */
