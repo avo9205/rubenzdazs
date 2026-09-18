@@ -57,7 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const categorias = indexData.categorias || [];
 
             // 2. Cargar todas las categorías en paralelo y sin bloqueador de caché
-            const urls = categorias.map(cat => `assets/json/${cat}.json`);
+           const urls = categorias.map(cat => `assets/json/${cat}.json`);
+            // INYECCIÓN: Agregar explícitamente el catálogo de sin estampado para que lo lea
+            urls.push('assets/json/sin_estamapdo.json'); // Nota: escrito igual que en card_ropa.js
+
             // Añadimos un catch individual por si alguna categoría falla, no rompa todo el catálogo
             const responses = await Promise.all(urls.map(url => fetch(url).catch(()=>null)));
             const dataArrays = await Promise.all(

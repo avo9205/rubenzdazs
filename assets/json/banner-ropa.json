@@ -11,8 +11,9 @@
     "videojuegos": "assets/img/banners/videojuegos.webp"
   },
   "prendas_todos": {
-    "oversize": "",
-    "croptop": ""
+    "oversize": "assets/img/oversize.webp",
+    "croptop": "assets/img/croptop.webp",
+    "sin estamapado": "assets/img/sin-estampado.webp"
 
   }
 }
