@@ -107,7 +107,7 @@
                         "texto_badge": "-10%"
                     },
                     "guia_de_tallas": {
-                        "imagen_guia": "assets/img/iconos/tallas-ct.jpeg",
+                        "imagen_guia": "assets/img/iconos/tallas-ct.webp",
                         "unidad_medida": "cm",
                         "tabla_medidas": []
                     },
@@ -220,7 +220,7 @@
                         "texto_badge": "-10%"
                     },
                     "guia_de_tallas": {
-                        "imagen_guia": "assets/img/iconos/tallas-ct.jpeg",
+                        "imagen_guia": "assets/img/iconos/tallas-ct.webp",
                         "unidad_medida": "cm",
                         "tabla_medidas": []
                     },
